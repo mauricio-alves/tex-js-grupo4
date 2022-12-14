@@ -1,72 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Principal</title>
 </head>
-
+<style>
+    header{
+        padding-bottom: 3em;
+    }
+    body{
+        width: 80%;
+        margin: auto;
+    }
+    nav{
+        margin: auto;
+        text-align: center;
+    }
+    a{
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+    section{
+        margin: auto;
+        text-align: center;
+    }
+</style>
 <body>
     <header>
-        <img src="../../assets/images/logo.png" alt="logo do hotel" />
-        <span>Nosso Hotel</span>
         <nav>
-            <ul>
-                <li><a href="../public/index.html">Home</a></li>
-                <li><a href="../public/sobre.html">O Hotel</a></li>
-                <li><a href="../public/quartos.html">Acomodações</a></li>
-                <li><a href="../admin/funcionarios.html">Funcionários</a></li>
-                <li><a href="../admin/hospedes.html">Hóspedes</a></li>
-                <li><a href="../public/reserva.html">Reservas</a></li>
-            </ul>
+            <a href="/public/index.html">Home</a>
+            <img src="../assets/images/hotel_logo.png">
+            <a href="../public/reserva.html">Reservas</a>
+            <a href="../public/quartos.html">Acomodações</a>
+            <a href="../public/sobre.html">O Hotel</a>
+            <a href="/admin">Admin</a>
         </nav>
     </header>
 
     <main>
+        <img width="1400" src="../assets/images/praia_tropical.jpg"/>
         <section>
-            <h1>Home - Página Principal - Hotel Grupo 4</h1>
+            <h1>My Hotel Apart-Hotel</h1>
             <article>
-                <h2>Lorem Ipsum</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, officia repudiandae! Placeat
-                    reprehenderit nam vero velit aut illo magnam quos!</p>
+                <h4>Beira mar norte - centro florianópolis</h4>
+                <p>
+                    Dispondo de uma localização privilegiada, o My Hotel Apart-Hotel está totalmente na beira da praia e ao lado de belos imóveis.
+                    Localizado em uma das praias mais conhecidas do Sul do Brasil no estado de Santa Catarina.
+                    A praia do Campeche é uma das praias mais famosas da cidade.
+                    Melhor que um quarto de Hotel, é um Apart-Hotel, ou seja, um apartamento inteirinho para você e sua família se sentirem em casa,
+                    desfrutando de um mar azul lindão, uma areia bem branquinha, além de muitas piscinas naturais e uma paisagem com muitas dunas e coqueiros que tornam o cenário um verdadeiro paraíso!
+                    </p>
             </article>
         </section>
+        <aside>
+            <h2>Anúncios e promoções</h2>
+        </aside>
     </main>
 
     <footer>
-        <table>
-            <tr>
-                <td>
-                    <h2>Sobre nós</h2>
-                    <ul>
-                        <li><a href="#">Fale com a gente</a></li>
-                        <li><a href="#">Onde estamos</a></li>
-                        <li><a href="#">Trabalhe conosco</a></li>
-                        <li><a href="#">Siga-nos</a></li>
-                        <img src="../../assets/images/facebook.png" alt="facebook logo" />
-                        <img src="../../assets/images/instagram.png" alt="instagram logo" />
-                        <img src="../../assets/images/whatsapp.png" alt="whatsapp logo" />
-                    </ul>
-                </td>
-                <td>
-                    <h2>Termos e Condições</h2>
-                    <ul>
-                        <li><a href="#">Termos de uso</a></li>
-                        <li><a href="#">Política de Privacidade</a></li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p>&copy;2022 - Todos os direitos reservados.</p>
-                </td>
-            </tr>
-        </table>
+        Todos os direitos reservados.
     </footer>
 
     <aside></aside>
 </body>
-
 </html>
