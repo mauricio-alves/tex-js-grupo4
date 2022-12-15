@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="/public/index.html">Home</a>
+      <img src="../assets/images/hotel_logo.png">
+      <a href="../public/login.html">Login</a>
+      <a href="../public/reserva.html">Reservas</a>
+      <a href="../public/acomodacoes.html">Acomodações</a>
+      <a href="../public/sobre.html">O Hotel</a>
+      <a href="../public/contato.html">Contato</a>
+      <a href="/admin">Admin</a>
+    </nav>
+  </header>
+
+  <main>
+    <form action="">
+      <div>
+        <label for="name">Nome:</label>
+        <input type="text" id="name" /> <br />
+      </div>
+
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" /> <br />
+      </div>
+
+      <div>
+        <label for="phone">Telefone:</label>
+        <input type="number" id="phone" /> <br />
+      </div>
+
+      <div>
+        <label for="Subject">Assunto:</label>
+        <select name="subject" id="subject">
+          <option value="CancelamentoDeReserva">
+            Cancelamento de Reserva
+          </option>
+          <option value="Ouvidoria">Ouvidoria</option>
+          <option value="DepartamentoFinanceiro">
+            Departamento Financeiro
+          </option>
+        </select>
+        <br />
+      </div>
+
+      <div>
+        <label for="message">Mensagem:</label> <br />
+        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy;2022 - Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+
+</html>
