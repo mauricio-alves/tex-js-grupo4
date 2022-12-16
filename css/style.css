@@ -68,6 +68,13 @@ footer {
     padding: 1.2rem 0;
 }
 
+.esqueceu_senha {
+    width: 480px;
+    text-align: right;
+    margin: 1.6rem auto 0;
+    font-size: small;
+}
+
 input {
     width: 70%;
     padding: .5rem;
