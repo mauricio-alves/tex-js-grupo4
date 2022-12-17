@@ -13,18 +13,18 @@ header {
     left: 0;
     width: 100%;
     background: rgb(201, 201, 201);
-    padding: 1rem 0;
+    /* padding: 1rem 0; */
     box-shadow: 6px 7px 17px -5px rgba(146, 146, 146, 0.7);
 }
 
 ul {
     width: 100%;
     float: left; 
-    text-align: center; 
+    text-align: center;
 }
 
 li {
-    padding-right: 4rem;
+    padding-right: 3rem;
     display: inline-block;
     list-style: none;
 }
@@ -35,11 +35,11 @@ li .menu {
     color: #000;
     transition: .2s;
     border-bottom: .2rem solid transparent;
- }
+}
 
- li .menu:hover {
+li .menu:hover {
     border-bottom: .2rem solid #3a3a3a;
- }
+}
 
 .logo {
     margin-top: 4rem;
@@ -103,5 +103,5 @@ footer {
     bottom: 0vh;
     left: 0;
     background:rgb(201, 201, 201);;
-    padding: 20px 0;
+    padding: .3rem 0;
 }
