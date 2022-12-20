@@ -117,37 +117,24 @@ footer {
 
 /* MOBILE PORTRAIT */
 @media (max-width: 414px) and (orientation: portrait) {
-    * {
-        padding: 0;
-        top: 0;
-        left: 0;
-    }
-
     h1 {
         text-align: center;
+        margin-bottom: -1rem;
     }
 
-    
     .login {
         left: 0;
         width: auto;
         box-shadow: none;
     }
-
-    label {
-        width: 40%;
-    }
     
     input {
-        width: 40%;
-        padding: 1rem;
+        padding: .5rem;
+        margin: .3rem 0;
     }
 
     .esqueceu_senha {
-        width: 40%;
         text-align: center;
-        font-size: small;
-        text-decoration: none;
     }
 
     footer {
