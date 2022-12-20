@@ -13,13 +13,11 @@ html {
 }
 
 /* --------------  HEADER + NAVBAR ----------------  */
-/* header {
+header {
   background-color: rgba(33, 33, 65, 0.9);
-} */
+}
 
 .header {
-  background-color: rgba(33, 33, 65, 0.9);
-
   padding-top: 2rem;
   display: flex;
   align-items: center;
@@ -36,22 +34,9 @@ html {
 }
 
 .menu {
-  background-color: rgba(33, 33, 65, 0.9);
-
   display: flex;
   justify-content: center;
   align-items: center;
-
-  position: sticky;
-  top: 0;
-}
-
-.sticky {
-  background-color: aqua;
-}
-
-.menu.sticky {
-  text-align: center;
 }
 
 .menu ul {
