@@ -1,0 +1,147 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    top: 0;
+    left: 0;
+    padding: 0;
+}
+
+header, footer, h1 {
+    text-align: center;
+}
+
+header {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgb(201, 201, 201);
+    box-shadow: 6px 7px 17px -5px rgba(146, 146, 146, 0.7);
+}
+
+ul {
+    width: 100%;
+    float: left; 
+    text-align: center;
+}
+
+li {
+    padding-right: 3rem;
+    display: inline-block;
+    list-style: none;
+}
+
+li .menu {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #000;
+    transition: .2s;
+    border-bottom: .2rem solid transparent;
+}
+
+li .menu:hover {
+    border-bottom: .2rem solid #3a3a3a;
+}
+
+.logo {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.login {
+    width: 480px;
+    text-align: center;
+    margin: 0 auto;
+    box-shadow: 4px 4px 8px 2px rgba(161, 161, 161, .6);
+    /* box-shadow: 10px 7px 17px -5px rgba(0, 0, 0, .73); */
+    border-radius: .3rem;
+    padding: 2rem 0;
+}
+
+.esqueceu_senha {
+    width: 70%;
+    text-align: right;
+    margin: 1rem auto;
+    font-size: small;
+    text-decoration: none;
+}
+
+label {
+    width: 70%;
+    text-align: left;
+    margin-top: 1.2rem;
+    font-weight: 600;
+}
+
+input, textarea, select {
+    width: 70%;
+    padding: 1rem;
+    margin: .8rem 0;
+    border-radius: .3rem;
+    border: 1px solid #ccc;
+}
+
+select {
+    width: 78%;
+}
+
+button {
+    margin-top: .5rem;
+    padding: .7rem 1.5rem;
+    border-radius: .3rem;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+button:hover {
+    opacity: 0.5;
+    background-color: rgb(12, 12, 12);
+}
+
+form {
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+footer {
+    display: block;
+    position: fixed;
+    width: 100%;
+    bottom: 0vh;
+    left: 0;
+    background:rgb(201, 201, 201);;
+    padding: .3rem 0;
+}
+
+/* MOBILE PORTRAIT */
+@media (max-width: 414px) and (orientation: portrait) {
+    h1 {
+        text-align: center;
+        margin-bottom: -1rem;
+    }
+
+    .login {
+        left: 0;
+        width: auto;
+        box-shadow: none;
+    }
+
+    input, select, textarea {
+        padding: .5rem;
+        margin: .3rem 0;
+    }
+
+    textarea {
+        margin-top: -.8rem;
+    }
+
+    footer {
+        position: relative;
+    }
+}
