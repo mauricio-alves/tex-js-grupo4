@@ -1,5 +1,8 @@
 body {
     font-family: 'Roboto', sans-serif;
+    top: 0;
+    left: 0;
+    padding: 0;
 }
 
 header, footer, h1 {
@@ -13,7 +16,6 @@ header {
     left: 0;
     width: 100%;
     background: rgb(201, 201, 201);
-    /* padding: 1rem 0; */
     box-shadow: 6px 7px 17px -5px rgba(146, 146, 146, 0.7);
 }
 
@@ -64,6 +66,13 @@ li .menu:hover {
     text-decoration: none;
 }
 
+label {
+    width: 70%;
+    text-align: left;
+    margin-top: 1.2rem;
+    font-weight: 600;
+}
+
 input {
     width: 70%;
     padding: 1rem;
@@ -104,4 +113,44 @@ footer {
     left: 0;
     background:rgb(201, 201, 201);;
     padding: .3rem 0;
+}
+
+/* MOBILE PORTRAIT */
+@media (max-width: 414px) and (orientation: portrait) {
+    * {
+        padding: 0;
+        top: 0;
+        left: 0;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    
+    .login {
+        left: 0;
+        width: auto;
+        box-shadow: none;
+    }
+
+    label {
+        width: 40%;
+    }
+    
+    input {
+        width: 40%;
+        padding: 1rem;
+    }
+
+    .esqueceu_senha {
+        width: 40%;
+        text-align: center;
+        font-size: small;
+        text-decoration: none;
+    }
+
+    footer {
+        position: relative;
+    }
 }
