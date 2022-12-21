@@ -38,6 +38,7 @@
     background: url("/assets/images/naturezapraia.jpg");
     background-size: cover;
     padding-bottom: 1rem;
+    /* height: 522px; */
 }
 
 h1 {
@@ -55,6 +56,8 @@ h1 {
 }
 
 .nav_menu {
+    /* position: absolute; */
+    /* top: 0; */
     width: 100vw;
     height: 4rem;
     background-color: var(--branco-escuro);
@@ -141,7 +144,7 @@ label {
     font-weight: 600;
 }
 
-input, select, textarea {
+input {
     width: 70%;
     padding: 1rem;
     margin: .8rem 0;
@@ -243,7 +246,7 @@ form {
 /* --------------  FOOTER ----------------  */
 
 footer {
-    /* position: relative; */
+    /* position: absolute; */
     width: 100vw;
     bottom: 0;
     left: 0;
