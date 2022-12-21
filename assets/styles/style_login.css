@@ -38,7 +38,7 @@
     background: url("/assets/images/naturezapraia.jpg");
     background-size: cover;
     padding-bottom: 1rem;
-    /* height: 522px; */
+    height: 522px;
 }
 
 h1 {
@@ -58,6 +58,7 @@ h1 {
 .nav_menu {
     /* position: absolute; */
     /* top: 0; */
+    z-index: 1;
     width: 100vw;
     height: 4rem;
     background-color: var(--branco-escuro);
@@ -174,6 +175,10 @@ form {
     height: 100%;
     display: grid;
     place-items: center;
+}
+
+main {
+    margin: 10rem 0;
 }
 
 /* MOBILE PORTRAIT */
