@@ -10,62 +10,125 @@
 </head>
 
 <body>
-  <!-- <header>
-      <ul>
-        <li><a class="menu" href="/public/index.html">Home</a></li>
-        <li><a class="menu" href="../public/login.html">Login</a></li>
-        <li><a class="menu" href="../public/reserva.html">Reservas</a></li>
-        <li><a class="menu" href="../public/acomodacoes.html">Acomodações</a></li>
-        <li><a class="menu" href="../public/sobre.html">O Hotel</a></li>
-        <li><a class="menu" href="../public/contato.html">Contato</a></li>
-        <li><a class="menu" href="/admin">Admin</a></li>
-      </ul>
-  </header> -->
-
-  <header>
-    HEADER
+  <header class="topo">
+    <div class="logo">
+      <img src="../assets/images/beach-svgrepo-com.svg" />
+    </div>
+    <div class="logo_name">
+      <h1>Atlantic Hotel</h1>
+    </div>
   </header>
 
-  <!-- <div class="logo"><img src="/assets/images/hotel_logo.png" alt="Logo"></div> -->
+  <nav class="nav_menu">
+    <ul>
+      <li><a class="menu" href="/public/home-daniela.html">Home</a></li>
+      <li><a href="/public/sobre.html">O hotel</a></li>
+      <li><a href="/public/acomodacoes.html">Quartos</a></li>
+      <li><a href="/public/reserva.html">Reservas</a></li>
+      <li><a href="/public/contato.html">Contato</a></li>
+      <li><a href="/public/login.html">Login</a></li>
+      <li><a href="/admin">Admin</a></li>
+    </ul>
+  </nav>
 
-  <h1>Contato</h1>
+  <div class="main">
+    <!-- <img src="/assets/images/naturezapraiamar.webp" alt=""> -->
+
+    <h1>Contato</h1>
   
-  <article class="login">
-    <form action="/public" method="get">
-        <label for="name">Nome</label>
-        <input type="text" placeholder="Digite o nome" id="name" name="name" required>
-        
-        <label for="email">Email</label>
-        <input type="email" placeholder="Digite o email" id="email" name="email" required>
+    <article class="login">
+      <form action="/public" method="get">
+          <label for="name">Nome</label>
+          <input type="text" placeholder="Digite o nome" id="name" name="name" required>
+          
+          <label for="email">Email</label>
+          <input type="email" placeholder="Digite o email" id="email" name="email" required>
 
-        <label for="phone">Telefone</label>
-        <input type="tel" placeholder="Digite o telefone" id="phone" name="phone" required>
+          <label for="phone">Telefone</label>
+          <input type="tel" placeholder="Digite o telefone" id="phone" name="phone" required>
 
-        <label for="subject">Assunto</label>
-        <select name="subject" id="subject">
-          <option value="CancelamentoDeReserva">
-            Cancelamento de Reserva
-          </option>
-          <option value="Ouvidoria">Ouvidoria</option>
-          <option value="DepartamentoFinanceiro">
-            Departamento Financeiro
-          </option>
-        </select>
+          <label for="subject">Assunto</label>
+          <select name="subject" id="subject">
+            <option value="CancelamentoDeReserva">
+              Cancelamento de Reserva
+            </option>
+            <option value="Ouvidoria">Ouvidoria</option>
+            <option value="DepartamentoFinanceiro">
+              Departamento Financeiro
+            </option>
+          </select>
 
-        <label for="message">Mensagem</label> <br />
-        <textarea placeholder="Digite a mensagem" name="message" id="message" cols="30" rows="10"></textarea>
+          <label for="message">Mensagem</label> <br />
+          <textarea placeholder="Digite a mensagem" name="message" id="message" cols="30" rows="10"></textarea>
 
-        <button>Confirmar</button>
-    </form>
-  </article>
+          <button>Confirmar</button>
+      </form>
+    </article>
+  </div>
 
-  <footer>
-    FOOTER
+  <div class="menu_mobile">
+    <img src="/assets/images/menu.png" alt="">
+  </div>
+
+  <main></main>
+
+  <footer class="footer_desktop">
+    <div>
+      <div class="rodape">
+        <div class="links">
+          <div class="navegacao">
+            <h3>Navegação</h3>
+            <ul>
+              <li><a class="menu" href="/public/home-daniela.html">Home</a></li>
+              <li><a href="/public/sobre.html">O hotel</a></li>
+              <li><a href="/public/acomodacoes.html">Quartos</a></li>
+              <li><a href="/public/reserva.html">Reservas</a></li>
+              <li><a href="/public/contato.html">Contato</a></li>
+              <li><a href="/public/login.html">Login</a></li>
+              <li><a href="/admin">Admin</a></li>
+            </ul>
+          </div>
+          <div class="sobre-nos">
+            <h3>Sobre nós</h3>
+            <ul>
+              <li><a href="#">Fale com a gente</a></li>
+              <li><a href="#">Onde estamos</a></li>
+              <li><a href="#">Trabalhe conosco</a></li>
+              <li>
+                <p>Siga-nos:</p>
+              </li>
+              <li id="redes-sociais">
+                <a href="#"><img src="../../assets/images/facebook.png" alt="facebook logo" /></a>
+                <a href="#"> <img src="../../assets/images/instagram.png" alt="instagram logo" />
+                  <a href="#"> <img src="../../assets/images/whatsapp.png" alt="whatsapp logo" /></a>
+              </li>
+          </div>
+          <div class="termos">
+            <h3>Termos e Condições</h3>
+            <ul>
+              <li><a href="#">Termos de Uso</a></li>
+              <li><a href="#">Política de privacidade</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="seta">
+          <div class="top-btn">
+            <a href="#topo">
+              <img src="../assets/images/up-arrow-png-27160.png" alt="seta pra cima">
+            </a>
+          </div>
+          <div class="idioma">
+            <label for="idioma">Idioma:</label>
+            <select name="idioma" id="idioma">
+              <option value="portugues">Português</option>
+              <option value="ingles">Inglês</option>
+              <option value="espanhol">Espanhol</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
-
-  <!-- <footer>
-    <p>&copy;2022 - Todos os direitos reservados.</p>
-  </footer> -->
 
 </body>
 
