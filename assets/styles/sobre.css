@@ -7,18 +7,12 @@
   padding: 0;
   font-family: "Italiana", serif;
   box-sizing: border-box;
+  line-height: 2;
 }
 
 p {
   font-family: "Della Respira", serif;
   font-size: 1.3rem;
-  line-height: 2;
-}
-
-video {
-  position: absolute;
-  top: 0;
-  z-index: -1;
 }
 
 :root {
@@ -33,43 +27,44 @@ video {
 
 /* --------------  HEADER  ----------------  */
 header {
-  position: absolute;
-  top: 10rem;
-  left: 10rem;
-  display: flex;
-  align-items: center;
+  background-color: var(--background);
 }
-
-.logo_name {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-shadow: 2px 2px 4px var(--background);
-}
-
 .logo_name h1::first-letter {
-  font-size: 10rem;
+  font-size: 6rem;
   font-weight: bold;
 }
 
+.logo {
+  display: flex;
+}
+
 .logo img {
-  margin-right: 3rem;
-  width: 150px;
+  width: 5rem;
+  justify-content: center;
+}
+
+.topo {
+  width: 100vw;
+  display: flex;
+  height: 13rem;
+  justify-content: center;
+  gap: 3rem;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 4rem;
+  text-shadow: 2px 2px 4px var(--text);
 }
 
 /* --------------  NAVBAR ----------------  */
-nav {
+.nav_menu {
   z-index: 1;
-  position: absolute;
   width: 100vw;
-  height: 4rem;
-  margin-top: 28rem;
   background-color: var(--branco-escuro);
-  opacity: 0.4;
-  display: flex;
-  justify-content: center;
   position: sticky;
   top: 0;
-  margin-bottom: 35rem;
 }
 
 nav:hover {
@@ -78,8 +73,10 @@ nav:hover {
 
 nav ul {
   display: flex;
+  justify-content: center;
+  gap: 1rem;
   list-style: none;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 nav ul li a {
@@ -96,6 +93,10 @@ nav a:hover {
   background-color: var(--sombra);
   color: var(--white);
   border-radius: 5px;
+}
+
+.menu-hb {
+  display: none;
 }
 
 /* --------------  MAIN  ----------------  */
@@ -129,8 +130,7 @@ nav a:hover {
 .white-bg {
   background-color: var(--white);
   color: var(--text);
-  padding: 2rem 0;
-  margin-top: 40px;
+  margin: 40px 0;
 }
 
 .subtitle {
@@ -162,6 +162,12 @@ nav a:hover {
   width: 90%;
 }
 
+.foto-hotel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .text {
   margin-top: 70px;
 }
@@ -178,25 +184,30 @@ nav a:hover {
   margin-bottom: 20px;
 }
 
-.images div {
+.images.card div {
   width: 30%;
   overflow: hidden;
   text-align: center;
 }
 
-.images p {
+.info p {
+  text-align: center;
+  padding: 0 3rem 3rem 3rem;
+}
+
+.card {
   text-align: center;
 }
 
 .images img {
   width: 400px;
   height: 250px;
-  transition: all 300ms ease-in-out;
+  opacity: 1;
+  transition: all 0.6s;
 }
 
 .images img:hover {
-  transform: scale(1.1);
-  padding-bottom: 10px;
+  opacity: 0.4;
 }
 
 .servicos {
@@ -234,15 +245,12 @@ footer h3 {
   flex-direction: column;
   align-items: center;
   font-weight: bold;
+  justify-content: center;
+  gap: 8rem;
 }
 
 .seta > div {
   display: flex;
-}
-
-.idioma {
-  margin-top: 120px;
-  margin-bottom: 20px;
 }
 
 .seta select {
@@ -290,13 +298,49 @@ footer h3 {
 }
 
 /* --------------  RESPONSIVIDADE ----------------  */
+@media (max-width: 1580px) and (orientation: landscape) {
+  .card img {
+    width: 300px;
+    height: 180px;
+  }
+}
 
 /* TABLET LANDSCAPE */
-@media (max-width: 1194px) and (orientation: landscape) {
-  nav {
-    margin-bottom: 8rem;
+@media (max-width: 1194px) and (orientation: landscape) { 
+  p {
+    font-size: 1rem;
+    padding: 0 5px;
   }
 
+  .container {
+    width: 90vw;
+  }
+
+  .text {
+    margin-top: 0px;
+    padding: 0 10px;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .content {
+    align-items: center;
+  }
+
+  footer h3 {
+    font-size: 1.2rem;
+  }
+
+  .rodape {
+    margin: 0 80px;
+    padding-bottom: 10px;
+  }
+}
+
+/* TABLET PORTRAIT */
+@media (max-width: 1024px) and (orientation: portrait) {
   p {
     font-size: 1rem;
   }
@@ -305,52 +349,8 @@ footer h3 {
     margin-top: 0px;
   }
 
-  .subtitle {
-    font-size: 1.5rem;
-  }
-
-  .content {
-    align-items: center;
-  }
-
-  footer h3 {
-    font-size: 1rem;
-  }
-
-  .idioma {
-    margin-top: 60px;
-  }
-}
-
-/* TABLET PORTRAIT */
-@media (max-width: 1024px) and (orientation: portrait) {
-  header {
-    top: 8rem;
-    left: 8rem;
-    display: block;
-    line-height: 1.5rem;
-  }
-
-  .logo_name {
-    font-size: 2rem;
-  }
-
-  .logo_name h1::first-letter {
-    font-size: 8rem;
-  }
-
-  .logo img {
-    margin-top: 0;
-    margin-left: 8rem;
-    width: 100px;
-  }
-
-  nav {
-    margin-bottom: 2rem;
-  }
-
-  p {
-    font-size: 1rem;
+  .container {
+    width: 90vw;
   }
 
   .subtitle {
@@ -361,65 +361,73 @@ footer h3 {
     align-items: center;
   }
 
-  .images {
-    height: 50vh;
+  .yellow-bg {
+    height: 60vh;
+  }
+
+  .card img {
+    width: 260px;
+    height: 150px;
   }
 
   footer h3 {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .links {
     gap: 20px;
   }
 
-  .idioma {
-    margin-top: 60px;
+  .rodape {
+    margin: 0 60px;
+    padding-bottom: 20px;
   }
 }
 
 /* MOBILE LANDSCAPE */
 @media (max-width: 915px) and (orientation: landscape) {
-  header {
-    top: 8rem;
-    left: 3rem;
+  .menu-hb {
     display: block;
-    line-height: 1.5rem;
+    position: absolute;
+    top: 1vw;
+    right: 1vw;
   }
 
-  .logo_name {
-    font-size: 2rem;
+  .menu-hb img {
+    width: 2rem;
   }
 
-  .logo_name h1::first-letter {
-    font-size: 8rem;
+  .nav_menu {
+    display: none;
   }
 
-  .logo img {
-    margin-top: 0;
-    margin-left: 8rem;
-    width: 100px;
+  .text {
+    margin-top: 0px;
   }
 
-  nav {
-    margin-bottom: 2rem;
+  .container {
+    width: 95vw;
   }
 
   .yellow-bg {
+    margin: 0;
     padding: 0 20px;
+    height: 85vw;
   }
 
   .images {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    margin-top: 80px;
   }
 
   .images div {
     display: flex;
-    width: 100%;
     align-items: center;
-    gap: 20px;
+  }
+
+  .card div {
+    justify-content: center;
   }
 
   .images h3,
@@ -427,136 +435,110 @@ footer h3 {
     text-align: center;
   }
 
-  .images img {
-    width: 200px;
-    height: 150px;
+  .card img {
+    width: 300px;
+    height: 180px;
   }
 
-  nav {
-    margin-bottom: 0rem;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-
-  .subtitle {
-    font-size: 1.5rem;
-  }
-
-  .content {
-    align-items: center;
-  }
-
-  .images {
-    height: 92vh;
+  .info {
+    flex-direction: column;
   }
 
   footer h3 {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .links {
     gap: 20px;
   }
 
-  .idioma {
-    margin-top: 60px;
-  }
-
   .rodape {
-    margin: 0 100px;
+    margin: 0 40px;
+    padding-bottom: 10px;
   }
 }
 
 /* MOBILE PORTRAIT */
 @media (max-width: 414px) and (orientation: portrait) {
-  html {
-    background-color: red;
+  .menu-hb {
+    display: block;
+    position: absolute;
+    top: 1vw;
+    right: 1vw;
   }
-  header {
-    top: 5rem;
-    left: 0.5rem;
+
+  .menu-hb img {
+    width: 2rem;
+  }
+
+  .nav_menu {
+    display: none;
   }
 
   .logo_name {
-    font-size: 1.5rem;
+    display: flex;
+  }
+
+  .logo_name h1 {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
   }
 
   .logo_name h1::first-letter {
-    font-size: 7rem;
+    font-size: 4rem;
   }
 
   .logo img {
-    margin-top: 0;
-    margin-left: 8rem;
-    width: 50px;
+    width: 3rem;
+    justify-content: center;
   }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .text {
+    padding: 20px;
+  }
+
+  .text p {
+    text-align: center;
+  }
+
+  .container {
+    width: 100vw;
+  }
+
   .yellow-bg {
-    padding: 0 20px;
+    margin: 0;
+    padding: 0 0 1500px 0;
+    height: 100vh;
+    padding-top: 40px;
   }
 
   .images {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-  }
-
-  .images div {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .images h3,
-  p {
-    text-align: center;
-  }
-
-  .images img {
-    width: 200px;
-    height: 150px;
-  }
-
-  /* FZER MENU HAMBURGUER */
-  nav {
-    position: absolute;
-    width: 100vw;
-    height: 4rem;
-    margin-top: 14.5rem;
-    background-color: var(--branco-escuro);
-    opacity: 0.4;
-    display: flex;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    margin-bottom: 0rem;
-  }
-
-  nav ul li a {
-    display: block;
-    font-size: 1rem;
-    padding: 0.2rem;
-    border-radius: 0.2rem;
-    font-weight: 700;
-  }
-  /* FZER MENU HAMBURGUER */
-
-  p {
-    font-size: 0.8rem;
-  }
-
-  .subtitle {
-    font-size: 1.5rem;
-  }
-
-  .content {
-    align-items: center;
   }
 
   .images {
-    height: 92vh;
+    margin-top: 430px;
+  }
+
+  .card img {
+    width: 300px;
+    height: 180px;
+  }
+
+  .academia {
+    display: flex;
+    order: 2;
+  }
+
+  .content div img:nth-child(2) {
+    display: flex;
+    order: 1;
   }
 
   footer {
@@ -571,11 +553,20 @@ footer h3 {
     gap: 20px;
   }
 
-  .idioma {
-    margin-top: 60px;
+  .seta {
+    gap: 4rem;
   }
 
   .rodape {
     margin: 0 10px;
+  }
+
+  #redes-sociais img {
+    width: 14px;
+    border-radius: 20px;
+  }
+
+  .top-btn img {
+    width: 2rem;
   }
 }
