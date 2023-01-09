@@ -8,8 +8,7 @@
 
 - [Abnadab Castro](https://github.com/abnadabcastro)
 - [Ivan Oliveira](https://github.com/ivantco)
-- [Jefferson Barbosa](https://github.com/jeffjbarbosa)
-- [João Ricardo](https://github.com/joaaoricardojr)
+- [Leonardo Bernardo](https://github.com/L-Bernardo)
 - [Maria Daniela](https://github.com/mariadanielaguerra)
 - [Mateus Uilliam](https://github.com/MateusUilliam)
 - [Maurício Oliveira](https://github.com/mauricio-alves)
