@@ -42,8 +42,7 @@
 
 @media (max-width: 414px) and (orientation: portrait) {
   .footer {
-    width: auto;
-    height: 300px;
+    width: 100%;
   }
   .footer__form {
     display: none;
