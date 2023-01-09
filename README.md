@@ -19,7 +19,8 @@
 ## Recursos:
 
 - [Trello](https://trello.com/b/XFXaGUjH/projeto-hotel-grupo-4)
+- [Aplicação](http://tex-js-grupo4.s3-website-us-east-1.amazonaws.com)
 
 &nbsp;
 
-![](/assets/logo.png)
+![](/assets/images/logo.png)
