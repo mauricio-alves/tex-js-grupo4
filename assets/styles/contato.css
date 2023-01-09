@@ -2,47 +2,68 @@
 @import url("https://fonts.googleapis.com/css2?family=Della+Respira&family=Forum&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Forum&family=Italiana&display=swap");
 
-:root {
-    --title: rgba(33, 33, 65, 0.9);
-    --background: #f1eab9;
-    --text: #000;
-    --sombra: #18215992;
-    --azul-claro: #949fab;
-    --white: #fff;
-    --branco-escuro: rgb(233, 223, 223);
-}
-
 * {
-    margin: 0;
-    padding: 0;
-    font-family: "Italiana", serif;
-    line-height: 2;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Italiana", serif;
+  box-sizing: border-box;
+  line-height: 2;
 }
 
-.topo {
-    /* position: relative; */
-    width: 100vw;
-    max-width:100%;
-    display: inline-flex;
-    height: 6rem;
-    justify-content: center;
+p {
+  font-family: "Della Respira", serif;
+  font-size: 1.3rem;
+}
+
+:root {
+  --title: rgba(33, 33, 65, 0.9);
+  --background: #f1eab9;
+  --text: #000;
+  --sombra: #18215992;
+  --azul-claro: #949fab;
+  --white: #fff;
+  --branco-escuro: rgb(233, 223, 223);
+}
+
+/* --------------  HEADER  ----------------  */
+header {
+  background-color: var(--background);
+}
+.logo_name h1::first-letter {
+  font-size: 6rem;
+  font-weight: bold;
 }
 
 .logo {
-    width: 6rem;
-    height: 100%;
-    margin-right: 2rem;
-    margin-top: 1rem;
-    text-align: center;
+  display: flex;
+}
+
+.logo img {
+  width: 5rem;
+  justify-content: center;
+}
+
+.topo {
+  width: 100vw;
+  display: flex;
+  height: 13rem;
+  justify-content: center;
+  gap: 3rem;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 4rem;
+  text-shadow: 2px 2px 4px var(--text);
 }
 
 .main {
     position: relative;
-    background: url("/assets/images/naturezapraia.jpg");
+    /* background: url("/assets/images/fundocontato.webp"); */
     background-size: cover;
     padding-bottom: 1rem;
-    height: 725px;
+    /* height: 1215px; */
 }
 
 h1 {
@@ -60,13 +81,11 @@ h1 {
 }
 
 .nav_menu {
-    /* position: absolute; */
-    /* top: 0; */
-    width: 100vw;
-    max-width:100%;
     z-index: 1;
+    width: 100vw;
     height: 4rem;
     background-color: var(--branco-escuro);
+    max-width:100%;
     position: sticky;
     top: 0;
 }
@@ -118,6 +137,11 @@ h1 {
     border-bottom: .2rem solid #3a3a3a;
 }
 
+.logo {
+    margin-top: 1rem;
+    text-align: center;
+}
+
 .login {
     width: 600px;
     text-align: center;
@@ -144,7 +168,7 @@ label {
     font-weight: 600;
 }
 
-input {
+input, select, textarea {
     width: 70%;
     padding: 1rem;
     margin: .8rem 0;
@@ -319,7 +343,7 @@ footer {
     .main {
         background: none;
     }
-    
+
     footer {
         font-size: 0.5rem;
       }
