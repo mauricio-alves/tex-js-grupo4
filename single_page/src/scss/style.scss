@@ -7,6 +7,9 @@
   @include mix.flex-center;
   gap: let.$gap;
   padding: let.$m1;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 
   &__form {
     @include mix.flex-center;
@@ -45,7 +48,11 @@
       & li a {
         @extend %decoration-none;
         color: let.$textColor;
+        padding: .5rem;
       }
     }
   }
 }
+
+// testando responsividade footer
+@include mix.media-footer;

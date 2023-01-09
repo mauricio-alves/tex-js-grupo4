@@ -23,6 +23,9 @@
   justify-content: center;
   gap: 5rem;
   padding: 1rem;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
 .footer__form {
   display: flex;
@@ -34,6 +37,17 @@
 }
 .footer__redes ul li a {
   color: black;
+  padding: 0.5rem;
+}
+
+@media (max-width: 414px) and (orientation: portrait) {
+  .footer {
+    width: auto;
+    height: 300px;
+  }
+  .footer__form {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

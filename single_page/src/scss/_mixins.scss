@@ -2,3 +2,18 @@
   display: flex;
   justify-content: center;
 }
+
+@mixin media-footer {
+  @media (max-width: 414px) and (orientation: portrait) {
+    .footer {
+      // position: absolute;
+      width: auto;
+      // bottom: 0;
+      height: 300px;
+    }
+
+    .footer__form {
+      display: none;
+    }
+  }
+}
