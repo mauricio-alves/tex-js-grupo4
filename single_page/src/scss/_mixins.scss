@@ -1,0 +1,23 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin media-footer {
+  @media (max-width: 414px) and (orientation: portrait) {
+    .footer {
+      // position: absolute;
+      width: 100%;
+      // bottom: 0;
+      // height: 300px;
+    }
+
+    .footer__form {
+      display: none;
+    }
+
+    .footer__form__input {
+      // display: none;
+    }
+  }
+}

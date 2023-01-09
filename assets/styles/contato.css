@@ -2,43 +2,68 @@
 @import url("https://fonts.googleapis.com/css2?family=Della+Respira&family=Forum&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Forum&family=Italiana&display=swap");
 
-:root {
-    --title: rgba(33, 33, 65, 0.9);
-    --background: #f1eab9;
-    --text: #000;
-    --sombra: #18215992;
-    --azul-claro: #949fab;
-    --white: #fff;
-    --branco-escuro: rgb(233, 223, 223);
-}
-
 * {
-    margin: 0;
-    font-family: "Italiana", serif;
-    line-height: 2;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Italiana", serif;
+  box-sizing: border-box;
+  line-height: 2;
 }
 
-.topo {
-    /* position: relative; */
-    width: 100vw;
-    display: inline-flex;
-    height: 6rem;
-    justify-content: center;
+p {
+  font-family: "Della Respira", serif;
+  font-size: 1.3rem;
+}
+
+:root {
+  --title: rgba(33, 33, 65, 0.9);
+  --background: #f1eab9;
+  --text: #000;
+  --sombra: #18215992;
+  --azul-claro: #949fab;
+  --white: #fff;
+  --branco-escuro: rgb(233, 223, 223);
+}
+
+/* --------------  HEADER  ----------------  */
+header {
+  background-color: var(--background);
+}
+.logo_name h1::first-letter {
+  font-size: 6rem;
+  font-weight: bold;
 }
 
 .logo {
-    width: 5rem;
-    height: 100%;
-    margin-right: 5rem;
+  display: flex;
+}
+
+.logo img {
+  width: 5rem;
+  justify-content: center;
+}
+
+.topo {
+  width: 100vw;
+  display: flex;
+  height: 13rem;
+  justify-content: center;
+  gap: 3rem;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 4rem;
+  text-shadow: 2px 2px 4px var(--text);
 }
 
 .main {
     position: relative;
-    background: url("/assets/images/naturezapraia.jpg");
+    /* background: url("/assets/images/fundocontato.webp"); */
     background-size: cover;
     padding-bottom: 1rem;
-    height: 522px;
+    /* height: 1215px; */
 }
 
 h1 {
@@ -60,7 +85,7 @@ h1 {
     width: 100vw;
     height: 4rem;
     background-color: var(--branco-escuro);
-
+    max-width:100%;
     position: sticky;
     top: 0;
 }
@@ -113,7 +138,7 @@ h1 {
 }
 
 .logo {
-    margin-top: 4rem;
+    margin-top: 1rem;
     text-align: center;
 }
 
@@ -176,8 +201,86 @@ form {
 }
 
 main {
-    margin: 50rem 0;
+    margin: 0rem 0;
 }
+
+/* --------------  FOOTER ----------------  */
+footer {
+    padding-top: 2rem;
+    background-color: var(--background);
+  }
+  
+  footer h3 {
+    font-size: 1.5rem;
+  }
+  
+  .rodape {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 150px;
+  }
+  
+  .links {
+    display: flex;
+    gap: 50px;
+  }
+  
+  .seta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    justify-content: center;
+    gap: 8rem;
+  }
+  
+  .seta > div {
+    display: flex;
+  }
+  
+  .seta select {
+    font-weight: bold;
+  }
+  
+  .termos ul li,
+  .sobre-nos ul li,
+  .navegacao ul li {
+    list-style: none;
+  }
+  
+  .termos ul li a,
+  .sobre-nos ul li a,
+  .navegacao ul li a {
+    padding: 5px;
+    text-decoration: none;
+    color: var(--title);
+    font-weight: bold;
+  }
+  
+  .termos ul li a:hover,
+  .sobre-nos ul li a:hover,
+  .navegacao ul li a:hover {
+    padding: 5px;
+    background-color: var(--sombra);
+    color: white;
+    border-radius: 5px;
+  }
+  
+  #redes-sociais a:hover {
+    padding: 5px;
+    background-color: var(--background);
+    color: white;
+    border-radius: 0;
+  }
+  
+  #redes-sociais img {
+    width: 35px;
+    border-radius: 20px;
+  }
+  
+  .top-btn img {
+    width: 35px;
+  }
 
 /* MOBILE PORTRAIT */
 @media (max-width: 414px) and (orientation: portrait) {
@@ -199,10 +302,6 @@ main {
 
     .esqueceu_senha {
         text-align: center;
-    }
-
-    .footer_desktop {
-        display: none;
     }
 
     nav {
@@ -244,89 +343,53 @@ main {
     .main {
         background: none;
     }
-}
 
-/* --------------  FOOTER ----------------  */
-
-footer {
-    /* position: relative; */
-    width: 100vw;
-    bottom: 0;
-    left: 0;
-    background-color: var(--background);
-    padding-top: 2rem;
-}
-
-footer h3 {
-    font-size: 1.5rem;
-}
-
-.rodape {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 150px;
-}
-
-.links {
-    display: flex;
-    gap: 50px;
-}
-
-.seta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-weight: bold;
-}
-
-.seta > div {
-    display: flex;
-}
-
-.idioma {
-    margin-top: 150px;
-}
-
-.seta select {
-    font-weight: bold;
-}
-
-.termos ul li,
-.sobre-nos ul li,
-.navegacao ul li {
-    list-style: none;
-}
-
-.termos ul li a,
-.sobre-nos ul li a,
-.navegacao ul li a {
-    padding: 5px;
-    text-decoration: none;
-    color: var(--title);
-    font-weight: bold;
-}
-
-.termos ul li a:hover,
-.sobre-nos ul li a:hover,
-.navegacao ul li a:hover {
-    padding: 5px;
-    background-color: var(--sombra);
-    color: white;
-    border-radius: 5px;
-}
-
-#redes-sociais a:hover {
-    padding: 5px;
-    background-color: var(--background);
-    color: white;
-    border-radius: 0;
-}
-
-#redes-sociais img {
-    width: 35px;
-    border-radius: 20px;
-}
-
-.top-btn img {
-    width: 35px;
+    footer {
+        font-size: 0.5rem;
+      }
+    
+      footer h3 {
+        font-size: 1.5rem;
+      }
+    
+      footer li {
+        font-size: 1rem;
+      }
+    
+      .links {
+        gap: 20px;
+      }
+    
+      .seta {
+        gap: 12rem;
+        align-items: flex-end;
+        margin-right: 2rem;
+        margin-top: -14rem;
+      }
+    
+      .idioma {
+        font-size: 1rem;
+      }
+    
+      .rodape {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+      }
+    
+      .top-btn img {
+        width: 2rem;
+      }
+    
+      .navegacao,
+      .termos {
+        display: none;
+      }
+    
+      .sobre-nos {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
 }

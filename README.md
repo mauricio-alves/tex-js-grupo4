@@ -8,8 +8,7 @@
 
 - [Abnadab Castro](https://github.com/abnadabcastro)
 - [Ivan Oliveira](https://github.com/ivantco)
-- [Jefferson Barbosa](https://github.com/jeffjbarbosa)
-- [João Ricardo](https://github.com/joaaoricardojr)
+- [Leonardo Bernardo](https://github.com/L-Bernardo)
 - [Maria Daniela](https://github.com/mariadanielaguerra)
 - [Mateus Uilliam](https://github.com/MateusUilliam)
 - [Maurício Oliveira](https://github.com/mauricio-alves)
@@ -20,7 +19,8 @@
 ## Recursos:
 
 - [Trello](https://trello.com/b/XFXaGUjH/projeto-hotel-grupo-4)
+- [Aplicação](http://tex-js-grupo4.s3-website-us-east-1.amazonaws.com)
 
 &nbsp;
 
-![](/assets/logo.png)
+![](/assets/images/logo.png)

@@ -1,0 +1,58 @@
+@use "variaveis" as let;
+@use "mixins" as mix;
+@use "extends";
+
+.footer {
+  background-color: lightblue; // PROVISÓRIO
+  @include mix.flex-center;
+  gap: let.$gap;
+  padding: let.$m1;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+
+  &__form {
+    @include mix.flex-center;
+    flex-direction: column;
+
+    & h3 {
+      @extend %margin-bottom;
+    }
+
+    &__input {
+      @extend %margin-bottom;
+    }
+  }
+
+  &__links {
+    & h3 {
+      @extend %margin-bottom;
+    }
+    & ul {
+      @extend %list-none;
+
+      & li a {
+        @extend %decoration-none;
+        color: let.$textColor;
+      }
+    }
+  }
+
+  &__redes {
+    & h3 {
+      @extend %margin-bottom;
+    }
+    & ul {
+      @extend %list-none;
+
+      & li a {
+        @extend %decoration-none;
+        color: let.$textColor;
+        padding: .5rem;
+      }
+    }
+  }
+}
+
+// testando responsividade footer
+@include mix.media-footer;
