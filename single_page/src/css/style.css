@@ -17,14 +17,49 @@
   margin-bottom: 1rem;
 }
 
+.beneficios h2, .beneficios__div__card h3 {
+  text-shadow: 2px 2px gray;
+}
+
+.beneficios {
+  width: 100vw;
+  height: 100vh;
+  background-color: burlywood;
+}
+.beneficios h2 {
+  text-align: center;
+  padding: 2rem 0 4rem 0;
+  font-size: 3rem;
+}
+.beneficios__div {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  text-align: center;
+}
+.beneficios__div__card {
+  width: 300px;
+}
+.beneficios__div__card h3 {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+.beneficios__div__card p {
+  font-size: 1.2rem;
+}
+.beneficios__div__card img {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+}
+
 .footer {
   background-color: lightblue;
   display: flex;
   justify-content: center;
   gap: 5rem;
   padding: 1rem;
-  position: absolute;
-  width: 100%;
+  width: 100vw;
   bottom: 0;
 }
 .footer__form {
@@ -32,15 +67,51 @@
   justify-content: center;
   flex-direction: column;
 }
+.footer__form__btn {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.footer__form__btn:hover {
+  background-color: black;
+  color: white;
+}
+.footer__links ul {
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+}
 .footer__links ul li a {
   color: black;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+.footer__links ul li a:hover {
+  padding: 5px;
+  background-color: white;
+  color: lightblue;
+  border-radius: 5px;
 }
 .footer__redes ul li a {
   color: black;
-  padding: 0.5rem;
+  padding: 5px;
+}
+.footer__redes ul li a:hover {
+  padding: 15px 5px 5px 5px;
+  background-color: white;
+  color: lightblue;
+  border-radius: 5px;
 }
 
 @media (max-width: 414px) and (orientation: portrait) {
+  .beneficios {
+    height: 100%;
+    padding-bottom: 2rem;
+  }
+  .beneficios__div {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 4rem 0;
+  }
   .footer {
     width: 100%;
   }

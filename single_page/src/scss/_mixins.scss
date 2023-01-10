@@ -5,6 +5,15 @@
 
 @mixin media-footer {
   @media (max-width: 414px) and (orientation: portrait) {
+    .beneficios {
+      height: 100%;
+      padding-bottom: 2rem;
+      &__div {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 4rem 0;
+      }
+    }
     .footer {
       // position: absolute;
       width: 100%;
