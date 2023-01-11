@@ -3,8 +3,51 @@
   justify-content: center;
 }
 
-@mixin media-footer {
+@mixin media-mobile-portrait {
   @media (max-width: 414px) and (orientation: portrait) {
+    .menu-hb {
+      display: block;
+      position: absolute;
+      top: 2vw;
+      right: 2vw;
+    }
+
+    .menu-hb img {
+      width: 2rem;
+    }
+
+    .container {
+      &__menu {
+        display: none;
+      }
+
+      &__header-left {
+        margin-top: 100px;
+        padding: 0;
+        display: flex;
+        text-align: center;
+      }
+    }
+
+    .image {
+      height: 100vh;
+      &__top-wrapper {
+        &__container {
+          & p a:nth-child(2) {
+            display: none;
+          }
+          & h1 {
+            margin-bottom: 100px;
+          }
+        }
+        &__content {
+          display: none;
+        }
+        padding-top: 300px;
+        height: 100vh;
+      }
+    }
+
     .beneficios {
       height: 100%;
       padding-bottom: 2rem;
@@ -14,19 +57,9 @@
         gap: 4rem 0;
       }
     }
-    .footer {
-      // position: absolute;
-      width: 100%;
-      // bottom: 0;
-      // height: 300px;
-    }
 
     .footer__form {
       display: none;
-    }
-
-    .footer__form__input {
-      // display: none;
     }
   }
 }

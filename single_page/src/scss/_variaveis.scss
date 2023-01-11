@@ -1,7 +1,12 @@
 // Variáveis SASS
 $fonte: "PT Sans Narrow", sans-serif;
+$logo: "Rock Salt", cursive;
+$p: "Courgette", cursive;
+$h1: "Cinzel", serif;
+
 $textColor: black;
 $m1: 1rem;
+$m2: 2rem;
 $mx1: 0 1.2rem;
 $p1: 1rem;
 $px1: 0 1.5rem;
@@ -9,9 +14,37 @@ $gap: 5rem;
 $height: 100vh;
 $width: 100vw;
 
+$color1: #ffffff;
+$color2: #e61c5d;
+$color3: #c6164e;
+$color4: #ba154a;
+$color5: #f8f9fa;
+$color6: #212529;
+
 * {
   font-family: $fonte;
   padding: 0;
   margin: 0 auto;
   box-sizing: border-box;
+}
+
+header {
+  height: 65px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  margin: 0;
+}
+
+h1 {
+  opacity: 0.9;
+  font-size: 45px;
+  letter-spacing: 5px;
+  margin-bottom: 10px;
+}
+
+p {
+  opacity: 0.9;
+  margin-bottom: 3px;
 }

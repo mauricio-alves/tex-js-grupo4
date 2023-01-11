@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap%27");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap%27");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap%27");
 * {
   font-family: "PT Sans Narrow", sans-serif;
   padding: 0;
@@ -5,11 +8,32 @@
   box-sizing: border-box;
 }
 
+header {
+  height: 65px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  margin: 0;
+}
+
+h1 {
+  opacity: 0.9;
+  font-size: 45px;
+  letter-spacing: 5px;
+  margin-bottom: 10px;
+}
+
+p {
+  opacity: 0.9;
+  margin-bottom: 3px;
+}
+
 .footer__links ul, .footer__redes ul {
   list-style: none;
 }
 
-.footer__links ul li a, .footer__redes ul li a {
+.image__top-wrapper__btn-primary, .image__top-wrapper__btn-outline-light, .footer__links ul li a, .footer__redes ul li a {
   text-decoration: none;
 }
 
@@ -18,18 +42,144 @@
 }
 
 .beneficios h2, .beneficios__div__card h3 {
-  text-shadow: 2px 2px gray;
+  text-shadow: 1px 1px gray;
+}
+
+.container__menu__uppercase, .image__top-wrapper__uppercase {
+  text-transform: uppercase;
+}
+
+.menu-hb {
+  display: none;
+}
+
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.container__header-left {
+  float: left;
+  padding-left: 50px;
+}
+.container__header-left__logo {
+  font-family: "Rock Salt", cursive;
+  font-size: 60px;
+  color: #ffffff;
+  line-height: 1;
+  font-weight: bold;
+  padding-top: 40px;
+}
+.container__menu {
+  padding-top: 20px;
+  float: right;
+}
+.container__menu a {
+  text-decoration: none;
+  float: left;
+  line-height: 65px;
+  padding: 0 30px;
+  color: #ffffff;
+  display: block;
+}
+.container__menu__btn {
+  padding: 10px 30px;
+  border-radius: 50px;
+  margin-right: 0.5rem;
+}
+.container__menu__uppercase {
+  font-size: 25px;
+  letter-spacing: 0.2em;
+}
+.container__menu__btn-outline-light {
+  color: #f8f9fa;
+  background-color: transparent;
+  border-color: #f8f9fa;
+}
+.container__menu__btn-outline-light:hover {
+  color: #212529;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+.image {
+  background-image: url(../images/resort.jpg);
+  background-size: cover;
+  height: 935px;
+  width: 100%;
+}
+.image__top-wrapper {
+  padding: 180px 0 100px 0;
+  color: #ffffff;
+  text-align: center;
+}
+.image__top-wrapper__container {
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.image__top-wrapper__heading h1 {
+  font-family: "Cinzel", serif;
+  margin-top: 100px;
+}
+.image__top-wrapper__content p {
+  padding: 20px;
+  font-size: 40px;
+  font-family: "Courgette", cursive;
+}
+.image__top-wrapper__btn {
+  padding: 10px 30px;
+  border-radius: 50px;
+  margin-right: 0.5rem;
+}
+.image__top-wrapper__uppercase {
+  font-size: 25px;
+  letter-spacing: 0.2em;
+}
+.image__top-wrapper__btn-primary {
+  color: #ffffff;
+  background-color: #e61c5d;
+  border-color: #e61c5d;
+}
+.image__top-wrapper__btn-primary:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(230, 28, 93, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(230, 28, 93, 0.5);
+}
+.image__top-wrapper__btn-primary:hover {
+  color: #ffffff;
+  background-color: #c6164e;
+  border-color: #ba154a;
+}
+.image__top-wrapper__btn-outline-light {
+  color: #f8f9fa;
+  background-color: transparent;
+  border-color: #f8f9fa;
+}
+.image__top-wrapper__btn-outline-light:hover {
+  color: #212529;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+.image__overlay::before {
+  background-color: rgba(0, 0, 0, 0.45);
+  content: "";
+  position: absolute;
+  height: 100vh;
+  min-height: 720px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .beneficios {
   width: 100vw;
   height: 100vh;
-  background-color: burlywood;
+  background-color: #ffffff;
 }
 .beneficios h2 {
   text-align: center;
   padding: 2rem 0 4rem 0;
   font-size: 3rem;
+  font-family: "Cinzel", serif;
 }
 .beneficios__div {
   display: grid;
@@ -39,26 +189,32 @@
 }
 .beneficios__div__card {
   width: 300px;
+  border: 1px solid gray;
+  padding: 10px;
+  box-shadow: 2px 2px 2px gray;
 }
 .beneficios__div__card h3 {
   font-size: 1.5rem;
   margin: 1rem 0;
+  font-family: "Courgette", cursive;
 }
 .beneficios__div__card p {
   font-size: 1.2rem;
+  font-family: "Courgette", cursive;
 }
 .beneficios__div__card img {
-  width: 300px;
+  width: 280px;
   height: 300px;
   border-radius: 10px;
 }
 
 .footer {
-  background-color: lightblue;
+  background-color: #e61c5d;
+  color: #ffffff;
   display: flex;
   justify-content: center;
   gap: 5rem;
-  padding: 1rem;
+  padding: 2rem;
   width: 100vw;
   bottom: 0;
 }
@@ -67,13 +223,23 @@
   justify-content: center;
   flex-direction: column;
 }
+.footer__form h3 {
+  font-family: "Courgette", cursive;
+}
+.footer__form__input label {
+  font-family: "Courgette", cursive;
+}
 .footer__form__btn {
   padding: 5px 10px;
   cursor: pointer;
+  font-family: "Courgette", cursive;
 }
 .footer__form__btn:hover {
   background-color: black;
-  color: white;
+  color: #ffffff;
+}
+.footer__links h3 {
+  font-family: "Courgette", cursive;
 }
 .footer__links ul {
   display: flex;
@@ -81,28 +247,67 @@
   gap: 10px;
 }
 .footer__links ul li a {
-  color: black;
+  color: #ffffff;
   margin-bottom: 20px;
   padding: 5px;
+  font-family: "Courgette", cursive;
 }
 .footer__links ul li a:hover {
   padding: 5px;
-  background-color: white;
-  color: lightblue;
+  background-color: #ffffff;
+  color: #e61c5d;
   border-radius: 5px;
 }
+.footer__redes h3 {
+  font-family: "Courgette", cursive;
+}
 .footer__redes ul li a {
-  color: black;
+  color: #ffffff;
   padding: 5px;
+  font-family: "Courgette", cursive;
 }
 .footer__redes ul li a:hover {
   padding: 15px 5px 5px 5px;
-  background-color: white;
-  color: lightblue;
+  background-color: #ffffff;
+  color: #e61c5d;
   border-radius: 5px;
 }
 
 @media (max-width: 414px) and (orientation: portrait) {
+  .menu-hb {
+    display: block;
+    position: absolute;
+    top: 2vw;
+    right: 2vw;
+  }
+  .menu-hb img {
+    width: 2rem;
+  }
+  .container__menu {
+    display: none;
+  }
+  .container__header-left {
+    margin-top: 100px;
+    padding: 0;
+    display: flex;
+    text-align: center;
+  }
+  .image {
+    height: 100vh;
+  }
+  .image__top-wrapper {
+    padding-top: 300px;
+    height: 100vh;
+  }
+  .image__top-wrapper__container p a:nth-child(2) {
+    display: none;
+  }
+  .image__top-wrapper__container h1 {
+    margin-bottom: 100px;
+  }
+  .image__top-wrapper__content {
+    display: none;
+  }
   .beneficios {
     height: 100%;
     padding-bottom: 2rem;
@@ -111,9 +316,6 @@
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 4rem 0;
-  }
-  .footer {
-    width: 100%;
   }
   .footer__form {
     display: none;
