@@ -14,8 +14,8 @@
   padding: 0 15px;
   margin: 0 auto;
 
-  &__header-left {
-    float: left;
+  &__header {
+    text-align: center;
     padding-left: 50px;
 
     &__logo {
@@ -65,8 +65,8 @@
 .image {
   background-image: url(../images/resort.jpg);
   background-size: cover;
-  height: 935px;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
 
   &__top-wrapper {
     padding: 180px 0 100px 0;
@@ -136,6 +136,67 @@
     left: 0;
     bottom: 0;
     right: 0;
+  }
+}
+
+.oferta {
+  position: relative;
+  width: let.$width;
+  height: let.$height;
+  background-color: let.$color1;
+
+  &__imagem {
+    background-image: url(../images/promo.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  &__display_bottom_left {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: let.$color6;
+    background-color: let.$color5;
+    bottom: 25%;
+    opacity: .7;
+    width: auto;
+    transition: .2s;
+    padding: 4rem;
+    border-radius: 0 .5rem .5rem 0;
+
+    & h1 {
+      font-weight: bold;
+      font-size: 5rem;
+    }
+
+    &:hover {
+      background-color: let.$color7;
+    }
+  }
+
+  &__display_top_right {
+    position: absolute;
+    padding: 4rem;
+    right: 0;
+    top: 0;
+    color: let.$color6;
+    text-align: right;
+    background-color: let.$color5;
+    top: 25%;
+    opacity: .7;
+    width: auto;
+    transition: .2s;
+    border-radius: .5rem 0 0 .5rem;
+    
+    & h1 {
+      font-weight: bold;
+      font-size: 5rem;
+    }
+
+    &:hover {
+      background-color: let.$color7;
+    }
   }
 }
 
