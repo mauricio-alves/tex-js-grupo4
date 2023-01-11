@@ -2,15 +2,153 @@
 @use "mixins" as mix;
 @use "extends";
 
+@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap%27");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap%27");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap%27");
+
+.menu-hb {
+  display: none;
+}
+
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+
+  &__header-left {
+    float: left;
+    padding-left: 50px;
+
+    &__logo {
+      font-family: let.$logo;
+      font-size: 60px;
+      color: let.$color1;
+      line-height: 1;
+      font-weight: bold;
+      padding-top: 40px;
+    }
+  }
+
+  &__menu {
+    padding-top: 20px;
+    float: right;
+    & a {
+      text-decoration: none;
+      float: left;
+      line-height: 65px;
+      padding: 0 30px;
+      color: #ffffff;
+      display: block;
+    }
+    &__btn {
+      padding: 10px 30px;
+      border-radius: 50px;
+      margin-right: 0.5rem;
+    }
+    &__uppercase {
+      @extend %text-transform;
+      font-size: 25px;
+      letter-spacing: 0.2em;
+    }
+    &__btn-outline-light {
+      color: let.$color5;
+      background-color: transparent;
+      border-color: let.$color5;
+      &:hover {
+        color: let.$color6;
+        background-color: let.$color5;
+        border-color: let.$color5;
+      }
+    }
+  }
+}
+
+.image {
+  background-image: url(../images/resort.jpg);
+  background-size: cover;
+  height: 935px;
+  width: 100%;
+
+  &__top-wrapper {
+    padding: 180px 0 100px 0;
+    color: let.$color1;
+    text-align: center;
+
+    &__container {
+      padding: 0 15px;
+      margin: 0 auto;
+    }
+
+    &__heading h1 {
+      font-family: let.$h1;
+      margin-top: 100px;
+    }
+
+    &__content p {
+      padding: 20px;
+      font-size: 40px;
+      font-family: let.$p;
+    }
+    &__btn {
+      padding: 10px 30px;
+      border-radius: 50px;
+      margin-right: 0.5rem;
+    }
+    &__uppercase {
+      @extend %text-transform;
+      font-size: 25px;
+      letter-spacing: 0.2em;
+    }
+    &__btn-primary {
+      color: let.$color1;
+      background-color: let.$color2;
+      border-color: let.$color2;
+      @extend %decoration-none;
+      &:focus {
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(230, 28, 93, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(230, 28, 93, 0.5);
+      }
+      &:hover {
+        color: let.$color1;
+        background-color: let.$color3;
+        border-color: let.$color4;
+      }
+    }
+    &__btn-outline-light {
+      color: let.$color5;
+      background-color: transparent;
+      border-color: let.$color5;
+      @extend %decoration-none;
+      &:hover {
+        color: let.$color6;
+        background-color: let.$color5;
+        border-color: let.$color5;
+      }
+    }
+  }
+
+  &__overlay::before {
+    background-color: rgba(0, 0, 0, 0.45);
+    content: "";
+    position: absolute;
+    height: 100vh;
+    min-height: 720px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
 .beneficios {
   width: let.$width;
   height: let.$height;
-  background-color: burlywood; // PROVISÓRIO
+  background-color: let.$color1;
 
   & h2 {
     text-align: center;
     padding: 2rem 0 4rem 0;
     font-size: 3rem;
+    font-family: let.$h1;
     @extend %text-shadow;
   }
 
@@ -22,18 +160,23 @@
 
     &__card {
       width: 300px;
+      border: 1px solid gray;
+      padding: 10px;
+      box-shadow: 2px 2px 2px gray;
 
       & h3 {
         font-size: 1.5rem;
         margin: 1rem 0;
+        font-family: let.$p;
         @extend %text-shadow;
       }
 
       & p {
         font-size: 1.2rem;
+        font-family: let.$p;
       }
       & img {
-        width: 300px;
+        width: 280px;
         height: 300px;
         border-radius: 10px;
       }
@@ -42,11 +185,11 @@
 }
 
 .footer {
-  background-color: lightblue; // PROVISÓRIO
+  background-color: let.$color2;
+  color: let.$color1;
   @include mix.flex-center;
   gap: let.$gap;
-  padding: let.$m1;
-  // position: absolute;
+  padding: let.$m2;
   width: let.$width;
   bottom: 0;
 
@@ -56,19 +199,24 @@
 
     & h3 {
       @extend %margin-bottom;
+      font-family: let.$p;
     }
 
     &__input {
       @extend %margin-bottom;
+      & label {
+        font-family: let.$p;
+      }
     }
 
     &__btn {
       padding: 5px 10px;
       cursor: pointer;
+      font-family: let.$p;
 
       &:hover {
         background-color: black;
-        color: white;
+        color: let.$color1;
       }
     }
   }
@@ -76,6 +224,7 @@
   &__links {
     & h3 {
       @extend %margin-bottom;
+      font-family: let.$p;
     }
     & ul {
       @extend %list-none;
@@ -85,14 +234,15 @@
 
       & li a {
         @extend %decoration-none;
-        color: let.$textColor;
+        color: let.$color1;
         margin-bottom: 20px;
         padding: 5px;
+        font-family: let.$p;
 
         &:hover {
           padding: 5px;
-          background-color: white;
-          color: lightblue;
+          background-color: let.$color1;
+          color: let.$color2;
           border-radius: 5px;
         }
       }
@@ -102,19 +252,21 @@
   &__redes {
     & h3 {
       @extend %margin-bottom;
+      font-family: let.$p;
     }
     & ul {
       @extend %list-none;
 
       & li a {
         @extend %decoration-none;
-        color: let.$textColor;
+        color: let.$color1;
         padding: 5px;
+        font-family: let.$p;
 
         &:hover {
           padding: 15px 5px 5px 5px;
-          background-color: white;
-          color: lightblue;
+          background-color: let.$color1;
+          color: let.$color2;
           border-radius: 5px;
         }
       }
@@ -122,5 +274,5 @@
   }
 }
 
-// testando responsividade footer
-@include mix.media-footer;
+// RESPONSIVIDADE 
+@include mix.media-mobile-portrait;
