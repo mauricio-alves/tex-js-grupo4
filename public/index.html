@@ -8,10 +8,20 @@
   <title>Home</title>
 
   <link rel="stylesheet" href="../assets/styles/home.css" />
+  <script src="../script/home.js" async></script>
 </head>
 
 <body>
   <header id="topo" class="topo">
+    <div class="painel-usuario" id="painel">
+      <div id="user">Usuário</div>
+      <div id="email">Email</div>
+
+      <div class="painel-sair">
+        <button onclick="clearStorage()">sair</button>
+      </div>
+    </div>
+
     <div class="background">
       <video autoplay loop src="../assets/videos/sunset.mp4" type="video/mp4"></video>
     </div>
@@ -34,7 +44,6 @@
       <li><a href="/public/reservas.html">Reservas</a></li>
       <li><a href="/public/contato.html">Contato</a></li>
       <li><a href="/public/login.html">Login</a></li>
-      <li><a href="#">Admin</a></li>
     </ul>
   </nav>
 
@@ -142,7 +151,6 @@
               <li><a href="/public/reserva.html">Reservas</a></li>
               <li><a href="/public/contato.html">Contato</a></li>
               <li><a href="/public/login.html">Login</a></li>
-              <li><a href="/admin">Admin</a></li>
             </ul>
           </div>
           <div class="sobre-nos">
