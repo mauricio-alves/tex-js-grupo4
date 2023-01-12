@@ -58,7 +58,7 @@ p {
   margin: 0 auto;
 }
 .container__header {
-  text-align: center;
+  text-align: left;
   padding-left: 50px;
 }
 .container__header__logo {
@@ -70,7 +70,8 @@ p {
   padding-top: 40px;
 }
 .container__menu {
-  padding-top: 20px;
+  padding-top: 10px;
+  margin-top: -40px;
   float: right;
 }
 .container__menu a {
@@ -188,40 +189,57 @@ p {
   bottom: 0;
   color: #212529;
   background-color: #f8f9fa;
-  bottom: 25%;
+  bottom: 35%;
   opacity: 0.7;
-  width: auto;
+  width: 45%;
   transition: 0.2s;
-  padding: 4rem;
+  padding: 2rem 1.5rem;
   border-radius: 0 0.5rem 0.5rem 0;
 }
 .oferta__display_bottom_left h1 {
   font-weight: bold;
-  font-size: 5rem;
+  font-size: 4rem;
 }
 .oferta__display_bottom_left:hover {
   background-color: #a0ecff;
 }
 .oferta__display_top_right {
   position: absolute;
-  padding: 4rem;
+  padding: 2rem 1.5rem;
   right: 0;
   top: 0;
   color: #212529;
   text-align: right;
   background-color: #f8f9fa;
-  top: 25%;
+  top: 10%;
   opacity: 0.7;
-  width: auto;
+  width: 45%;
   transition: 0.2s;
   border-radius: 0.5rem 0 0 0.5rem;
 }
 .oferta__display_top_right h1 {
   font-weight: bold;
-  font-size: 5rem;
+  font-size: 4rem;
 }
 .oferta__display_top_right:hover {
   background-color: #a0ecff;
+}
+.oferta__display_bottom_right {
+  position: absolute;
+  padding: 3rem 0;
+  right: 0;
+  bottom: 0;
+  color: #212529;
+  text-align: center;
+  background-color: #f8f9fa;
+  bottom: 10%;
+  opacity: 0.7;
+  width: 800px;
+  transition: 0.2s;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+.oferta__display_bottom_right:hover {
+  opacity: 1;
 }
 
 .beneficios {
