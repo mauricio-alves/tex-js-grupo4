@@ -26,6 +26,30 @@ p {
 }
 
 /* --------------  HEADER  ----------------  */
+
+.background {
+  position: relative;
+  display: flex;
+  top: 0;
+  width: 100vw;
+  align-items: center;
+}
+
+.slogan {
+  position: absolute;
+  display: flex;
+  top: 37%;
+  justify-content: center;
+  height: 100px;
+}
+
+.slogan p {
+  color: white;
+  font-weight: bold;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 5px rgb(80, 80, 80);
+}
+
 .logo_name h1::first-letter {
   font-size: 6rem;
   font-weight: bold;
