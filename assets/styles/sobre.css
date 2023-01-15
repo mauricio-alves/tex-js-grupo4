@@ -1,7 +1,6 @@
-/* --------------  ESCOPO GLOBAL ----------------  */
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Della+Respira&family=Forum&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Forum&family=Italiana&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -15,216 +14,241 @@ p {
   font-size: 1.3rem;
 }
 
-:root {
-  --title: rgba(33, 33, 65, 0.9);
-  --background: #f1eab9;
-  --text: #000;
-  --sombra: #18215992;
-  --azul-claro: #949fab;
-  --white: #fff;
-  --branco-escuro: rgb(233, 223, 223);
+#imagem1 {
+  content: url("../images/QuartoCasal.png");
+  width: 400px;
+  height: 250px;
+  opacity: 1;
+  margin: 0 auto 20px auto;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+#imagem1:hover {
+  opacity: 0.7;
+}
+
+#imagem2 {
+  content: url("../images/SuítePresidencial.jpg");
+  width: 400px;
+  height: 250px;
+  opacity: 1;
+  margin: 0 auto 20px auto;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+#imagem2:hover {
+  opacity: 0.7;
+}
+
+#imagem3 {
+  content: url("../images/1604663246841.jpg");
+  width: 400px;
+  height: 250px;
+  opacity: 1;
+  margin: 0 auto 20px auto;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+#imagem3:hover {
+  opacity: 0.7;
+}
+
+/* --------------  RESPONSIVIDADE ----------------  */
+.rodape__links__termos ul li, .rodape__links__sobre-nos ul li, .rodape__links__navegacao ul li {
+  list-style: none;
+}
+
+.nav_menu ul li a, .rodape__links__termos ul li a, .rodape__links__sobre-nos ul li a, .rodape__links__navegacao ul li a {
+  text-decoration: none;
+}
+
+h1 {
+  text-shadow: 2px 2px 4px #000;
+}
+
+.container__subtitle, .quartos__subtitle, .experiencia__subtitle {
+  text-transform: uppercase;
+}
+
+h1, .container__content div, .quartos__images__card, .quartos__images__card div, .quartos__images__card__info p, .experiencia__content div, .container__subtitle, .quartos__subtitle, .experiencia__subtitle {
+  text-align: center;
+}
+
+.container__detalhe, .experiencia__detalhe {
+  display: block;
+  width: 15%;
+  height: 0.4vh;
+  margin-left: 42.5%;
+  margin-top: -1.5%;
+  background-color: #f1eab9;
+}
+
+.container__subtitle, .quartos__subtitle, .experiencia__subtitle {
+  font-size: 2rem;
+  padding: 20px 0;
+}
+
+.container__content, .experiencia__content {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
 }
 
 /* --------------  HEADER  ----------------  */
 header {
-  background-color: var(--background);
-}
-.logo_name h1::first-letter {
-  font-size: 6rem;
-  font-weight: bold;
+  background-color: #f1eab9;
 }
 
-.logo {
-  display: flex;
-}
-
-.logo img {
-  width: 5rem;
-  justify-content: center;
+h1 {
+  font-weight: 700;
+  font-size: 4rem;
 }
 
 .topo {
   width: 100vw;
   display: flex;
-  height: 13rem;
   justify-content: center;
+  height: 13rem;
   gap: 3rem;
 }
-
-h1 {
-  text-align: center;
-  font-weight: 700;
-  font-size: 4rem;
-  text-shadow: 2px 2px 4px var(--text);
+.topo__logo {
+  display: flex;
+}
+.topo__logo img {
+  width: 5rem;
+  justify-content: center;
+}
+.topo__logo-name h1::first-letter {
+  font-size: 6rem;
+  font-weight: bold;
+}
+.topo__menu-hb {
+  display: none;
 }
 
 /* --------------  NAVBAR ----------------  */
 .nav_menu {
   z-index: 1;
   width: 100vw;
-  background-color: var(--branco-escuro);
+  background-color: rgb(233, 223, 223);
   position: sticky;
   top: 0;
 }
-
-nav:hover {
-  opacity: 0.9;
-}
-
-nav ul {
+.nav_menu ul {
   display: flex;
   justify-content: center;
   gap: 1rem;
   list-style: none;
   padding: 0.5rem;
 }
-
-nav ul li a {
+.nav_menu ul li a {
   display: block;
-  color: var(--text);
-  text-decoration: none;
+  color: #000;
   font-size: 1.4rem;
   padding: 0 1.5rem;
   border-radius: 0.2rem;
   font-weight: 700;
 }
-
-nav a:hover {
-  background-color: var(--sombra);
-  color: var(--white);
+.nav_menu ul li a:hover {
+  background-color: rgba(24, 33, 89, 0.5725490196);
+  color: #fff;
   border-radius: 5px;
 }
-
-.menu-hb {
-  display: none;
+.nav_menu:hover {
+  opacity: 0.9;
 }
 
 /* --------------  MAIN  ----------------  */
 .container {
+  background-color: #fff;
+  color: #000;
   position: relative;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 40px auto 0 auto;
   width: 80vw;
 }
-
-.detalhe {
-  display: block;
-  width: 15%;
-  height: 0.4vh;
-  margin-left: 42.5%;
-  margin-top: -1.5%;
-  background-color: var(--background);
+.container__content div {
+  width: 100vw;
+}
+.container__content div img {
+  width: 90%;
+}
+.container__content__foto-hotel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container__content__text {
+  margin-top: 70px;
+}
+.container__content__text p {
+  text-align: left;
+  padding-bottom: 1rem;
 }
 
-.detalhev2 {
+.quartos {
+  background-color: #f1eab9;
+  color: #000;
+  padding: 2rem 0;
+  margin-top: 40px;
+}
+.quartos h3 {
+  font-size: 1.5rem;
+}
+.quartos__detalhev2 {
   display: block;
   width: 40%;
   height: 0.4vh;
   margin-left: 30%;
   margin-top: -1.5%;
   margin-bottom: 2rem;
-  background-color: var(--white);
+  background-color: #fff;
 }
-
-.white-bg {
-  background-color: var(--white);
-  color: var(--text);
-  margin: 40px 0;
-}
-
-.subtitle {
-  text-transform: uppercase;
-  font-size: 2rem;
-  text-align: center;
-  padding: 20px 0;
-}
-
-.yellow-bg {
-  background-color: var(--background);
-  color: var(--text);
-  padding: 2rem 0;
-  margin-top: 40px;
-}
-
-.content {
-  display: flex;
-  flex-direction: row;
-  margin-top: 30px;
-}
-
-.content div {
-  text-align: center;
-  width: 100%;
-}
-
-.content div img {
-  width: 90%;
-}
-
-.foto-hotel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.text {
-  margin-top: 70px;
-}
-
-.text p {
-  text-align: left;
-  padding-bottom: 1rem;
-}
-
-.images {
+.quartos__images {
   height: 70vh;
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 20px;
 }
-
-.images.card div {
-  width: 30%;
+.quartos__images__card div {
   overflow: hidden;
-  text-align: center;
 }
-
-.info p {
-  text-align: center;
+.quartos__images__card__info p {
   padding: 0 3rem 3rem 3rem;
 }
 
-.card {
-  text-align: center;
+.experiencia {
+  background-color: #fff;
+  color: #000;
+  margin: 40px 0;
 }
-
-.images img {
-  width: 400px;
-  height: 250px;
-  opacity: 1;
-  transition: all 0.6s;
+.experiencia__content div {
+  width: 100vw;
 }
-
-.images img:hover {
-  opacity: 0.4;
+.experiencia__content div img {
+  width: 90%;
 }
-
-.servicos {
+.experiencia__content__servicos {
   display: flex;
   align-items: center;
 }
-
-.academia p {
+.experiencia__content__text {
+  margin-top: 70px;
+}
+.experiencia__content__text p {
+  text-align: left;
+  padding-bottom: 1rem;
+}
+.experiencia__content__academia p {
   text-align: right;
 }
 
 /* --------------  FOOTER ----------------  */
 footer {
   padding-top: 2rem;
-  background-color: var(--background);
+  background-color: #f1eab9;
 }
-
 footer h3 {
   font-size: 1.5rem;
 }
@@ -234,360 +258,294 @@ footer h3 {
   justify-content: space-between;
   margin: 0 150px;
 }
-
-.links {
+.rodape__seta {
   display: flex;
-  gap: 50px;
-}
-
-.seta {
-  display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   font-weight: bold;
-  justify-content: center;
   gap: 8rem;
 }
-
-.seta > div {
+.rodape__seta div {
   display: flex;
 }
-
-.seta select {
+.rodape__seta__idioma select {
   font-weight: bold;
 }
-
-.termos ul li,
-.sobre-nos ul li,
-.navegacao ul li {
-  list-style: none;
+.rodape__seta__top-btn img {
+  width: 35px;
 }
-
-.termos ul li a,
-.sobre-nos ul li a,
-.navegacao ul li a {
+.rodape__links {
+  display: flex;
+  gap: 50px;
+}
+.rodape__links__termos ul li a, .rodape__links__sobre-nos ul li a, .rodape__links__navegacao ul li a {
   padding: 5px;
-  text-decoration: none;
-  color: var(--title);
+  color: rgba(33, 33, 65, 0.9);
   font-weight: bold;
 }
-
-.termos ul li a:hover,
-.sobre-nos ul li a:hover,
-.navegacao ul li a:hover {
+.rodape__links__termos ul li a:hover, .rodape__links__sobre-nos ul li a:hover, .rodape__links__navegacao ul li a:hover {
   padding: 5px;
-  background-color: var(--sombra);
-  color: white;
+  background-color: rgba(24, 33, 89, 0.5725490196);
+  color: #fff;
   border-radius: 5px;
 }
 
 #redes-sociais a:hover {
   padding: 5px;
-  background-color: var(--background);
-  color: white;
+  background-color: #f1eab9;
+  color: #fff;
   border-radius: 0;
 }
-
 #redes-sociais img {
   width: 35px;
   border-radius: 20px;
 }
 
-.top-btn img {
-  width: 35px;
-}
-
-/* --------------  RESPONSIVIDADE ----------------  */
 @media (max-width: 1580px) and (orientation: landscape) {
-  .card img {
+  #imagem1,
+  #imagem2,
+  #imagem3 {
     width: 300px;
     height: 180px;
   }
 }
-
 /* TABLET LANDSCAPE */
 @media (max-width: 1194px) and (orientation: landscape) {
   p {
     font-size: 1rem;
     padding: 0 5px;
   }
-
   .container {
     width: 90vw;
   }
-
-  .text {
+  .container__content {
+    align-items: center;
+  }
+  .container__content__text {
     margin-top: 0px;
     padding: 0 10px;
   }
-
-  .subtitle {
+  .container__subtitle {
     font-size: 1.5rem;
   }
-
-  .content {
-    align-items: center;
-  }
-
   footer h3 {
     font-size: 1.2rem;
   }
-
   .rodape {
     margin: 0 80px;
     padding-bottom: 10px;
   }
 }
-
 /* TABLET PORTRAIT */
 @media (max-width: 1024px) and (orientation: portrait) {
   p {
     font-size: 1rem;
   }
-
-  .text {
-    margin-top: 0px;
-  }
-
   .container {
     width: 90vw;
   }
-
-  .subtitle {
+  .container__content__text {
+    margin-top: 0px;
+  }
+  .container__subtitle {
     font-size: 1.5rem;
   }
-
-  .content {
-    align-items: center;
-  }
-
-  .yellow-bg {
-    height: 60vh;
-  }
-
-  .card img {
+  #imagem1,
+  #imagem2,
+  #imagem3 {
     width: 260px;
     height: 150px;
   }
-
+  .quartos {
+    height: 60vh;
+  }
   footer h3 {
     font-size: 1.2rem;
   }
-
-  .links {
-    gap: 20px;
-  }
-
   .rodape {
     margin: 0 60px;
     padding-bottom: 20px;
   }
+  .rodape__links {
+    gap: 20px;
+  }
 }
-
 /* MOBILE LANDSCAPE */
 @media (max-width: 915px) and (orientation: landscape) {
-  .menu-hb {
+  .topo__menu-hb {
     display: block;
     position: absolute;
     top: 1vw;
     right: 1vw;
   }
-
-  .menu-hb img {
+  .topo__menu-hb img {
     width: 2rem;
   }
-
   .nav_menu {
     display: none;
   }
-
-  .text {
-    margin-top: 0px;
-  }
-
   .container {
     width: 95vw;
   }
-
-  .yellow-bg {
+  .container__content__text {
+    margin-top: 0px;
+  }
+  .container__subtitle {
+    font-size: 2rem;
+  }
+  .quartos {
     margin: 0;
     padding: 0 20px;
-    height: 85vw;
+    height: 90vw;
   }
-
-  .images {
+  .quartos__images {
     display: flex;
     flex-direction: column;
     margin-top: 80px;
-    padding-top: 230px;
   }
-
-  .images div {
+  .quartos__images div {
     display: flex;
     align-items: center;
+    overflow: visible;
   }
-
-  .card div {
+  .quartos__images__card div {
     justify-content: center;
   }
-
-  .images h3,
-  p {
-    text-align: center;
-  }
-
-  .card img {
-    width: 300px;
-    height: 180px;
-  }
-
-  .info {
+  .quartos__images__card__info {
     flex-direction: column;
   }
-
   footer h3 {
     font-size: 1.2rem;
   }
-
-  .links {
-    gap: 20px;
-  }
-
   .rodape {
     margin: 0 40px;
     padding-bottom: 10px;
   }
+  .rodape__links {
+    gap: 20px;
+  }
 }
-
 /* MOBILE PORTRAIT */
 @media (max-width: 414px) and (orientation: portrait) {
-  .menu-hb {
+  .topo__menu-hb {
     display: block;
     position: absolute;
     top: 1vw;
     right: 1vw;
   }
-
-  .menu-hb img {
+  .topo__menu-hb img {
     width: 2rem;
   }
-
-  .nav_menu {
-    display: none;
-  }
-
-  .logo_name {
-    display: flex;
-  }
-
-  .logo_name h1 {
-    display: flex;
-    align-items: center;
-    font-size: 2rem;
-  }
-
-  .logo_name h1::first-letter {
-    font-size: 4rem;
-  }
-
-  .logo img {
+  .topo__logo img {
     width: 3rem;
     justify-content: center;
   }
-
-  .content {
-    flex-direction: column;
+  .topo__logo-name {
+    display: flex;
   }
-
-  .text {
-    padding: 20px;
+  .topo__logo-name h1 {
+    margin-top: 40px;
+    font-size: 2rem;
   }
-
-  .text p {
-    text-align: center;
+  .topo__logo-name h1::first-letter {
+    font-size: 4rem;
   }
-
+  .nav_menu {
+    display: none;
+  }
   .container {
     width: 100vw;
   }
-
-  .yellow-bg {
-    margin: 0;
-    padding: 0 0 1500px 0;
-    height: 100vh;
-    padding-top: 40px;
+  .container__detalhe {
+    width: 45%;
+    margin-left: 27%;
   }
-
-  .images {
-    display: flex;
+  .container__content {
     flex-direction: column;
   }
-
-  .images {
-    margin-top: 430px;
+  .container__content__text {
+    padding: 20px;
   }
-
-  .card img {
+  .container__content__text p {
+    text-align: center;
+  }
+  .quartos {
+    margin: 0;
+    padding: 40px 0 1550px 0;
+    height: 100vh;
+  }
+  .quartos__images {
+    display: flex;
+    flex-direction: column;
+    margin-top: 450px;
+  }
+  #imagem1,
+  #imagem2,
+  #imagem3 {
     width: 300px;
     height: 180px;
   }
-
-  .academia {
-    display: flex;
-    order: 2;
+  .experiencia__detalhe {
+    width: 45%;
+    margin-left: 27%;
   }
-
-  .content div img:nth-child(2) {
+  .experiencia__content {
+    flex-direction: column;
+  }
+  .experiencia__content div img:nth-child(2) {
     display: flex;
     order: 1;
   }
-
+  .experiencia__content__academia {
+    display: flex;
+    order: 2;
+  }
+  .experiencia__content__text {
+    margin-top: 0;
+    padding: 0 20px;
+  }
+  .experiencia__content__text p {
+    text-align: center;
+  }
   footer {
     font-size: 0.5rem;
   }
-
   footer h3 {
     font-size: 1.5rem;
   }
-
   footer li {
     font-size: 1rem;
   }
-
-  .links {
-    gap: 20px;
-  }
-
-  .seta {
-    gap: 12rem;
-    align-items: flex-end;
-    margin-right: 2rem;
-    margin-top: -14rem;
-  }
-
-  .idioma {
-    font-size: 1rem;
-  }
-
-  .rodape {
+  footer .rodape {
     margin: 0;
     display: flex;
     flex-direction: column;
   }
-
-  .top-btn img {
-    width: 2rem;
+  footer .rodape__links {
+    gap: 20px;
   }
-
-  .navegacao,
-  .termos {
-    display: none;
-  }
-
-  .sobre-nos {
+  footer .rodape__links__sobre-nos {
     width: 100%;
     display: flex;
     flex-direction: column;
     text-align: center;
   }
+  footer .rodape__links__navegacao, footer .rodape__links__termos {
+    display: none;
+  }
+  footer .rodape__seta {
+    gap: 12rem;
+    align-items: flex-end;
+    margin-right: 2rem;
+    margin-top: -14rem;
+  }
+  footer .rodape__seta__idioma {
+    font-size: 1rem;
+  }
+  footer .rodape__seta__top-btn img {
+    width: 2rem;
+  }
 }
+
+/*# sourceMappingURL=sobre.css.map */
