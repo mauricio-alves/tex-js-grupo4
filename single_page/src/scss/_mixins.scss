@@ -81,6 +81,31 @@
       }
     }
 
+    .oferta {
+      &__display_bottom_left {
+        bottom: 45%;
+
+        & h1 {
+          font-size: 1.2rem;
+        }
+      }
+
+      &__display_top_right {        
+        & h1 {
+          font-size: 1.2rem;
+        }
+      }
+
+      &__display_bottom_right {
+        width: 300px;
+        padding: 1rem 0;
+        & iframe {
+          width: 260px;
+          height: 130px;
+        }
+      }
+    }
+
     .secao3 {
       line-height: 2rem;
 
