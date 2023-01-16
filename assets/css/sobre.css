@@ -58,7 +58,7 @@ p {
   list-style: none;
 }
 
-.rodape__links__termos ul li a, .rodape__links__sobre-nos ul li a, .rodape__links__navegacao ul li a, .nav_menu ul li a {
+.nav_menu ul li a, .rodape__links__termos ul li a, .rodape__links__sobre-nos ul li a, .rodape__links__navegacao ul li a {
   text-decoration: none;
 }
 
@@ -70,7 +70,7 @@ h1 {
   text-transform: uppercase;
 }
 
-.container__content div, .quartos__images__card, .quartos__images__card div, .quartos__images__card__info p, .experiencia__content div, h1, .container__subtitle, .quartos__subtitle, .experiencia__subtitle {
+h1, .container__content div, .quartos__images__card, .quartos__images__card div, .quartos__images__card__info p, .experiencia__content div, .container__subtitle, .quartos__subtitle, .experiencia__subtitle {
   text-align: center;
 }
 
@@ -94,6 +94,7 @@ h1 {
   margin-top: 30px;
 }
 
+/* --------------  HEADER  ----------------  */
 header {
   background-color: #f1eab9;
 }
@@ -155,63 +156,6 @@ h1 {
 }
 .nav_menu:hover {
   opacity: 0.9;
-}
-
-footer {
-  padding-top: 2rem;
-  background-color: #f1eab9;
-}
-footer h3 {
-  font-size: 1.5rem;
-}
-
-.rodape {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 150px;
-}
-.rodape__seta {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  font-weight: bold;
-  gap: 8rem;
-}
-.rodape__seta div {
-  display: flex;
-}
-.rodape__seta__idioma select {
-  font-weight: bold;
-}
-.rodape__seta__top-btn img {
-  width: 35px;
-}
-.rodape__links {
-  display: flex;
-  gap: 50px;
-}
-.rodape__links__termos ul li a, .rodape__links__sobre-nos ul li a, .rodape__links__navegacao ul li a {
-  padding: 5px;
-  color: rgba(33, 33, 65, 0.9);
-  font-weight: bold;
-}
-.rodape__links__termos ul li a:hover, .rodape__links__sobre-nos ul li a:hover, .rodape__links__navegacao ul li a:hover {
-  padding: 5px;
-  background-color: rgba(24, 33, 89, 0.5725490196);
-  color: #fff;
-  border-radius: 5px;
-}
-
-#redes-sociais a:hover {
-  padding: 5px;
-  background-color: #f1eab9;
-  color: #fff;
-  border-radius: 0;
-}
-#redes-sociais img {
-  width: 35px;
-  border-radius: 20px;
 }
 
 /* --------------  MAIN  ----------------  */
@@ -298,6 +242,64 @@ footer h3 {
 }
 .experiencia__content__academia p {
   text-align: right;
+}
+
+/* --------------  FOOTER ----------------  */
+footer {
+  padding-top: 2rem;
+  background-color: #f1eab9;
+}
+footer h3 {
+  font-size: 1.5rem;
+}
+
+.rodape {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 150px;
+}
+.rodape__seta {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  gap: 8rem;
+}
+.rodape__seta div {
+  display: flex;
+}
+.rodape__seta__idioma select {
+  font-weight: bold;
+}
+.rodape__seta__top-btn img {
+  width: 35px;
+}
+.rodape__links {
+  display: flex;
+  gap: 50px;
+}
+.rodape__links__termos ul li a, .rodape__links__sobre-nos ul li a, .rodape__links__navegacao ul li a {
+  padding: 5px;
+  color: rgba(33, 33, 65, 0.9);
+  font-weight: bold;
+}
+.rodape__links__termos ul li a:hover, .rodape__links__sobre-nos ul li a:hover, .rodape__links__navegacao ul li a:hover {
+  padding: 5px;
+  background-color: rgba(24, 33, 89, 0.5725490196);
+  color: #fff;
+  border-radius: 5px;
+}
+
+#redes-sociais a:hover {
+  padding: 5px;
+  background-color: #f1eab9;
+  color: #fff;
+  border-radius: 0;
+}
+#redes-sociais img {
+  width: 35px;
+  border-radius: 20px;
 }
 
 @media (max-width: 1580px) and (orientation: landscape) {

@@ -41,11 +41,11 @@ p {
   text-decoration: none;
 }
 
-.footer__form h3, .footer__form__input, .footer__links h3, .footer__redes h3 {
+.footer__local h3, .footer__links h3, .footer__redes h3 {
   margin-bottom: 1rem;
 }
 
-.beneficios h2, .beneficios__div__card h3 {
+.beneficios h2, .beneficios__div__card h3, .secao3 h2 {
   text-shadow: 1px 1px gray;
 }
 
@@ -286,10 +286,19 @@ p {
 
 .secao3 {
   height: 100vh;
-  padding: 3rem 0;
+  padding: 2rem 0;
   display: flex;
   flex-direction: column;
   gap: 5rem;
+  background-color: #212529;
+  width: 90%;
+  margin-bottom: 3rem;
+}
+.secao3 h2 {
+  text-align: center;
+  font-size: 3rem;
+  font-family: "Cinzel", serif;
+  color: #ffffff;
 }
 .secao3__cadastro {
   display: flex;
@@ -301,14 +310,18 @@ p {
   line-height: 2rem;
   width: 50%;
   font-size: 1.5rem;
+  font-style: italic;
 }
 .secao3__cadastro__button {
   padding: 0.5rem 1.5rem;
   cursor: pointer;
-  border: none;
   border-radius: 0.5rem;
-  box-shadow: 2px 2px 2px gray;
   font-size: 2rem;
+}
+.secao3__cadastro__button:hover {
+  color: #ffffff;
+  background-color: #e61c5d;
+  transition: 0.3s all ease-in-out;
 }
 .secao3__contato {
   display: flex;
@@ -323,15 +336,20 @@ p {
   font-size: 1.5rem;
   width: 100%;
   margin: 0.5rem 0;
+  font-style: italic;
 }
 .secao3__contato__button {
   padding: 0.5rem 1.5rem;
   cursor: pointer;
   border: none;
   border-radius: 0.5rem;
-  box-shadow: 2px 2px 2px gray;
   font-size: 2rem;
   margin: 0.5rem 0;
+}
+.secao3__contato__button:hover {
+  color: #ffffff;
+  background-color: #e61c5d;
+  transition: 0.3s all ease-in-out;
 }
 
 .footer {
@@ -344,39 +362,31 @@ p {
   width: 100vw;
   bottom: 0;
 }
-.footer__form {
+.footer__local {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
-.footer__form h3 {
+.footer__local h3 {
   font-family: "Courgette", cursive;
-}
-.footer__form__input label {
-  font-family: "Courgette", cursive;
-}
-.footer__form__btn {
-  padding: 5px 10px;
-  cursor: pointer;
-  font-family: "Courgette", cursive;
-}
-.footer__form__btn:hover {
-  background-color: black;
-  color: #ffffff;
+  font-size: 1.8rem;
 }
 .footer__links h3 {
   font-family: "Courgette", cursive;
+  font-size: 1.8rem;
 }
 .footer__links ul {
   display: flex;
   flex-flow: column;
-  gap: 10px;
+  gap: 30px;
+  padding-top: 30px;
 }
 .footer__links ul li a {
   color: #ffffff;
   margin-bottom: 20px;
   padding: 5px;
   font-family: "Courgette", cursive;
+  font-size: 1.5rem;
 }
 .footer__links ul li a:hover {
   padding: 5px;
@@ -386,6 +396,11 @@ p {
 }
 .footer__redes h3 {
   font-family: "Courgette", cursive;
+  font-size: 1.8rem;
+}
+.footer__redes ul li {
+  display: flex;
+  flex-direction: column;
 }
 .footer__redes ul li a {
   color: #ffffff;
@@ -393,7 +408,7 @@ p {
   font-family: "Courgette", cursive;
 }
 .footer__redes ul li a:hover {
-  padding: 15px 5px 5px 5px;
+  padding: 5px 5px 5px 5px;
   background-color: #ffffff;
   color: #e61c5d;
   border-radius: 5px;
@@ -443,9 +458,6 @@ p {
     grid-template-columns: repeat(1, 1fr);
     gap: 4rem 0;
   }
-  .footer__form {
-    display: none;
-  }
   .secao3 {
     line-height: 2rem;
   }
@@ -464,6 +476,22 @@ p {
   }
   .secao3__contato textarea {
     height: 10rem;
+  }
+  .footer__local {
+    display: none;
+  }
+  .footer__links h3 {
+    font-size: 1.5rem;
+  }
+  .footer__links ul {
+    gap: 20px;
+    padding-top: 10px;
+  }
+  .footer__links ul li a {
+    font-size: 1.3rem;
+  }
+  .footer__redes h3 {
+    font-size: 1.5rem;
   }
 }
 

@@ -25,12 +25,12 @@
         <h1 class="container__header__logo">Atlantic Hotel</h1>
       </div>
       <div class="container__menu">
-        <a href="#"
+        <a href="#section1"
           class="container__menu__btn container__menu__uppercase container__menu__btn-outline-light">Oferta</a>
         <a href="#section2"
           class="container__menu__btn container__menu__uppercase container__menu__btn-outline-light">Benefícios</a>
-        <a href="#" class="container__menu__btn container__menu__uppercase container__menu__btn-outline-light">Contatos
-          e Redes Sociais</a>
+        <a href="#section3"
+          class="container__menu__btn container__menu__uppercase container__menu__btn-outline-light">Contato</a>
       </div>
     </div>
     <div class="menu-hb">
@@ -57,26 +57,22 @@
     </div>
   </div>
 
-  <main style="background-color: #cccbcb;">
-
+  <main>
     <section id="section1" class="oferta">
       <div class="oferta__imagem">
         <div class="oferta__display_top_right">
           <h1>Promoção Férias de Janeiro</h1>
         </div>
-        
+
         <div class="oferta__display_bottom_left">
           <h1>4 diárias pelo preço de 3!</h1>
         </div>
       </div>
-
       <div class="oferta__display_bottom_right">
-        <iframe width="560" height="315"
-                src="https://www.youtube.com/embed/QvpWUeAxDjc"
-                title="Hotel Promo"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/QvpWUeAxDjc" title="Hotel Promo"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
         </iframe>
       </div>
     </section>
@@ -132,18 +128,21 @@
 
     <section class="secao3" id="section3">
       <div class="secao3__cadastro">
-        <h2>Registre-se para receber nossas promoções e notícias exclusivas!</h2>
-        <input class="secao3__cadastro__input" type="text" placeholder="digite seu email aqui">
+        <h2>Receba nossas promoções e notícias exclusivas!</h2>
+        <input class="secao3__cadastro__input" type="text" placeholder="Digite seu email">
         <button type="button" class="secao3__cadastro__button">Cadastrar</button>
       </div>
 
       <div class="secao3__contato">
         <h2>Contato</h2>
-      
+
         <form action="#" target="_blank">
-          <p><input class="secao3__contato__input" type="text" placeholder="Nome" required name="Name"></p>
-          <p><input class="secao3__contato__input" type="text" placeholder="Email" required name="Email"></p>
-          <textarea class="secao3__contato__input" rows="8" cols="50" placeholder="Mensagem" required name="Message"></textarea>
+          <p><input class="secao3__contato__input" type="text" placeholder="Digite seu nome" required name="Name">
+          </p>
+          <p><input class="secao3__contato__input" type="text" placeholder="Digite seu email" required
+              name="Email"></p>
+          <textarea class="secao3__contato__input" rows="8" cols="50" placeholder="Digite sua mensagem" required
+            name="Message"></textarea>
           <p><button class="secao3__contato__button" type="submit">Enviar Mensagem</button></p>
         </form>
       </div>
@@ -152,39 +151,28 @@
 
   <footer>
     <div class="footer">
-      <div class="footer__form">
-        <h3>Receba nossas promoções!</h3>
-        <form class="footer__form">
-          <div class="footer__form__input">
-            <label for="">Nome:</label>
-            <input type="text" />
-          </div>
-          <div class="footer__form__input">
-            <label for="">E-mail:</label>
-            <input type="email" />
-          </div>
-          <div class="footer__form__input">
-            <label for="">Telefone:</label>
-            <input type="tel" />
-          </div>
-        </form>
-        <button class="footer__form__btn">Cadastrar</button>
+      <div class="footer__local">
+        <h3>Nossa localização</h3>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1828.5309064929236!2d-46.65260983478661!3d-23.566223357137993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c774633b79%3A0x37756ae8550c9ba5!2sAlameda%20Santos%2C%20960%20-%20Jardim%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001418-100!5e0!3m2!1sen!2sbr!4v1671292160063!5m2!1sen!2sbr"
+          width="350" height="200" style="border:0;" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <nav class="footer__links">
         <h3>Saiba Mais</h3>
         <ul>
-          <li><a href="#">Ofertas</a></li>
+          <li><a href="#section1">Oferta</a></li>
           <li><a href="#section2">Benefícios</a></li>
-          <li><a href="#">Contatos</a></li>
+          <li><a href="#section3">Contato</a></li>
         </ul>
       </nav>
       <div class="footer__redes">
         <h3>Nossas Redes</h3>
         <ul>
           <li>
-            <a href="#"><i class="fab fa-facebook fa-2x mx-1 text-white"></i></a>
-            <a href="#"><i class="footer__socialMedia__icon fab fa-instagram fa-2x mx-1 text-white"></i></a>
-            <a href="#"><i class="footer__socialMedia__icon fab fa-whatsapp fa-2x mx-1 text-white"></i></a>
+            <a href="#"><i class="fab fa-facebook fa-3x mx-1 text-white"></i></a>
+            <a href="#"><i class="footer__socialMedia__icon fab fa-instagram fa-3x mx-1 text-white"></i></a>
+            <a href="#"><i class="footer__socialMedia__icon fab fa-whatsapp fa-3x mx-1 text-white"></i></a>
           </li>
         </ul>
       </div>
