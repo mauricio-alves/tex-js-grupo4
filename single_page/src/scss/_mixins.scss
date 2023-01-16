@@ -3,6 +3,24 @@
   justify-content: center;
 }
 
+@mixin input {
+  padding: .5rem;
+  line-height: 2rem;
+  width: 50%;
+  font-size: 1.5rem;
+}
+
+@mixin button {
+  padding: .5rem 1.5rem;
+  cursor: pointer;
+
+  border: none;
+  border-radius: .5rem;
+  box-shadow: 2px 2px 2px gray;
+
+  font-size: 2rem;
+}
+
 @mixin media-mobile-portrait {
   @media (max-width: 414px) and (orientation: portrait) {
     .menu-hb {
@@ -60,6 +78,33 @@
 
     .footer__form {
       display: none;
+    }
+
+    .secao3 {
+      line-height: 2rem;
+
+      &__cadastro,  &__contato {
+        margin-top: -1rem;
+
+        & h2 {
+          font-size: 2rem;
+          padding: 0 1rem;
+        }
+
+        &__input {
+          width: 90%;
+        }
+
+        &__button {
+          font-size: 1.5rem;
+        }
+      }
+
+      &__contato {
+        & textarea {
+          height: 10rem;
+        }
+      }
     }
   }
 }

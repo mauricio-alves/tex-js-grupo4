@@ -24,6 +24,10 @@ h1 {
   margin-bottom: 10px;
 }
 
+h2 {
+  font-size: 3rem;
+}
+
 p {
   opacity: 0.9;
   margin-bottom: 3px;
@@ -280,6 +284,56 @@ p {
   border-radius: 10px;
 }
 
+.secao3 {
+  height: 100vh;
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+.secao3__cadastro {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.secao3__cadastro__input {
+  padding: 0.5rem;
+  line-height: 2rem;
+  width: 50%;
+  font-size: 1.5rem;
+}
+.secao3__cadastro__button {
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 2px gray;
+  font-size: 2rem;
+}
+.secao3__contato {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+}
+.secao3__contato__input {
+  padding: 0.5rem;
+  line-height: 2rem;
+  width: 50%;
+  font-size: 1.5rem;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+.secao3__contato__button {
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 2px gray;
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
 .footer {
   background-color: #e61c5d;
   color: #ffffff;
@@ -391,6 +445,25 @@ p {
   }
   .footer__form {
     display: none;
+  }
+  .secao3 {
+    line-height: 2rem;
+  }
+  .secao3__cadastro, .secao3__contato {
+    margin-top: -1rem;
+  }
+  .secao3__cadastro h2, .secao3__contato h2 {
+    font-size: 2rem;
+    padding: 0 1rem;
+  }
+  .secao3__cadastro__input, .secao3__contato__input {
+    width: 90%;
+  }
+  .secao3__cadastro__button, .secao3__contato__button {
+    font-size: 1.5rem;
+  }
+  .secao3__contato textarea {
+    height: 10rem;
   }
 }
 

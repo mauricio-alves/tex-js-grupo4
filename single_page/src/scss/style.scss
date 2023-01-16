@@ -265,6 +265,57 @@
   }
 }
 
+.secao3 {
+  height: 100vh;
+  padding: 3rem 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+
+  &__cadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &__input {
+      padding: .5rem;
+      line-height: 2rem;
+      width: 50%;
+      font-size: 1.5rem;
+    }
+  
+    &__button {
+      padding: .5rem 1.5rem;
+      cursor: pointer;
+
+      border: none;
+      border-radius: .5rem;
+      box-shadow: 2px 2px 2px gray;
+
+      font-size: 2rem;
+    }
+  }
+
+  &__contato {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    
+    &__input {
+      @include mix.input;
+      width: 100%;
+      margin: .5rem 0;
+    }
+
+    &__button {
+      @include mix.button;
+      margin: .5rem 0;
+    }
+  }
+}
+
 .footer {
   background-color: let.$color2;
   color: let.$color1;
