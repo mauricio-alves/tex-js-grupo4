@@ -1,0 +1,294 @@
+@use "variaveis" as let;
+@use "mixins" as mix;
+@use "extends";
+
+@import url("https://fonts.googleapis.com/css2?family=Della+Respira&family=Forum&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Forum&family=Italiana&display=swap");
+
+/* --------------  HEADER  ----------------  */
+header {
+  background-color: let.$background;
+}
+
+h1 {
+  @extend %text-align-center;
+  font-weight: 700;
+  font-size: 4rem;
+  @extend %text-shadow;
+}
+
+.topo {
+  width: let.$width;
+  @include mix.flex-center;
+  height: 13rem;
+  gap: let.$gap;
+
+  &__logo {
+    display: flex;
+
+    & img {
+      width: 5rem;
+      justify-content: center;
+    }
+  }
+
+  &__logo-name h1::first-letter {
+    font-size: 6rem;
+    font-weight: bold;
+  }
+
+  &__menu-hb {
+    display: none;
+  }
+}
+
+/* --------------  NAVBAR ----------------  */
+.nav_menu {
+  z-index: 1;
+  width: let.$width;
+  background-color: let.$branco-escuro;
+  position: sticky;
+  top: 0;
+
+  & ul {
+    @include mix.flex-center;
+    gap: 1rem;
+    list-style: none;
+    padding: 0.5rem;
+
+    & li a {
+      display: block;
+      color: let.$text;
+      @extend %decoration-none;
+      font-size: 1.4rem;
+      padding: let.$px1;
+      border-radius: 0.2rem;
+      font-weight: 700;
+
+      &:hover {
+        background-color: let.$sombra;
+        color: let.$branco;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+/* --------------  MAIN  ----------------  */
+// SEÇÃO NOSSO HOTEL
+.container {
+  background-color: let.$branco;
+  color: let.$text;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto 0 auto;
+  width: 80vw;
+
+  &__subtitle {
+    @extend %subtitle;
+  }
+
+  &__detalhe {
+    @extend %detalhe;
+  }
+
+  &__content {
+    @extend %content;
+
+    & div {
+      @extend %text-align-center;
+      width: let.$width;
+
+      & img {
+        width: 90%;
+      }
+    }
+
+    &__foto-hotel {
+      @include mix.flex-center;
+      align-items: center;
+    }
+
+    &__text {
+      margin-top: 70px;
+
+      & p {
+        text-align: left;
+        padding-bottom: let.$p1;
+      }
+    }
+  }
+}
+
+// SEÇÃO PRINCIPAIS ACOMODAÇÕES
+.quartos {
+  background-color: let.$background;
+  color: let.$text;
+  padding: 2rem 0;
+  margin-top: 40px;
+
+  & h3 {
+    font-size: 1.5rem;
+  }
+
+  &__subtitle {
+    @extend %subtitle;
+  }
+
+  &__detalhev2 {
+    display: block;
+    width: 40%;
+    height: 0.4vh;
+    margin-left: 30%;
+    margin-top: -1.5%;
+    margin-bottom: 2rem;
+    background-color: let.$branco;
+  }
+
+  &__images {
+    height: 70vh;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+
+    &__card {
+      @extend %text-align-center;
+
+      & div {
+        overflow: hidden;
+        @extend %text-align-center;
+      }
+
+      &__info p {
+        @extend %text-align-center;
+        padding: 0 3rem 3rem 3rem;
+      }
+    }
+  }
+}
+
+// SEÇÃO EXPERIÊNCIA
+.experiencia {
+  background-color: let.$branco;
+  color: let.$text;
+  margin: 40px 0;
+
+  &__subtitle {
+    @extend %subtitle;
+  }
+
+  &__detalhe {
+    @extend %detalhe;
+  }
+
+  &__content {
+    @extend %content;
+
+    & div {
+      @extend %text-align-center;
+      width: let.$width;
+
+      & img {
+        width: 90%;
+      }
+    }
+    &__servicos {
+      display: flex;
+      align-items: center;
+    }
+    &__text {
+      margin-top: 70px;
+
+      & p {
+        text-align: left;
+        padding-bottom: 1rem;
+      }
+    }
+    &__academia p {
+      text-align: right;
+    }
+  }
+}
+
+/* --------------  FOOTER ----------------  */
+footer {
+  padding-top: 2rem;
+  background-color: let.$background;
+
+  & h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.rodape {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 150px;
+
+  &__seta {
+    @include mix.flex-center;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    gap: 8rem;
+
+    & div {
+      display: flex;
+    }
+
+    &__idioma select {
+      font-weight: bold;
+    }
+
+    &__top-btn img {
+      width: 35px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 50px;
+
+    &__termos ul li,
+    &__sobre-nos ul li,
+    &__navegacao ul li {
+      @extend %list-none;
+
+      & a {
+        padding: 5px;
+        @extend %decoration-none;
+        color: let.$title;
+        font-weight: bold;
+
+        &:hover {
+          padding: 5px;
+          background-color: let.$sombra;
+          color: let.$branco;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+
+#redes-sociais {
+  & a:hover {
+    padding: 5px;
+    background-color: let.$background;
+    color: let.$branco;
+    border-radius: 0;
+  }
+
+  & img {
+    width: 35px;
+    border-radius: 20px;
+  }
+}
+
+// RESPONSIVIDADE
+@include mix.media;

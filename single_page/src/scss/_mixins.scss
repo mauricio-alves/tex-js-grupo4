@@ -1,0 +1,110 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin input {
+  padding: .5rem;
+  line-height: 2rem;
+  width: 50%;
+  font-size: 1.5rem;
+}
+
+@mixin button {
+  padding: .5rem 1.5rem;
+  cursor: pointer;
+
+  border: none;
+  border-radius: .5rem;
+  box-shadow: 2px 2px 2px gray;
+
+  font-size: 2rem;
+}
+
+@mixin media-mobile-portrait {
+  @media (max-width: 414px) and (orientation: portrait) {
+    .menu-hb {
+      display: block;
+      position: absolute;
+      top: 2vw;
+      right: 2vw;
+    }
+
+    .menu-hb img {
+      width: 2rem;
+    }
+
+    .container {
+      &__menu {
+        display: none;
+      }
+
+      &__header-left {
+        margin-top: 100px;
+        padding: 0;
+        display: flex;
+        text-align: center;
+      }
+    }
+
+    .image {
+      height: 100vh;
+      &__top-wrapper {
+        &__container {
+          & p a:nth-child(2) {
+            display: none;
+          }
+          & h1 {
+            margin-bottom: 100px;
+          }
+        }
+        &__content {
+          display: none;
+        }
+        padding-top: 300px;
+        height: 100vh;
+      }
+    }
+
+    .beneficios {
+      height: 100%;
+      padding-bottom: 2rem;
+      &__div {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 4rem 0;
+      }
+    }
+
+    .footer__form {
+      display: none;
+    }
+
+    .secao3 {
+      line-height: 2rem;
+
+      &__cadastro,  &__contato {
+        margin-top: -1rem;
+
+        & h2 {
+          font-size: 2rem;
+          padding: 0 1rem;
+        }
+
+        &__input {
+          width: 90%;
+        }
+
+        &__button {
+          font-size: 1.5rem;
+        }
+      }
+
+      &__contato {
+        & textarea {
+          height: 10rem;
+        }
+      }
+    }
+  }
+}
