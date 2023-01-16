@@ -1,0 +1,77 @@
+@use "variaveis" as let;
+@use "mixins" as mix;
+@use "extends";
+
+footer {
+  padding-top: 2rem;
+  background-color: let.$background;
+
+  & h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.rodape {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 150px;
+
+  &__seta {
+    @include mix.flex-center;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    gap: 8rem;
+
+    & div {
+      display: flex;
+    }
+
+    &__idioma select {
+      font-weight: bold;
+    }
+
+    &__top-btn img {
+      width: 35px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 50px;
+
+    &__termos ul li,
+    &__sobre-nos ul li,
+    &__navegacao ul li {
+      @extend %list-none;
+
+      & a {
+        padding: 5px;
+        @extend %decoration-none;
+        color: let.$title;
+        font-weight: bold;
+
+        &:hover {
+          padding: 5px;
+          background-color: let.$sombra;
+          color: let.$branco;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+
+#redes-sociais {
+  & a:hover {
+    padding: 5px;
+    background-color: let.$background;
+    color: let.$branco;
+    border-radius: 0;
+  }
+
+  & img {
+    width: 35px;
+    border-radius: 20px;
+  }
+}
