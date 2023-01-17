@@ -1,29 +1,23 @@
-// const checkIn = document.getElementById('checkin');
-// const checkOut = document.getElementById('checkout');
-// const qtd = document.getElementById('qtd_adultos');
+// init
+let accommodation, checkIn, checkOut, qty, total;
 
-// const radios = document.querySelectorAll('input[name="quarto"]');
+const date = new Date();
+const dateStart = date.toLocaleDateString('af-ZA');
+const dateEnd = new Date(date.setDate(date.getDate() + 1)).toLocaleDateString('af-ZA');
 
+document.getElementById('checkin').value = dateStart;
+document.getElementById('checkout').value = dateEnd;
+document.getElementById('qtd_adultos').value = 1;
 
 // get all changeable form components
 const form = document.querySelectorAll('input[name="quarto"], input[type="date"], input[type="number"]');
-
-
-// get accommodation
-// let accommodation;
-
-// radios.forEach((elem) => {
-//   elem.addEventListener("change", (e) => {
-//     accommodation = e.target.value;
-//     console.log(accommodation);
-//   });
-// });
 
 form.forEach((item) => {
   // item.addEventListener("change", (e) => overView(e.target));
   item.addEventListener("change", () => overView());
 });
 
+// set accommodations
 const accommodations = [{ accommodation: 'Apartamento Casal',
                           price: 190 
                         },
@@ -34,20 +28,31 @@ const accommodations = [{ accommodation: 'Apartamento Casal',
                           price: 600
                         }];
 
+// send values to booking panel
 const putElement = (type, element, value) => {
   document.getElementById(element).innerHTML = `<span>${type}: </span>${value}`;
-}
-
+};
 
 const overView = () => {
-  const checkIn = document.getElementById('checkin').value;
-  const checkOut = document.getElementById('checkout').value;
-  const qtd = document.getElementById('qtd_adultos').value;
   const indexAcc = document.querySelector('input[name="quarto"]:checked').value;
 
-  putElement('Quarto', 'span-quarto', accommodations[indexAcc].accommodation);
+  accommodation = accommodations[indexAcc].accommodation;
+  checkIn = document.getElementById('checkin').value;
+  checkOut = document.getElementById('checkout').value;
+  qty = document.getElementById('qtd_adultos').value;
+  total = (qty * accommodations[indexAcc].price).toFixed(2);
+
+  putElement('Quarto', 'span-quarto', accommodation);
   putElement('Check in', 'span-checkin', checkIn);
   putElement('Check out', 'span-checkout', checkOut);
-  putElement('Pessoas', 'span-qtd', qtd);
-  putElement('Total', 'span-total', `R$ ${(qtd * accommodations[indexAcc].price).toFixed(2)}`);
+  putElement('Pessoas', 'span-qtd', qty);
+  putElement('Total', 'span-total', `R$ ${total}`);
+};
+
+const book = () => {
+  // localStorage
+  const booking = { accommodation, checkIn, checkOut, qty, total };
+  localStorage.setItem('booking', JSON.stringify(booking));
 }
+
+overView();
