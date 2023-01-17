@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home</title>
-
   <link rel="stylesheet" href="../assets/styles/home.css" />
   <script src="../script/home.js" async></script>
 </head>
-
 <body>
-  <div id="user"></div>
-  <div id="email"></div>
-  <button onclick="clearStorage()">Limpar Storage</button>
-
   <header id="topo" class="topo">
-    <div class="background">
-      <video autoplay loop src="../assets/videos/sunset.mp4" type="video/mp4"></video>
+    <div class="painel-usuario" id="painel">
+      <div id="user">Usuário</div>
+      <div id="email">Email</div>
+      <div class="painel-sair">
+        <button onclick="clearStorage()">sair</button>
+      </div>
     </div>
+
+    <div class="background">
+      <!-- <video autoplay loop src="../assets/videos/sunset.mp4" type="video/mp4"></video> -->
+      <!-- <video autoplay loop src="../assets/videos/sunset.mp4" type="video/mp4"></video> -->
+
+      <!-- <img id="imagem-fundo" class="imagem-header" src="" alt="">
+      <div class="slogan"><p id="texto"></p></div> -->
+      <img id="imagem-fundo" class="imagem-header" src="" alt="">
+
+    </div>
+
+    <div class="slogan"><p id="texto"></p></div>
+
       <div class="logo">
         <img src="../assets/images/beach-svgrepo-com.svg" />
       </div>
@@ -30,7 +40,6 @@
       <img src="../assets/images/hamburger-menu-24.png" alt="menu hamburguer" />
     </div>
   </header>
-
   <nav class="nav_menu">
     <ul>
       <li><a href="/public">Home</a></li>
@@ -41,7 +50,6 @@
       <li><a href="/public/login.html">Login</a></li>
     </ul>
   </nav>
-
   <main>
     <section class="container">
       <article class="white-bg">
@@ -132,7 +140,6 @@
       </article>
     </section>
   </main>
-
   <footer class="about blue-bg">
     <div>
       <div class="rodape">
@@ -146,7 +153,6 @@
               <li><a href="/public/reserva.html">Reservas</a></li>
               <li><a href="/public/contato.html">Contato</a></li>
               <li><a href="/public/login.html">Login</a></li>
-              <li><a href="/admin">Admin</a></li>
             </ul>
           </div>
           <div class="sobre-nos">
@@ -191,5 +197,4 @@
     </div>
   </footer>
 </body>
-
 </html>
