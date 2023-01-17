@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="../assets/styles/sobre.css" />
     <link rel="stylesheet" href="../assets/styles/reservas.css" />
+    <script src="../script/reserva.js" async></script>
 </head>
 
 <body>
@@ -52,7 +53,7 @@
                     </div>
                     <div>
                         <label for="qtd_adultos">Número de pessoas:</label>
-                        <input id="qtd_adultos" type="number" max="4" placeholder="limite de 4 pessoas" />
+                        <input id="qtd_adultos" type="number" min="1" max="4" placeholder="limite de 4 pessoas" />
                     </div>
                 </form>
             </article>
@@ -74,9 +75,8 @@
                                 ama!.</p>
                             <p>R$ 190,00</p>
                             <div>
-                                <input type="radio" name="quarto" id="casal" checked />
-                                <label for="casal">Selecionar o Apartamento
-                                    Casal</label>
+                                <input type="radio" name="quarto" id="casal" value="0" />
+                                <label for="casal">Selecionar o Apartamento Casal</label>
                             </div>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                                 sensacional.</p>
                             <p>R$ 350,00</p>
                             <div>
-                                <input type="radio" name="quarto" id="executiva" />
+                                <input type="radio" name="quarto" id="executiva" value="1" />
                                 <label for="executiva">Selecionar a Suíte Executiva</label>
                             </div>
                         </div>
@@ -111,7 +111,7 @@
                                 conferir!</p>
                             <p>R$ 600,00</p>
                             <div>
-                                <input type="radio" name="quarto" id="presidencial" />
+                                <input type="radio" name="quarto" id="presidencial" value="2" />
                                 <label for="presidencial">Selecionar a Suíte Presidencial Luxo</label>
                             </div>
                         </div>
@@ -123,11 +123,20 @@
                     <h3>Resumo da Reserva</h3>
                 </div>
                 <div class="resumo">
-                    <p><span>Quarto:</span> Apartamento Casal</p>
+                    <!-- <p><span>Quarto:</span> Apartamento Casal</p>
                     <p><span>Check in:</span> 29/12/2022</p>
                     <p><span>Check out:</span> 03/01/2023</p>
                     <p><span>Pessoas:</span> 2</p>
-                    <p><span>Total:</span> R$3.000,00</p>
+                    <p><span>Total:</span> R$3.000,00</p> -->
+
+
+                    <p class="resumo__quarto" id="span-quarto"></p>
+                    <p class="resumo__checkin" id="span-checkin"></p>
+                    <p class="resumo__checkout" id="span-checkout"></p>
+                    <p class="resumo__qtd" id="span-qtd"></p>
+                    <p class="resumo__total" id="span-total"></p>
+
+
                 </div>
                 <div class="link"><a href="#"><span>Adicionar mais serviços</span></a></div>
                 <div class="btn"><button>Continuar</button></div>
