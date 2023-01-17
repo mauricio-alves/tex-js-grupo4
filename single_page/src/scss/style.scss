@@ -30,7 +30,7 @@
 
   &__menu {
     padding-top: 10px;
-    margin-top: -40px;
+    margin-top: -80px;
     float: right;
     & a {
       text-decoration: none;
@@ -168,7 +168,8 @@
 
     & h1 {
       font-weight: bold;
-      font-size: 4rem;
+      font-size: 2.8rem;
+      font-family: let.$h1;
     }
 
     &:hover {
@@ -192,7 +193,8 @@
 
     & h1 {
       font-weight: bold;
-      font-size: 4rem;
+      font-size: 2.8rem;
+      font-family: let.$h1;
     }
 
     &:hover {
@@ -275,65 +277,97 @@
   width: 90%;
   margin-bottom: 3rem;
 
-  & h2 {
-    text-align: center;
-    font-size: 3rem;
-    font-family: let.$h1;
-    @extend %text-shadow;
-    color: let.$color1;
-  }
-
-  &__cadastro {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
-    &__input {
-      padding: 0.5rem;
-      line-height: 2rem;
-      width: 50%;
-      font-size: 1.5rem;
-      font-style: italic;
+  &__contatos {
+    & h2 {
+      text-align: center;
+      font-size: 3rem;
+      font-family: let.$h1;
+      @extend %text-shadow;
+      color: let.$color1;
+      margin: 1rem 0;
     }
+    &__links {
+      & ul {
+        @extend %list-none;
+        display: flex;
+        gap: 3rem;
+        margin-bottom: 3rem;
 
-    &__button {
-      padding: 0.5rem 1.5rem;
-      cursor: pointer;
-      border-radius: 0.5rem;
-      font-size: 2rem;
+        & li a {
+          @extend %decoration-none;
+          color: let.$color1;
+          padding: 5px;
+          font-family: let.$p;
 
-      &:hover {
-        @include mix.btnHover;
+          &:hover {
+            padding: 30px 5px 5px 5px;
+            background-color: let.$color1;
+            color: let.$color2;
+            border-radius: 5px;
+          }
+        }
       }
     }
   }
 
-  &__contato {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-
-    &__input {
-      @include mix.input;
-      width: 100%;
-      margin: 0.5rem 0;
-      font-style: italic;
+  &__redes {
+    & h2 {
+      text-align: center;
+      font-size: 3rem;
+      font-family: let.$h1;
+      @extend %text-shadow;
+      color: let.$color1;
+      margin-bottom: 1rem;
     }
 
-    &__button {
-      @include mix.button;
-      margin: 0.5rem 0;
+    &__links {
+      display: flex;
+      & ul {
+        @extend %list-none;
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        justify-content: flex-start;
 
-      &:hover {
-        @include mix.btnHover;
+        & li a {
+          @extend %decoration-none;
+          color: let.$color1;
+          padding: 5px;
+          font-family: let.$p;
+
+          &:hover {
+            padding: 30px 5px 5px 5px;
+            background-color: let.$color1;
+            color: let.$color2;
+            border-radius: 5px;
+          }
+        }
       }
+    }
+  }
+
+  &__local {
+    text-align: center;
+
+    & p {
+      color: let.$color1;
+      padding: 5px;
+      font-family: let.$p;
+      text-align: center;
+
+      align-items: center;
+    }
+
+    & iframe {
+      width: 650px;
+      height: 350px;
     }
   }
 }
 
 .footer {
   background-color: let.$color2;
+  height: let.$height;
   color: let.$color1;
   @include mix.flex-center;
   gap: let.$gap;
@@ -341,73 +375,76 @@
   width: let.$width;
   bottom: 0;
 
-  &__local {
+  &__form {
     @include mix.flex-center;
     flex-direction: column;
 
-    & h3 {
+    & h2 {
       @extend %margin-bottom;
+      text-align: center;
+      font-size: 3rem;
+      font-family: let.$h1;
+      @extend %text-shadow;
+      color: let.$color1;
+    }
+
+    &__input {
+      @extend %margin-bottom;
+      & input {
+        @include mix.input;
+        width: 600px;
+        margin: 0.5rem 0;
+        font-style: italic;
+      }
+    }
+
+    &__btn {
+      @include mix.button;
       font-family: let.$p;
-      font-size: 1.8rem;
+
+      &:hover {
+        background-color: black;
+        color: let.$color1;
+        color: let.$color1;
+        transition: all 0.3s ease-in-out;
+      }
     }
   }
 
   &__links {
-    & h3 {
+    @include mix.flex-center;
+    flex-direction: column;
+    margin-top: -130px;
+    margin-left: -50px;
+
+    & h2 {
       @extend %margin-bottom;
-      font-family: let.$p;
-      font-size: 1.8rem;
+      text-align: center;
+      font-size: 3rem;
+      font-family: let.$h1;
+      @extend %text-shadow;
+      color: let.$color1;
     }
+
     & ul {
       @extend %list-none;
       display: flex;
       flex-flow: column;
       gap: 30px;
-      padding-top: 30px;
 
       & li a {
         @extend %decoration-none;
         color: let.$color1;
         margin-bottom: 20px;
-        padding: 5px;
         font-family: let.$p;
         font-size: 1.5rem;
+        @include mix.button;
 
         &:hover {
-          padding: 5px;
           background-color: let.$color1;
           color: let.$color2;
           border-radius: 5px;
-        }
-      }
-    }
-  }
-
-  &__redes {
-    & h3 {
-      @extend %margin-bottom;
-      font-family: let.$p;
-      font-size: 1.8rem;
-    }
-    & ul {
-      @extend %list-none;
-
-      & li {
-        display: flex;
-        flex-direction: column;
-      }
-
-      & li a {
-        @extend %decoration-none;
-        color: let.$color1;
-        padding: 5px;
-        font-family: let.$p;
-
-        &:hover {
-          padding: 5px 5px 5px 5px;
-          background-color: let.$color1;
-          color: let.$color2;
-          border-radius: 5px;
+          transition: all 0.3s ease-in-out;
         }
       }
     }
