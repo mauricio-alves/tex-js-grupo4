@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="../assets/styles/sobre.css" />
     <link rel="stylesheet" href="../assets/styles/reservas.css" />
-    <script src="../script/reserva.js" async></script>
+    <script src="../script/reservas/reserva.js" type="module" async></script>
 </head>
 
 <body>
@@ -63,6 +63,7 @@
                     <span class="detalhev3"></span>
                 </div>
                 <div class="images">
+
                     <div class="card">
                         <div> <a href="../public/acomodacoes.html"><img src="../assets/images/Quarto Casal.png"
                                     alt="Apartamento Casal" title="Apartamento Casal" /></a>
@@ -80,6 +81,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="card">
                         <div> <a href="../public/acomodacoes.html"><img src="../assets/images/SuítePresidencial.jpg"
                                     alt="Suíte Executiva" title="Suíte Executiva" /></a>
@@ -116,6 +118,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </article>
             <aside class="escolha">
@@ -129,17 +132,43 @@
                     <p><span>Pessoas:</span> 2</p>
                     <p><span>Total:</span> R$3.000,00</p> -->
 
-
                     <p class="resumo__quarto" id="span-quarto"></p>
                     <p class="resumo__checkin" id="span-checkin"></p>
                     <p class="resumo__checkout" id="span-checkout"></p>
                     <p class="resumo__qtd" id="span-qtd"></p>
                     <p class="resumo__total" id="span-total"></p>
 
-
                 </div>
-                <div class="link"><a href="#"><span>Adicionar mais serviços</span></a></div>
-                <div class="btn"><button onclick="book()">Continuar</button></div>
+
+
+                <div class="resumo" id="servicos">
+               
+                    <p></p>
+            
+                </div>
+
+
+                <!-- <div class="link"><a href="#"><span>Adicionar mais serviços</span></a></div> -->
+
+                <div class="btn"><button id="showServices">Adicionar mais serviços</button></div>
+
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                      <span class="close">&times;</span>
+                      <p>Serviços Adicionais</p>
+
+                      <div id="services-content"></div>
+                      
+                      <button id="clearServices">Limpar Seleção</button><button id="confirmServices">Confirmar</button>
+                    </div>
+
+                  </div>
+                
+                <div class="btn"><button id="cleanBook">Limpar Seleção</button></div>
+
+                <div class="btn"><button id="book">Continuar</button></div>
             </aside>
         </section>
     </main>
