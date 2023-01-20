@@ -1,14 +1,24 @@
 import { dbAccommodations } from './db.js';
 import { showServices, clearServices, confirmServices, createService } from './services.js';
+import { showDetails, confirmBook } from './details.js';
 
-let accommodation, checkIn, checkOut, qty, total;
+let id, accommodation, checkIn, checkOut, qty, total;
 let services = [];
 
-const init = () => {  
+const init = () => {
+  // ======== proximos passos ========
+  // se existe localstorage entao carrega localstorage
+  // senao carrega init
+
+  // referencia serviços
+
   const date = new Date();
   const dateStart = date.toLocaleDateString('af-ZA');
   const dateEnd = new Date(date.setDate(date.getDate() + 1)).toLocaleDateString('af-ZA');
   
+  const radios = document.querySelectorAll('input[type="radio"]');
+  radios[0].checked = true;
+
   document.getElementById('checkin').value = dateStart;
   document.getElementById('checkout').value = dateEnd;
   document.getElementById('qtd_adultos').value = 1;
@@ -66,42 +76,45 @@ const putElement = (type, element, value) => {
 
 const overview = () => {
   const bookingStorage = JSON.parse(localStorage.getItem('booking'));
-
-  const indexAcc = document.querySelector('input[name="quarto"]:checked').value;
+  
+  id = document.querySelector('input[name="quarto"]:checked').value;
 
   let sumServices = 0;
 
-  accommodation = dbAccommodations[indexAcc].accommodation;
+  accommodation = dbAccommodations[id].accommodation;
   checkIn = document.getElementById('checkin').value;
   checkOut = document.getElementById('checkout').value;
   qty = document.getElementById('qtd_adultos').value;
 
   // looking for services
+  services = [];
   if (bookingStorage && bookingStorage.services.length) {
-    services = [];
-
     bookingStorage.services.forEach(service => {
       services.push(service);
       sumServices += service.price;
     });
   };
 
-  total = (sumServices + (qty * dbAccommodations[indexAcc].price)).toFixed(2);
+  total = sumServices + (qty * dbAccommodations[id].price);
 
   putElement('Quarto', 'span-quarto', accommodation);
   putElement('Check in', 'span-checkin', checkIn);
   putElement('Check out', 'span-checkout', checkOut);
   putElement('Pessoas', 'span-qtd', qty);
-  putElement('Total', 'span-total', `R$ ${total}`);
+  putElement('Total', 'span-total', `R$ ${total.toFixed(2)}`);
 
   // createServices()
   createService(bookingStorage ? bookingStorage.services : null);
 };
 
-const book = () => {
+const bookDetails = () => {
+  // overview();
+
   // localStorage
-  const booking = { accommodation, checkIn, checkOut, qty, services, total };
+  const booking = { id, accommodation, checkIn, checkOut, qty, services, total };
   localStorage.setItem('booking', JSON.stringify(booking));
+
+  showDetails();
 };
 
 const cleanBook = () => {
@@ -111,19 +124,18 @@ const cleanBook = () => {
 };
 
 // ============= book =============
-document.querySelector('#book').addEventListener('click', book);
+document.querySelector('#bookDetails').addEventListener('click', bookDetails);
 document.querySelector('#cleanBook').addEventListener('click', cleanBook);
+document.querySelector('#confirmBook').addEventListener('click', confirmBook);
 // ============= book =============
 
 
-// ============= modal =============
+// ========= modalServices =========
 document.querySelector('#showServices').addEventListener('click', showServices);
 document.querySelector('#clearServices').addEventListener('click', clearServices);
 document.querySelector('#confirmServices').addEventListener('click', confirmServices);
-// ============= modal =============
+// ========= modalServices =========
 
-
-init();
 
 // accommodations
 dbAccommodations.forEach(item => {
@@ -138,11 +150,14 @@ dbAccommodations.forEach(item => {
 // get all changeable form components
 const form = document.querySelectorAll('input[name="quarto"], input[type="date"], input[type="number"]');
 
+// initial values
+init();
+
 form.forEach((item) => {
   // item.addEventListener("change", (e) => overView(e.target));
   item.addEventListener("change", () => overview());
 });
 
-// overview();
+overview();
 
-export { overview, book };
+export { overview, cleanBook };

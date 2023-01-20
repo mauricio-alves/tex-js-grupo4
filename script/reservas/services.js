@@ -1,8 +1,8 @@
 import { dbServices } from './db.js';
 import { overview } from './reserva.js';
 
-const modal = document.getElementById('myModal');
-const closeModal = document.getElementsByClassName('close')[0];
+const modal = document.getElementById('modalServices');
+const closeModal = document.getElementById('closeModalServices');
 
 const createService = (services) => {
   const overviewServices = document.getElementById('servicos');
@@ -64,9 +64,8 @@ closeModal.onclick = () => {
   
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = (event) => {
-  if (event.target == modal) {
+  if (event.target == modal)
     modal.style.display = 'none';
-  };
 };
   
 const clearServices = () => {
