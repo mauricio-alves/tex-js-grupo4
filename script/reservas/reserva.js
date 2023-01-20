@@ -1,4 +1,4 @@
-import { dbAccommodations, dbServices } from './db.js';
+import { dbAccommodations } from './db.js';
 import { showServices, clearServices, confirmServices, createService } from './services.js';
 
 let accommodation, checkIn, checkOut, qty, total;
@@ -14,13 +14,50 @@ const init = () => {
   document.getElementById('qtd_adultos').value = 1;
 };
 
-// get all changeable form components
-const form = document.querySelectorAll('input[name="quarto"], input[type="date"], input[type="number"]');
+const createAccommodation = (image, accommodation, description, price, idLabel, id) => {
+  const cards = document.getElementById('cards');
 
-form.forEach((item) => {
-  // item.addEventListener("change", (e) => overView(e.target));
-  item.addEventListener("change", () => overview());
-});
+  const divCard = document.createElement('div');
+  const divInfo = document.createElement('div');
+  const divInput = document.createElement('div');
+  const img = document.createElement('img');
+  const h3 = document.createElement('h3');
+  const pDesc = document.createElement('p');
+  const pPrice = document.createElement('p');
+  const input = document.createElement('input');
+  const label = document.createElement('label');
+
+  divCard.setAttribute('class', 'card');
+    img.setAttribute('src', image);
+    img.setAttribute('alt', accommodation);
+    img.setAttribute('title', accommodation);
+
+  divInfo.setAttribute('class', 'info');
+    h3.appendChild(document.createTextNode(accommodation));
+    pDesc.appendChild(document.createTextNode(description));
+    pPrice.appendChild(document.createTextNode(`R$ ${price.toFixed(2)}`));
+
+    input.setAttribute('type', 'radio');
+    input.setAttribute('name', 'quarto');
+    input.setAttribute('id', idLabel);
+    input.setAttribute('value', id);
+
+    label.setAttribute('for', idLabel);
+    label.appendChild(document.createTextNode('Selecionar Apartamento Casal'));
+
+  divInput.appendChild(input);
+  divInput.appendChild(label);
+
+  divInfo.appendChild(h3);
+  divInfo.appendChild(pDesc);
+  divInfo.appendChild(pPrice);
+  divInfo.appendChild(divInput); 
+
+  divCard.appendChild(img);
+  divCard.appendChild(divInfo);
+
+  cards.appendChild(divCard);
+};
 
 // send values to booking panel
 const putElement = (type, element, value) => {
@@ -69,6 +106,7 @@ const book = () => {
 
 const cleanBook = () => {
   localStorage.clear();
+  init();
   overview();
 };
 
@@ -84,29 +122,26 @@ document.querySelector('#confirmServices').addEventListener('click', confirmServ
 // ============= modal =============
 
 
-overview();
 init();
 
+// accommodations
+dbAccommodations.forEach(item => {
+  createAccommodation(item.image,
+                      item.accommodation,
+                      item.description,
+                      item.price,
+                      item.idLabel,
+                      item.id);
+});
+
+// get all changeable form components
+const form = document.querySelectorAll('input[name="quarto"], input[type="date"], input[type="number"]');
+
+form.forEach((item) => {
+  // item.addEventListener("change", (e) => overView(e.target));
+  item.addEventListener("change", () => overview());
+});
+
+// overview();
+
 export { overview, book };
-
-
-// ================ criação no final da aula do dia 19jan2023 ================
-// ====== rotina para automatizar a lista de quartos (dbAccommodations) ======
-
-// const createAccommodation = () => {
-//   const div = document.createElement('div');
-//   const a = document.createElement('a');
-//   const h3 = document.createElement('h3')
-//   const img = document.createElement('img');
-
-  
-
-
-
-//   span.appendChild(document.createTextNode(`${dbServices[service.id].service}: `));
-//       p.appendChild(span);
-//       p.appendChild(document.createTextNode(`R$ ${dbServices[service.id].price.toFixed(2)}`));
-//       overviewServices.appendChild(p);
-
-// };
-
