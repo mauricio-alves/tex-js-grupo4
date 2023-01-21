@@ -145,5 +145,176 @@
   }
 }
 
-// RESPONSIVIDADE
-@include mix.media;
+/* --------------  RESPONSIVIDADE ----------------  */
+@media (max-width: 1580px) and (orientation: landscape) {
+  #imagem1,
+  #imagem2,
+  #imagem3 {
+    width: 300px;
+    height: 180px;
+  }
+}
+
+/* TABLET LANDSCAPE */
+@media (max-width: 1194px) and (orientation: landscape) {
+  p {
+    font-size: 1rem;
+    padding: 0 5px;
+  }
+
+  .container {
+    width: 90vw;
+    &__content {
+      align-items: center;
+      &__text {
+        margin-top: 0px;
+        padding: 0 10px;
+      }
+    }
+    &__subtitle {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+/* TABLET PORTRAIT */
+@media (max-width: 1024px) and (orientation: portrait) {
+  p {
+    font-size: 1rem;
+  }
+
+  .container {
+    width: 90vw;
+    &__content {
+      &__text {
+        margin-top: 0px;
+      }
+    }
+    &__subtitle {
+      font-size: 1.5rem;
+    }
+  }
+
+  #imagem1,
+  #imagem2,
+  #imagem3 {
+    width: 260px;
+    height: 150px;
+  }
+
+  .quartos {
+    height: 60vh;
+  }
+}
+
+/* MOBILE LANDSCAPE */
+@media (max-width: 915px) and (orientation: landscape) {
+  .container {
+    width: 95vw;
+    &__content {
+      &__text {
+        margin-top: 0px;
+      }
+    }
+    &__subtitle {
+      font-size: 2rem;
+    }
+  }
+
+  .quartos {
+    margin: 0;
+    padding: 0 20px;
+    height: 90vw;
+
+    &__images {
+      display: flex;
+      flex-direction: column;
+      margin-top: 80px;
+
+      & div {
+        display: flex;
+        align-items: center;
+        overflow: visible;
+      }
+
+      &__card {
+        & div {
+          justify-content: center;
+        }
+
+        &__info {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
+
+/* MOBILE PORTRAIT */
+@media (max-width: 414px) and (orientation: portrait) {
+  .container {
+    width: let.$width;
+
+    &__detalhe {
+      width: 45%;
+      margin-left: 27%;
+    }
+
+    &__content {
+      flex-direction: column;
+      &__text {
+        padding: 20px;
+        & p {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .quartos {
+    margin: 0;
+    padding: 40px 0 1550px 0;
+    height: let.$height;
+
+    &__images {
+      display: flex;
+      flex-direction: column;
+      margin-top: 450px;
+    }
+  }
+
+  #imagem1,
+  #imagem2,
+  #imagem3 {
+    width: 300px;
+    height: 180px;
+  }
+
+  .experiencia {
+    &__detalhe {
+      width: 45%;
+      margin-left: 27%;
+    }
+
+    &__content {
+      flex-direction: column;
+
+      & div img:nth-child(2) {
+        display: flex;
+        order: 1;
+      }
+      &__academia {
+        display: flex;
+        order: 2;
+      }
+
+      &__text {
+        margin-top: 0;
+        padding: 0 20px;
+        & p {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

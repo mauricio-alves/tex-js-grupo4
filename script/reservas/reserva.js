@@ -37,12 +37,12 @@ const createAccommodation = (image, accommodation, description, price, idLabel, 
   const input = document.createElement('input');
   const label = document.createElement('label');
 
-  divCard.setAttribute('class', 'card');
+  divCard.setAttribute('class', 'cards__images__card');
     img.setAttribute('src', image);
     img.setAttribute('alt', accommodation);
     img.setAttribute('title', accommodation);
 
-  divInfo.setAttribute('class', 'info');
+  divInfo.setAttribute('class', 'cards__images__card__info');
     h3.appendChild(document.createTextNode(accommodation));
     pDesc.appendChild(document.createTextNode(description));
     pPrice.appendChild(document.createTextNode(`R$ ${price.toFixed(2)}`));
@@ -53,7 +53,7 @@ const createAccommodation = (image, accommodation, description, price, idLabel, 
     input.setAttribute('value', id);
 
     label.setAttribute('for', idLabel);
-    label.appendChild(document.createTextNode('Selecionar Apartamento Casal'));
+    label.appendChild(document.createTextNode(`Selecionar ${accommodation}`));
 
   divInput.appendChild(input);
   divInput.appendChild(label);
