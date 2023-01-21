@@ -57,7 +57,7 @@ p {
   list-style: none;
 }
 
-.rodape__links__termos ul li a, .rodape__links__sobre-nos ul li a, .rodape__links__navegacao ul li a, .nav_menu ul li a {
+.escolha__modal__modal-content__close:hover, .escolha__modal__modal-content__close:focus, .rodape__links__termos ul li a, .rodape__links__sobre-nos ul li a, .rodape__links__navegacao ul li a, .nav_menu ul li a {
   text-decoration: none;
 }
 
@@ -65,32 +65,12 @@ h1 {
   text-shadow: 2px 2px 4px #000;
 }
 
-.container__subtitle, .quartos__subtitle, .experiencia__subtitle {
+.escolha h3, .escolha__btn button {
   text-transform: uppercase;
 }
 
-.container__content div, .quartos__images__card, .quartos__images__card div, .quartos__images__card__info p, .experiencia__content div, h1, .container__subtitle, .quartos__subtitle, .experiencia__subtitle {
+h1 {
   text-align: center;
-}
-
-.container__detalhe, .experiencia__detalhe {
-  display: block;
-  width: 15%;
-  height: 0.4vh;
-  margin-left: 42.5%;
-  margin-top: -1.5%;
-  background-color: #f1eab9;
-}
-
-.container__subtitle, .quartos__subtitle, .experiencia__subtitle {
-  font-size: 2rem;
-  padding: 20px 0;
-}
-
-.container__content, .experiencia__content {
-  display: flex;
-  flex-direction: row;
-  margin-top: 30px;
 }
 
 header {
@@ -346,224 +326,313 @@ footer h3 {
   margin: 40px auto 0 auto;
   width: 80vw;
 }
-.container__content div {
-  width: 100vw;
+.container h2 {
+  font-size: 3rem;
+  line-height: 1.5;
 }
-.container__content div img {
-  width: 90%;
+.container h3 {
+  font-size: 2rem;
+  text-align: left;
 }
-.container__content__foto-hotel {
+.container__form {
+  display: flex;
+  margin: 10px 0 30px 0;
+  gap: 40px;
+}
+.container__form input, .container__form label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+.cards {
+  background-color: #fff;
+  color: #000;
+}
+.cards__detalhe {
+  display: block;
+  width: 30%;
+  height: 0.4vh;
+  margin-bottom: 2rem;
+  background-color: #000;
+}
+.cards__images {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10rem;
+}
+.cards__images div {
+  display: flex;
+  margin-bottom: 10px;
+}
+.cards__images div img {
+  width: 400px;
+  height: 280px;
+}
+.cards__images__card {
+  width: 65vw;
+  border: 2px solid white;
+}
+.cards__images__card:hover {
+  border: 2px solid green;
+}
+.cards__images__card__info {
+  flex-direction: column;
+  padding: 0 0 0 30px;
+}
+.cards__images__card__info p {
+  padding: 0 0 10px 0;
+  text-align: left;
+}
+.cards__images__card__info p:nth-child(3) {
+  font-weight: bold;
+}
+.cards__images__card__info input, .cards__images__card__info label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+.escolha {
+  position: absolute;
+  top: 20rem;
+  right: -7rem;
+  background-color: #f1eab9;
+  width: 20vw;
+  height: 65vh;
+  padding: 40px 20px;
+}
+.escolha h3 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+.escolha__resumo {
+  border: 1px solid black;
+  background-color: rgb(233, 223, 223);
+  width: 18vw;
+  padding: 10px;
+}
+.escolha__resumo span {
+  font-weight: bold;
+}
+.escolha__btn {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
-.container__content__text {
-  margin-top: 70px;
+.escolha__btn button {
+  cursor: pointer;
+  margin-top: 10px;
+  color: rgba(33, 33, 65, 0.9);
+  font-weight: bold;
+  padding: 5px 20px;
 }
-.container__content__text p {
-  text-align: left;
-  padding-bottom: 1rem;
+.escolha__btn button:hover {
+  background-color: rgba(24, 33, 89, 0.5725490196);
+  color: #fff;
+  border-radius: 5px;
 }
-
-.quartos {
-  background-color: #f1eab9;
-  color: #000;
-  padding: 2rem 0;
-  margin-top: 40px;
+.escolha__modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #000; /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
-.quartos h3 {
-  font-size: 1.5rem;
-}
-.quartos__detalhev2 {
-  display: block;
+.escolha__modal__modal-content {
+  background-color: #fff;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 0.3rem;
   width: 40%;
-  height: 0.4vh;
-  margin-left: 30%;
-  margin-top: -1.5%;
-  margin-bottom: 2rem;
-  background-color: #fff;
 }
-.quartos__images {
-  height: 70vh;
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 20px;
-}
-.quartos__images__card div {
-  overflow: hidden;
-}
-.quartos__images__card__info p {
-  padding: 0 3rem 3rem 3rem;
-}
-
-.experiencia {
-  background-color: #fff;
+.escolha__modal__modal-content__close {
   color: #000;
-  margin: 40px 0;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
-.experiencia__content div {
-  width: 100vw;
-}
-.experiencia__content div img {
-  width: 90%;
-}
-.experiencia__content__servicos {
-  display: flex;
-  align-items: center;
-}
-.experiencia__content__text {
-  margin-top: 70px;
-}
-.experiencia__content__text p {
-  text-align: left;
-  padding-bottom: 1rem;
-}
-.experiencia__content__academia p {
-  text-align: right;
+.escolha__modal__modal-content__close:hover, .escolha__modal__modal-content__close:focus {
+  color: #000;
+  cursor: pointer;
 }
 
 /* --------------  RESPONSIVIDADE ----------------  */
 @media (max-width: 1580px) and (orientation: landscape) {
-  #imagem1,
-  #imagem2,
-  #imagem3 {
-    width: 300px;
-    height: 180px;
+  .container__form {
+    gap: 20px;
+  }
+  .escolha {
+    right: -9rem;
+    width: 23vw;
+    height: 72vh;
+  }
+  .escolha__resumo {
+    width: 20vw;
   }
 }
 /* TABLET LANDSCAPE */
 @media (max-width: 1194px) and (orientation: landscape) {
-  p {
-    font-size: 1rem;
-    padding: 0 5px;
+  .container__form {
+    gap: 15px;
   }
-  .container {
-    width: 90vw;
+  .escolha {
+    right: -6.5rem;
+    width: 23vw;
+    height: 83vh;
   }
-  .container__content {
-    align-items: center;
+  .escolha__resumo {
+    width: 20vw;
   }
-  .container__content__text {
-    margin-top: 0px;
-    padding: 0 10px;
-  }
-  .container__subtitle {
-    font-size: 1.5rem;
+  .cards__images div img {
+    width: 300px;
+    height: 200px;
   }
 }
 /* TABLET PORTRAIT */
 @media (max-width: 1024px) and (orientation: portrait) {
-  p {
+  .container__form {
+    gap: 5px;
+  }
+  .escolha {
+    right: -5rem;
+    width: 30vw;
+    height: 48vh;
+  }
+  .escolha__resumo {
+    width: 26vw;
+  }
+  .escolha__resumo p {
     font-size: 1rem;
   }
-  .container {
-    width: 90vw;
+  .cards__images__card {
+    width: 57vw;
   }
-  .container__content__text {
-    margin-top: 0px;
+  .cards__images__card__info p {
+    font-size: 1rem;
   }
-  .container__subtitle {
-    font-size: 1.5rem;
-  }
-  #imagem1,
-  #imagem2,
-  #imagem3 {
-    width: 260px;
+  .cards__images div img {
+    width: 200px;
     height: 150px;
-  }
-  .quartos {
-    height: 60vh;
   }
 }
 /* MOBILE LANDSCAPE */
 @media (max-width: 915px) and (orientation: landscape) {
-  .container {
-    width: 95vw;
+  .container__form {
+    gap: 0px;
   }
-  .container__content__text {
-    margin-top: 0px;
+  .container__form div {
+    margin-bottom: 10px;
   }
-  .container__subtitle {
-    font-size: 2rem;
+  .cards {
+    margin-bottom: -7rem;
   }
-  .quartos {
-    margin: 0;
-    padding: 0 20px;
-    height: 90vw;
+  .cards div h3 {
+    text-align: center;
   }
-  .quartos__images {
+  .cards__detalhe {
+    display: block;
+    width: 30%;
+    height: 0.4vh;
+    margin-left: 34%;
+    margin-top: -1%;
+  }
+  .cards__images {
+    align-items: center;
+  }
+  .cards__images__card {
     display: flex;
     flex-direction: column;
-    margin-top: 80px;
+    width: 100vw;
+    width: 80vw;
   }
-  .quartos__images div {
-    display: flex;
-    align-items: center;
-    overflow: visible;
-  }
-  .quartos__images__card div {
+  .cards__images__card__info h3 {
+    text-align: center;
     justify-content: center;
   }
-  .quartos__images__card__info {
-    flex-direction: column;
+  .cards__images div {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .escolha {
+    position: static;
+    width: 40vw;
+    height: 70vh;
+    margin: 0 auto 10rem auto;
+  }
+  .escolha__resumo {
+    width: 35vw;
   }
 }
 /* MOBILE PORTRAIT */
 @media (max-width: 414px) and (orientation: portrait) {
   .container {
-    width: 100vw;
+    padding: 0 10px;
   }
-  .container__detalhe {
-    width: 45%;
-    margin-left: 27%;
+  .container__form {
+    display: block;
+    margin: 0;
   }
-  .container__content {
-    flex-direction: column;
+  .container__form div {
+    margin-bottom: 10px;
   }
-  .container__content__text {
-    padding: 20px;
+  .cards {
+    margin-bottom: -10rem;
   }
-  .container__content__text p {
+  .cards div h3 {
     text-align: center;
   }
-  .quartos {
-    margin: 0;
-    padding: 40px 0 1550px 0;
-    height: 100vh;
+  .cards__detalhe {
+    display: block;
+    width: 70%;
+    height: 0.4vh;
+    margin-left: 14%;
+    margin-top: -1%;
   }
-  .quartos__images {
+  .cards__images {
+    align-items: center;
+  }
+  .cards__images div {
     display: flex;
-    flex-direction: column;
-    margin-top: 450px;
+    margin-bottom: 20px;
+    align-items: center;
   }
-  #imagem1,
-  #imagem2,
-  #imagem3 {
+  .cards__images div img {
     width: 300px;
     height: 180px;
   }
-  .experiencia__detalhe {
-    width: 45%;
-    margin-left: 27%;
-  }
-  .experiencia__content {
+  .cards__images__card {
+    display: flex;
     flex-direction: column;
+    width: 95vw;
   }
-  .experiencia__content div img:nth-child(2) {
-    display: flex;
-    order: 1;
+  .cards__images__card:hover {
+    border: 2px solid green;
   }
-  .experiencia__content__academia {
-    display: flex;
-    order: 2;
+  .cards__images__card__info {
+    flex-direction: column;
+    padding: 0 0 0 30px;
   }
-  .experiencia__content__text {
-    margin-top: 0;
-    padding: 0 20px;
-  }
-  .experiencia__content__text p {
+  .cards__images__card__info h3 {
     text-align: center;
+    justify-content: center;
+  }
+  .escolha {
+    position: static;
+    width: 75vw;
+    height: 60vh;
+    margin: 0 auto 8rem auto;
+  }
+  .escolha__resumo {
+    width: 65vw;
   }
 }
 
-/*# sourceMappingURL=sobre.css.map */
+/*# sourceMappingURL=reservas.css.map */
