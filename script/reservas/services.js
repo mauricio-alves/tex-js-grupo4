@@ -1,4 +1,4 @@
-import { dbServices } from './db.js';
+import dbServices from '../db/dbServices.js';
 import { overview } from './reserva.js';
 
 const modal = document.getElementById('modalServices');

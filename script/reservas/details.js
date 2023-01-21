@@ -1,4 +1,5 @@
-import { dbAccommodations, dbServices } from './db.js';
+import dbAccommodations from '../db/dbAccommodations.js';
+import dbServices from '../db/dbServices.js';
 import { cleanBook } from './reserva.js';
 
 const modal = document.getElementById('modalDetails');
@@ -60,7 +61,7 @@ const showDetails = () => {
 };
 
 // When the user clicks on <span> (x), close the modal
-  closeModal.onclick = () => {
+closeModal.onclick = () => {
   modal.style.display = 'none';
 };
 

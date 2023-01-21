@@ -1,6 +1,7 @@
-import { dbAccommodations } from './db.js';
+import dbAccommodations from '../db/dbAccommodations.js';
 import { showServices, clearServices, confirmServices, createService } from './services.js';
 import { showDetails, confirmBook } from './details.js';
+import { createAccommodation } from './accommodations.js';
 
 let id, accommodation, checkIn, checkOut, qty, total;
 let services = [];
@@ -24,54 +25,17 @@ const init = () => {
   document.getElementById('qtd_adultos').value = 1;
 };
 
-const createAccommodation = (image, accommodation, description, price, idLabel, id) => {
-  const cards = document.getElementById('cards');
-
-  const divCard = document.createElement('div');
-  const divInfo = document.createElement('div');
-  const divInput = document.createElement('div');
-  const img = document.createElement('img');
-  const h3 = document.createElement('h3');
-  const pDesc = document.createElement('p');
-  const pPrice = document.createElement('p');
-  const input = document.createElement('input');
-  const label = document.createElement('label');
-
-  divCard.setAttribute('class', 'cards__images__card');
-    img.setAttribute('src', image);
-    img.setAttribute('alt', accommodation);
-    img.setAttribute('title', accommodation);
-
-  divInfo.setAttribute('class', 'cards__images__card__info');
-    h3.appendChild(document.createTextNode(accommodation));
-    pDesc.appendChild(document.createTextNode(description));
-    pPrice.appendChild(document.createTextNode(`R$ ${price.toFixed(2)}`));
-
-    input.setAttribute('type', 'radio');
-    input.setAttribute('name', 'quarto');
-    input.setAttribute('id', idLabel);
-    input.setAttribute('value', id);
-
-    label.setAttribute('for', idLabel);
-    label.appendChild(document.createTextNode(`Selecionar ${accommodation}`));
-
-  divInput.appendChild(input);
-  divInput.appendChild(label);
-
-  divInfo.appendChild(h3);
-  divInfo.appendChild(pDesc);
-  divInfo.appendChild(pPrice);
-  divInfo.appendChild(divInput); 
-
-  divCard.appendChild(img);
-  divCard.appendChild(divInfo);
-
-  cards.appendChild(divCard);
-};
-
-// send values to booking panel
+// ===================== support functions =====================
 const putElement = (type, element, value) => {
   document.getElementById(element).innerHTML = `<span>${type}: </span>${value}`;
+};
+
+const bookDetails = () => {
+  // localStorage
+  const booking = { id, accommodation, checkIn, checkOut, qty, services, total };
+  localStorage.setItem('booking', JSON.stringify(booking));
+
+  showDetails();
 };
 
 const overview = () => {
@@ -107,33 +71,28 @@ const overview = () => {
   createService(bookingStorage ? bookingStorage.services : null);
 };
 
-const bookDetails = () => {
-  // overview();
-
-  // localStorage
-  const booking = { id, accommodation, checkIn, checkOut, qty, services, total };
-  localStorage.setItem('booking', JSON.stringify(booking));
-
-  showDetails();
-};
-
 const cleanBook = () => {
   localStorage.clear();
   init();
   overview();
 };
 
+const handleClick = (componentId, fn) => {
+  document.querySelector(componentId).addEventListener('click', fn);
+};
+
+
 // ============= book =============
-document.querySelector('#bookDetails').addEventListener('click', bookDetails);
-document.querySelector('#cleanBook').addEventListener('click', cleanBook);
-document.querySelector('#confirmBook').addEventListener('click', confirmBook);
+handleClick('#bookDetails', bookDetails);
+handleClick('#cleanBook', cleanBook);
+handleClick('#confirmBook', confirmBook);
 // ============= book =============
 
 
 // ========= modalServices =========
-document.querySelector('#showServices').addEventListener('click', showServices);
-document.querySelector('#clearServices').addEventListener('click', clearServices);
-document.querySelector('#confirmServices').addEventListener('click', confirmServices);
+handleClick('#showServices', showServices);
+handleClick('#clearServices', clearServices);
+handleClick('#confirmServices', confirmServices);
 // ========= modalServices =========
 
 
