@@ -16,8 +16,8 @@ const showDetails = () => {
 
   document.getElementById('detailsAccommodation').innerText = bookingStorage.accommodation;
   document.getElementById('detailsDescription').innerText = dbAccommodations[bookingStorage.id].description;
-  document.getElementById('detailsCheckin').innerText = `Check in: ${bookingStorage.checkIn}`;
-  document.getElementById('detailsCheckout').innerText = `Check out ${bookingStorage.checkOut}`;
+  document.getElementById('detailsCheckin').innerText = `Check in: ${new Date(bookingStorage.checkIn).toLocaleDateString('pt-br')}`;
+  document.getElementById('detailsCheckout').innerText = `Check out: ${new Date(bookingStorage.checkOut).toLocaleDateString('pt-br')}`;
   
   document.getElementById('detailsQty').innerText = `Hóspedes: ${bookingStorage.qty}`;
   

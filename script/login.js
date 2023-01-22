@@ -1,5 +1,5 @@
-// default values
-const values = { email: 'user@email.com', password: 'pass' };
+import dbLogin from './db/dbLogin.js';
+import handleClick from './functions/handleClick.js';
 
 const getElement = (elementId) => {
   return document.getElementById(elementId).value;
@@ -18,7 +18,7 @@ const login = () => {
     return alert('Atenção! Os campos usuário e senha devem ser preenchidos.');
 
   const filteredEmail = removeQuotesSpaces(email);
-  if (filteredEmail !== values.email || password !== values.password)
+  if (filteredEmail !== dbLogin.email || password !== dbLogin.password)
     return alert('Atenção! Email ou senha inválidos.');
 
   // send to localStorage  
@@ -27,3 +27,5 @@ const login = () => {
   // redirect to home
   window.location.href = '/';
 };
+
+handleClick('#login', login);

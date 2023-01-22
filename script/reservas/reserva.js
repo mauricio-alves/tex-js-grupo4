@@ -2,32 +2,42 @@ import dbAccommodations from '../db/dbAccommodations.js';
 import { showServices, clearServices, confirmServices, createService } from './services.js';
 import { showDetails, confirmBook } from './details.js';
 import { createAccommodation } from './accommodations.js';
+import handleClick from '../functions/handleClick.js';
+import putElement from '../functions/putElement.js';
+import { getDateForInput } from '../functions/getDate.js';
 
 let id, accommodation, checkIn, checkOut, qty, total;
 let services = [];
 
 const init = () => {
-  // ======== proximos passos ========
-  // se existe localstorage entao carrega localstorage
-  // senao carrega init
-
-  // referencia serviços
-
-  const date = new Date();
-  const dateStart = date.toLocaleDateString('af-ZA');
-  const dateEnd = new Date(date.setDate(date.getDate() + 1)).toLocaleDateString('af-ZA');
-  
   const radios = document.querySelectorAll('input[type="radio"]');
-  radios[0].checked = true;
 
-  document.getElementById('checkin').value = dateStart;
-  document.getElementById('checkout').value = dateEnd;
-  document.getElementById('qtd_adultos').value = 1;
-};
+  if (!localStorage.booking) {    
+    radios[0].checked = true;
 
-// ===================== support functions =====================
-const putElement = (type, element, value) => {
-  document.getElementById(element).innerHTML = `<span>${type}: </span>${value}`;
+    document.getElementById('checkin').value = getDateForInput().checkIn;
+    document.getElementById('checkout').value = getDateForInput().checkOut;
+    document.getElementById('qtd_adultos').value = 1;
+  } else {
+    const bookingStorage = JSON.parse(localStorage.getItem('booking'));
+
+    radios[bookingStorage.id].checked = true;
+
+    const yearCheckin = bookingStorage.checkIn.slice(0, 4);
+    const monthCheckin = bookingStorage.checkIn.slice(5, 7);
+    const dayCheckin = bookingStorage.checkIn.slice(8, 10);
+
+    const yearCheckout = bookingStorage.checkOut.slice(0, 4);
+    const monthCheckout = bookingStorage.checkOut.slice(5, 7);
+    const dayCheckout = bookingStorage.checkOut.slice(8, 10);
+
+    checkIn = `${yearCheckin}-${monthCheckin}-${dayCheckin}`;
+    checkOut = `${yearCheckout}-${monthCheckout}-${dayCheckout}`;
+
+    document.getElementById('checkin').value = checkIn;
+    document.getElementById('checkout').value = checkOut;
+    document.getElementById('qtd_adultos').value = bookingStorage.qty;
+  };
 };
 
 const bookDetails = () => {
@@ -45,9 +55,18 @@ const overview = () => {
 
   let sumServices = 0;
 
+  const yearCheckin = document.getElementById('checkin').value.slice(0, 4);
+  const monthCheckin = document.getElementById('checkin').value.slice(5, 7);
+  const dayCheckin = document.getElementById('checkin').value.slice(8);
+
+  const yearCheckout = document.getElementById('checkout').value.slice(0, 4);
+  const monthCheckout = document.getElementById('checkout').value.slice(5, 7);
+  const dayCheckout = document.getElementById('checkout').value.slice(8);
+    
+
   accommodation = dbAccommodations[id].accommodation;
-  checkIn = document.getElementById('checkin').value;
-  checkOut = document.getElementById('checkout').value;
+  checkIn = new Date(yearCheckin, monthCheckin-1, dayCheckin);
+  checkOut = new Date(yearCheckout, monthCheckout-1, dayCheckout);
   qty = document.getElementById('qtd_adultos').value;
 
   // looking for services
@@ -62,8 +81,8 @@ const overview = () => {
   total = sumServices + (qty * dbAccommodations[id].price);
 
   putElement('Quarto', 'span-quarto', accommodation);
-  putElement('Check in', 'span-checkin', checkIn);
-  putElement('Check out', 'span-checkout', checkOut);
+  putElement('Check in', 'span-checkin', new Date(checkIn).toLocaleDateString('pt-br'));
+  putElement('Check out', 'span-checkout', new Date(checkOut).toLocaleDateString('pt-br'));
   putElement('Pessoas', 'span-qtd', qty);
   putElement('Total', 'span-total', `R$ ${total.toFixed(2)}`);
 
@@ -72,13 +91,9 @@ const overview = () => {
 };
 
 const cleanBook = () => {
-  localStorage.clear();
+  localStorage.removeItem('booking');
   init();
   overview();
-};
-
-const handleClick = (componentId, fn) => {
-  document.querySelector(componentId).addEventListener('click', fn);
 };
 
 
