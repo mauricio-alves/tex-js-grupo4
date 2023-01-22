@@ -157,21 +157,6 @@ h1 {
 }
 
 /* --------------  RESPONSIVIDADE ----------------  */
-/* MOBILE LANDSCAPE */
-@media (max-width: 915px) and (orientation: landscape) {
-  .topo__menu-hb {
-    display: block;
-    position: absolute;
-    top: 1vw;
-    right: 1vw;
-  }
-  .topo__menu-hb img {
-    width: 2rem;
-  }
-  .nav_menu {
-    display: none;
-  }
-}
 /* MOBILE PORTRAIT */
 @media (max-width: 414px) and (orientation: portrait) {
   .topo__menu-hb {
@@ -198,7 +183,18 @@ h1 {
     font-size: 4rem;
   }
   .nav_menu {
+    width: 150px;
+    position: absolute;
     display: none;
+  }
+  .nav_menu ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem;
+    margin: 1rem 0;
+  }
+  .nav_menu ul li a {
+    border-bottom: 1px solid black;
   }
 }
 footer {
