@@ -8,8 +8,6 @@ const closeModal = document.getElementById('closeModalDetails');
 const showDetails = () => {
   const bookingStorage = JSON.parse(localStorage.getItem('booking'));
 
-  console.log(bookingStorage);
-
   const image = document.getElementById('detailsImage');
   image.setAttribute('src', dbAccommodations[bookingStorage.id].image)
   image.setAttribute('width', '80%');

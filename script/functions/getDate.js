@@ -1,24 +1,21 @@
-const getDateForInput = () => {
-  const date = new Date();
+// slice date yyyy-mm-dd
+const sliceDate = (date) => {
+  const year = date.slice(0, 4);
+  const month = date.slice(5, 7);
+  const day = date.slice(8, 10);
 
-  const year = date.getFullYear();
-  const month = date.getMonth();
-  const day = date.getDate();
-
-//   const checkIn = new Date(`${year},${month},${day}`);
-//   const checkIn = `${year}-
-//                    ${(month+1).toString().length === 1 ? '0' + (month+1).toString() : month+1}-
-//                    ${(day).toString().length === 1 ? '0' + day.toString() : day}`;
-  
-  const checkIn = year + '-' +
-                  ((month+1).toString().length === 1 ? '0' + (month+1).toString() : month+1) + '-' +
-                  ((day).toString().length === 1 ? '0' + day.toString() : day);
-  
-  const checkOut = year + '-' +
-                   ((month+1).toString().length === 1 ? '0' + (month+1).toString() : month+1) + '-' +
-                   ((day+1).toString().length === 1 ? '0' + (day+1).toString() : day+1);
-
-  return { checkIn, checkOut };
+  return { year, month, day };
 };
 
-export { getDateForInput };
+const getDateInput = () => {
+  const monthUTC = new Date().getUTCMonth();
+  const dayUTC = new Date().getUTCDate();
+
+  const year = new Date().getUTCFullYear();
+  const month = (monthUTC+1).toString().length === 1 ? '0' + (monthUTC+1).toString() : (monthUTC)+1;
+  const day = (dayUTC).toString().length === 1 ? '0' + (dayUTC).toString() : dayUTC;
+  
+  return { year, month, day };
+};
+
+export { getDateInput, sliceDate };
