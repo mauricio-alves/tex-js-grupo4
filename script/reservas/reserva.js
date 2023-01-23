@@ -6,7 +6,7 @@ import handleClick from '../functions/handleClick.js';
 import putElement from '../functions/putElement.js';
 import { getDateInput, sliceDate } from '../functions/getDate.js';
 
-let id, accommodation, checkIn, checkOut, qty, total;
+let id, accommodation, checkIn, checkOut, qty, rates, total;
 let services = [];
 
 const init = () => {
@@ -27,14 +27,6 @@ const init = () => {
     document.getElementById('checkout').value = `${sliceDate(bookingStorage.checkOut).year}-${sliceDate(bookingStorage.checkOut).month}-${sliceDate(bookingStorage.checkOut).day}`;
     document.getElementById('qtd_adultos').value = bookingStorage.qty;
   };
-};
-
-const bookDetails = () => {
-  // localStorage
-  const booking = { id, accommodation, checkIn, checkOut, qty, services, total };
-  localStorage.setItem('booking', JSON.stringify(booking));
-
-  showDetails();
 };
 
 const overview = () => {
@@ -59,16 +51,24 @@ const overview = () => {
     });
   };
 
-  total = sumServices + (qty * dbAccommodations[id].price);
+  // difference between dates (rates) by 24 hours (in milliseconds)
+  rates = (checkOut - checkIn) / 86400000;
+
+  total = sumServices + (rates * qty * dbAccommodations[id].price);
 
   putElement('Quarto', 'span-quarto', accommodation);
   putElement('Check in', 'span-checkin', new Date(checkIn).toLocaleDateString('pt-br'));
   putElement('Check out', 'span-checkout', new Date(checkOut).toLocaleDateString('pt-br'));
-  putElement('Pessoas', 'span-qtd', qty);
+  putElement('Hóspedes', 'span-qtd', qty);
+  putElement('Diárias', 'span-diaria', rates);
   putElement('Total', 'span-total', `R$ ${total.toFixed(2)}`);
 
   // createServices()
   createService(bookingStorage ? bookingStorage.services : null);
+
+  // set localStorage
+  const booking = { id, accommodation, checkIn, checkOut, qty, rates, services, total };
+  localStorage.setItem('booking', JSON.stringify(booking));
 };
 
 const cleanBook = () => {
@@ -79,7 +79,7 @@ const cleanBook = () => {
 
 
 // ============= book =============
-handleClick('#bookDetails', bookDetails);
+handleClick('#bookDetails', showDetails);
 handleClick('#cleanBook', cleanBook);
 handleClick('#confirmBook', confirmBook);
 // ============= book =============
@@ -109,8 +109,18 @@ const form = document.querySelectorAll('input[name="quarto"], input[type="date"]
 init();
 
 form.forEach((item) => {
-  // item.addEventListener("change", (e) => overView(e.target));
-  item.addEventListener("change", () => overview());
+  item.addEventListener("change", () => {
+    if (item.id === 'checkout') {
+      const checkin = document.getElementById('checkin').value;
+
+      if (item.value <= checkin) {
+        item.value = `${sliceDate(checkin).year}-${sliceDate(checkin).month}-${parseInt(sliceDate(checkin).day) + 1}`;
+        alert('Atenção! A data de Check out não pode ser menor ou igual à data de Check in.');
+      };
+    };
+
+    overview();
+  });
 });
 
 overview();

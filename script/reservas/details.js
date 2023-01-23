@@ -29,16 +29,19 @@ const showDetails = () => {
   const h2 = document.createElement('h2');
   const pAccommodation = document.createElement('p');
   const pGuests = document.createElement('p');
+  const pRates = document.createElement('p');
   const pTotal = document.createElement('p');
   const br = document.createElement('br');
 
   h2.appendChild(document.createTextNode('Resumo'));
   pAccommodation.appendChild(document.createTextNode(`${bookingStorage.accommodation} -> R$ ${dbAccommodations[bookingStorage.id].price.toFixed(2)}`));
   pGuests.appendChild(document.createTextNode(`Hóspedes -> ${bookingStorage.qty}`));
+  pRates.innerHTML = `Diárias -> ${bookingStorage.rates}`;
   
   detailsSummary.appendChild(h2);
   detailsSummary.appendChild(pAccommodation);
   detailsSummary.appendChild(pGuests);
+  detailsSummary.appendChild(pRates);
 
   for (let i = 0; i < bookingStorage.services.length; i++) {
     const p = document.createElement('p');
