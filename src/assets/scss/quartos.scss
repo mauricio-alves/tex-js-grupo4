@@ -1,0 +1,209 @@
+@use "variaveis" as let;
+@use "mixins" as mix;
+@use "extends";
+
+@use "header";
+@use "footer";
+
+@import url("https://fonts.googleapis.com/css2?family=Della+Respira&family=Forum&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Forum&family=Italiana&display=swap");
+
+/* --------------  MAIN  ----------------  */
+// SEÇÃO NOSSAS ACOMODAÇÕES E PRODUTO EM DESTAQUE
+.container {
+  background-color: let.$branco;
+  color: let.$text;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto 0 auto;
+  width: 80vw;
+
+  &__subtitle {
+    @extend %subtitle;
+  }
+
+  &__detalhe {
+    @extend %detalhe;
+  }
+
+  &__text {
+    margin-top: 70px;
+
+    & p {
+      text-align: left;
+      padding-bottom: let.$p1;
+      margin-bottom: let.$m1;
+    }
+  }
+
+  &__content {
+    margin: 3rem 0;
+    display: flex;
+    flex-direction: row;
+
+    & div {
+      @extend %text-align-center;
+      width: 100%;
+    }
+
+    &__text {
+      display: flex;
+      align-items: center;
+    }
+
+    &__image img {
+      width: 90%;
+    }
+  }
+}
+
+// SEÇÃO GALERIA
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-bottom: 3rem;
+
+  &__card {
+    padding: 15px;
+    box-shadow: 2px 2px 4px let.$text;
+
+    &__product-image {
+      height: 300px;
+      width: 100%;
+      margin-bottom: 10px;
+      background-position: center;
+      background-size: cover;
+    }
+
+    & h3 {
+      @extend %text-align-center;
+      margin-bottom: 10px;
+      color: let.$text;
+      font-size: 24px;
+    }
+
+    &__btn {
+      font-weight: bold;
+      display: block;
+      width: 100%;
+      @extend %text-align-center;
+      @extend %text-transform;
+      text-decoration: none;
+      background-color: #bdb2be;
+      color: rgb(17, 16, 16);
+      padding: 15px;
+      border-radius: 10px;
+      transition: 0.5s;
+
+      &:hover {
+        background-color: #e5d9ec;
+      }
+    }
+  }
+}
+
+/* --------------  RESPONSIVIDADE ----------------  */
+/* TABLET LANDSCAPE */
+@media (max-width: 1194px) and (orientation: landscape) {
+  p {
+    font-size: 1rem;
+    padding: 0 5px;
+  }
+
+  .container {
+    &__text {
+      margin-top: 50px;
+    }
+  }
+
+  .products-container {
+    gap: 0;
+  }
+}
+
+/* TABLET PORTRAIT */
+@media (max-width: 1024px) and (orientation: portrait) {
+  p {
+    font-size: 1rem;
+    padding: 0 5px;
+  }
+
+  .container {
+    &__text {
+      margin-top: 50px;
+    }
+  }
+
+  .products-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+
+    &__card:last-child {
+      grid-column: span 2;
+      margin: 0 200px;
+    }
+
+    &__card img {
+      width: 260px;
+      height: 150px;
+    }
+  }
+}
+
+/* MOBILE LANDSCAPE */
+@media (max-width: 915px) and (orientation: landscape) {
+  .products-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+
+    &__card:last-child {
+      grid-column: span 2;
+      margin: 0 180px;
+    }
+  }
+}
+
+/* MOBILE PORTRAIT */
+@media (max-width: 414px) and (orientation: portrait) {
+  .products-container {
+    display: flex;
+    flex-direction: column;
+
+    &__card {
+      margin-bottom: 3rem;
+    }
+
+    &__card:last-child {
+      margin: 0;
+    }
+  }
+
+  .container {
+    width: 95vw;
+
+    &__detalhe {
+      width: 45%;
+      margin-left: 27%;
+    }
+
+    &__text p {
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    &__content {
+      display: block;
+
+      &__image {
+        margin-top: 1.5rem;
+      }
+
+      & div img:nth-child(2) {
+        display: flex;
+        order: 1;
+      }
+    }
+  }
+}

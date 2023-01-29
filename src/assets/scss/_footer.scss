@@ -1,0 +1,179 @@
+@use "variaveis" as let;
+@use "mixins" as mix;
+@use "extends";
+
+footer {
+  padding-top: 2rem;
+  background-color: let.$background;
+
+  & h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.rodape {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 150px;
+
+  &__seta {
+    @include mix.flex-center;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    gap: 8rem;
+
+    & div {
+      display: flex;
+    }
+
+    &__idioma select {
+      font-weight: bold;
+    }
+
+    &__top-btn img {
+      width: 35px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 50px;
+
+    &__termos ul li,
+    &__sobre-nos ul li,
+    &__navegacao ul li {
+      @extend %list-none;
+
+      & a {
+        padding: 5px;
+        @extend %decoration-none;
+        color: let.$title;
+        font-weight: bold;
+
+        &:hover {
+          padding: 5px;
+          background-color: let.$sombra;
+          color: let.$branco;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+
+#redes-sociais {
+  & a:hover {
+    padding: 5px;
+    background-color: let.$background;
+    color: let.$branco;
+    border-radius: 0;
+  }
+
+  & img {
+    width: 35px;
+    border-radius: 20px;
+  }
+}
+
+/* --------------  RESPONSIVIDADE ----------------  */
+/* TABLET LANDSCAPE */
+@media (max-width: 1194px) and (orientation: landscape) {
+  footer {
+    & h3 {
+      font-size: 1.2rem;
+    }
+  }
+
+  .rodape {
+    margin: 0 80px;
+    padding-bottom: 10px;
+  }
+}
+
+/* TABLET PORTRAIT */
+@media (max-width: 1024px) and (orientation: portrait) {
+  footer {
+    & h3 {
+      font-size: 1.2rem;
+    }
+  }
+
+  .rodape {
+    margin: 0 60px;
+    padding-bottom: 20px;
+
+    &__links {
+      gap: 20px;
+    }
+  }
+}
+
+/* MOBILE LANDSCAPE */
+@media (max-width: 915px) and (orientation: landscape) {
+  footer {
+    & h3 {
+      font-size: 1.2rem;
+    }
+  }
+
+  .rodape {
+    margin: 0 40px;
+    padding-bottom: 10px;
+
+    &__links {
+      gap: 20px;
+    }
+  }
+}
+
+/* MOBILE PORTRAIT */
+@media (max-width: 414px) and (orientation: portrait) {
+  footer {
+    font-size: 0.5rem;
+
+    & h3 {
+      font-size: 1.5rem;
+    }
+    & li {
+      font-size: 1rem;
+    }
+
+    .rodape {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+
+      &__links {
+        gap: 20px;
+
+        &__sobre-nos {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        &__navegacao,
+        &__termos {
+          display: none;
+        }
+      }
+
+      &__seta {
+        gap: 12rem;
+        align-items: flex-end;
+        margin-right: 2rem;
+        margin-top: -14rem;
+
+        &__idioma {
+          font-size: 1rem;
+        }
+
+        &__top-btn img {
+          width: 2rem;
+        }
+      }
+    }
+  }
+}
