@@ -32,92 +32,31 @@
                 <form class="container__form">
                     <div>
                         <label for="checkin">Check-in:</label>
-                        <input id="checkin" type="date" />
+                        <input v-model="reservation.checkin" id="checkin" type="date" />
                     </div>
                     <div>
                         <label for="checkout">Check-out:</label>
-                        <input id="checkout" type="date" />
+                        <input v-model="reservation.checkout" @change="checkDate" id="checkout" type="date" />
                     </div>
                     <div>
                         <label for="qtd_adultos">Número de hóspedes:</label>
-                        <input id="qtd_adultos" type="number" min="1" max="4" placeholder="limite de 4 pessoas" />
+                        <input v-model="reservation.qty" id="qtd_adultos" type="number" min="1" max="4" placeholder="limite de 4 pessoas" />
                     </div>
                 </form>
             </article>
-            <article class="cards">
+            
+            <!-- <article class="cards">
                 <div>
                     <h3>Escolha o quarto:</h3>
                     <span class="cards__detalhe"></span>
                 </div>
                 <div class="cards__images" id="cards"></div>
-            </article>
-            <aside class="escolha">
-                <div>
-                    <h3>Resumo da Reserva</h3>
-                </div>
-                <div class="escolha__resumo">
-                    <p class="resumo__quarto" id="span-quarto"></p>
-                    <p class="resumo__checkin" id="span-checkin"></p>
-                    <p class="resumo__checkout" id="span-checkout"></p>
-                    <p class="resumo__qtd" id="span-qtd"></p>
-                    <p class="resumo__diaria" id="span-diaria"></p>
-                    <p class="resumo__total" id="span-total"></p>
-                </div>
+            </article> -->
 
-                <div class="escolha__resumo" id="servicos"></div>
+            <CreateAccommodations />
 
-                <!-- <div class="link"><a href="#"><span>Adicionar mais serviços</span></a></div> -->
+            <Booking />
 
-                <div class="escolha__btn"><button id="showServices">Adicionar mais serviços</button></div>
-
-                <div id="modalServices" class="escolha__modal">
-                    <!-- Modal content -->
-                    <div class="escolha__modal__modal-content">
-                        <span id="closeModalServices" class="escolha__modal__modal-content__close">&times;</span>
-                        <p>Serviços Adicionais</p>
-
-                        <div id="services-content"></div>
-
-                        <button id="clearServices">Limpar Seleção</button><button
-                            id="confirmServices">Confirmar</button>
-                    </div>
-                </div>
-
-                <div id="modalDetails" class="escolha__modal">
-                    <!-- Modal content -->
-                    <div class="escolha__modal__modal-content">
-                        <span id="closeModalDetails" class="escolha__modal__modal-content__close">&times;</span>
-                        <p><b>Detalhes da Reserva</b></p>
-
-                        <br>
-
-                        <img id="detailsImage" />
-                        <h2 id="detailsAccommodation"></h2>
-                        <p id="detailsDescription"></p>
-
-                        <br>
-
-                        <p id="detailsCheckin"></p>
-                        <p id="detailsCheckout"></p>
-                        <p id="detailsQty"></p>
-
-                        <br>
-
-                        <p><b>Serviços Adicionais</b></p>
-                        <div id="detailsServices"></div>
-
-                        <br>
-
-                        <div id="detailsSummary"></div>
-
-                        <button id="confirmBook">Confirmar Reserva</button>
-                    </div>
-                </div>
-
-                <div class="escolha__btn"><button id="cleanBook">Limpar Seleção</button></div>
-
-                <div class="escolha__btn"><button id="bookDetails">Ver Detalhes</button></div>
-            </aside>
         </section>
     </main>
 
@@ -181,12 +120,53 @@
 
 <script>
   import Menu from '@/components/Menu.vue';
+  import CreateAccommodations from '@/components/CreateAccommodations.vue';
+  import Booking from '@/components/Booking.vue';
+  import { init, overview } from '@/store/reservations';
+import { watchEffect } from 'vue';
+import store from '@/store';
+
+  watchEffect(() => {
+    console.log(store.state.reservation);
+  }, [store.state.reservation])
 
   export default {
     name: 'ReservationsView',
     components: {
-      Menu
+      Menu,
+      CreateAccommodations,
+      Booking
   },
+
+  computed: {
+    reservation() {
+      return this.$store.state.reservation;
+    }
+  },
+
+  watchEffect: {
+    reservation() {
+      console.log('reservation');
+    }
+  },
+
+//   methods: {
+//     loadReservations() {
+//     this.$store.dispatch('loadReservations')
+//     }
+//   },
+
+  methods: {
+    checkDate() {
+      alert('checar data');
+    },
+  },
+
+  mounted() {
+    init();
+    overview();
+    // this.reservation.qty = 2;
+  }
 }
 </script>
 

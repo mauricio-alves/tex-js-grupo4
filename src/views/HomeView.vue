@@ -4,7 +4,7 @@
       <div id="user">Usuário</div>
       <div id="email">Email</div>
       <div class="topo__painel-usuario__painel-sair">
-        <button id="clearStorage">Sair</button>
+        <button @click="logout" id="clearStorage">Sair</button>
       </div>
     </div>
 
@@ -184,12 +184,18 @@
 <script>
 // @ is an alias to /src
 import Menu from '@/components/Menu.vue';
-import { checkStorage, sorteio } from '@/store/home';
+import { checkStorage, sorteio, clearStorage } from '@/store/home';
 
 export default {
   name: 'HomeView',
   components: {
     Menu
+  },
+
+  methods: {
+    logout() {
+      clearStorage();
+    }
   },
 
   mounted() {
@@ -201,7 +207,6 @@ export default {
 
 <!-- <style lang="scss">
   @import '../assets/scss/home.scss';
-
 </style> -->
 
 <style>

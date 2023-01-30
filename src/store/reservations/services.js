@@ -1,5 +1,5 @@
 import dbServices from '../db/dbServices.js';
-import { overview } from './reserva.js';
+import { overview } from './index.js';
 
 const modal = document.getElementById('modalServices');
 const closeModal = document.getElementById('closeModalServices');
@@ -58,15 +58,15 @@ const showServices = () => {
 };
   
 // When the user clicks on <span> (x), close the modal
-closeModal.onclick = () => {
-  modal.style.display = 'none';
-};
+// closeModal.onclick = () => {
+//   modal.style.display = 'none';
+// };
   
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = (event) => {
-  if (event.target == modal)
-    modal.style.display = 'none';
-};
+// window.onclick = (event) => {
+//   if (event.target == modal)
+//     modal.style.display = 'none';
+// };
   
 const clearServices = () => {
   const checkServices = document.querySelectorAll('input[type="checkbox"]');

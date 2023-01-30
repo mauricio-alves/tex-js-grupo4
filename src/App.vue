@@ -1,10 +1,9 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
+  <!-- <nav> -->
+    <!-- <router-link to="/">Home</router-link> |
     <router-link to="/sobremesas">Sobremesas</router-link> |
-    <router-link to="/pratos-quentes">Pratos Quentes</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+    <router-link to="/pratos-quentes">Pratos Quentes</router-link> -->
+  <!-- </nav> -->
   <router-view/>
 </template>
 

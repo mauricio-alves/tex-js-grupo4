@@ -1,5 +1,5 @@
 import dbBanners from './db/dbBanner.js';
-import handleClick from './functions/handleClick.js';
+// import handleClick from './functions/handleClick.js';
 
 const checkStorage = () => {
   const userStorage = JSON.parse(localStorage.getItem('login'));
@@ -13,7 +13,7 @@ const checkStorage = () => {
   };
 };
 
-const clearStorage = async () => {
+const clearStorage = () => {
   localStorage.removeItem('login');
   checkStorage();
 };
@@ -34,5 +34,5 @@ const sorteio = () => {
 
 // sorteio();
 
-export { checkStorage, sorteio };
+export { checkStorage, sorteio, clearStorage };
 

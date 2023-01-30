@@ -37,8 +37,8 @@
           <input type="password" placeholder="Digite sua senha" id="password" name="password">
 
           <a class="main__login__esqueceu-senha" href="#">Esqueceu sua senha?</a>
-          <!-- <button @click.prevent="handleClick('#login', 'login')" type="button" id="login">Confirmar</button> -->
-          <button @click.prevent="confirm($event)" type="button" id="login">Confirmar</button>
+          <button @click="confirm" type="button" id="login">Confirmar</button>
+          <!-- <button @click.native="handleClick('#login', 'login'), event => event.preventDefault()" type="button" id="login">Confirmar</button> -->
         </form>
       </article>
     </div>
@@ -105,7 +105,6 @@
 <script>
   import Menu from '@/components/Menu.vue';
   import login from '@/store/login';
-  import handleClick from '@/store/functions/handleClick';
 
   export default {
     name: 'LoginView',
@@ -113,16 +112,22 @@
       Menu
   },
 
-  methods: {
-    confirm(e) {
-      e.preventDefault();
-      handleClick('#login', 'login');
-    }
-  },
+  // methods: {
+  //   confirm(e) {
+  //     e.preventDefault();
+  //     handleClick('#login', 'login');
+  //   }
+  // },
 
-  mounted() {
-    login();
+  methods: {
+    confirm() {
+      login();
+    }
   }
+
+  // mounted() {
+  //   login();
+  // }
 }
 </script>
 

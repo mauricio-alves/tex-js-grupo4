@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import { overview } from './reservations';
 // import sorteio from './home';
 
 export default createStore({
@@ -7,6 +8,22 @@ export default createStore({
       pratosQuentes: [{ nome: 'lazanha', preco: 180 }, { nome: 'salmão', preco: 230 }],
       sobremesas: [{ nome: 'bomba de chocolate', preco: 18 }, { nome: 'quindim', preco: 35 }]
     },
+
+    reservation: {
+      id: '',
+      accommodation: '',
+      checkin: '',
+      checkout: '',
+      qty: '',
+      rates: '',
+      services: [],
+      total: 0
+    },
+
+    login: {
+      email: '',
+      user: ''
+    }
   },
 
   getters: {
@@ -16,6 +33,14 @@ export default createStore({
       });
 
       return loja;
+    },
+
+    reservation(state) {
+      return state.reservation
+    },
+
+    getStorage: () => storage => {
+      return JSON.parse(localStorage.getItem(storage));
     }
   },
 
@@ -24,7 +49,11 @@ export default createStore({
       state.produtos[payload].forEach(
         item => { item.preco = (item.preco * .9).toFixed(2) }
       )
-    }
+    },
+
+    // reservationUpdate: (state, payload) => {
+    //   console.log(state.reservation[payload]);
+    // }
   },
 
   actions: {
@@ -44,10 +73,31 @@ export default createStore({
           navMenu.classList.remove('nav-colorida')
         }
       }); 
-    }
+    },
+
+    // loadReservations: () => {
+    //   // get all changeable form components
+    //   const form = document.querySelectorAll('input[name="quarto"], input[type="date"], input[type="number"]');
+
+    //   // initial values
+    //   // init();
+
+    //   form.forEach((item) => {
+    //     item.addEventListener("change", () => {
+    //       if (item.id === 'checkout') {
+    //         const checkin = document.getElementById('checkin').value;
+
+    //         if (item.value <= checkin) {
+    //           item.value = `${sliceDate(checkin).year}-${sliceDate(checkin).month}-${parseInt(sliceDate(checkin).day) + 1}`;
+    //           alert('Atenção! A data de Check out não pode ser menor ou igual à data de Check in.');
+    //         };
+    //       };
+
+    //       overview();
+    //     });
+    //   });
+    // }
   },
 
-  modules: {
-    // sorteio: sorteio()
-  }
+  modules: { }
 });
