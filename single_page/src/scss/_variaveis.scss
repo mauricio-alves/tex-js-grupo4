@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Variáveis SASS
 $fonte: "PT Sans Narrow", sans-serif;
 $logo: "Rock Salt", cursive;
@@ -54,3 +55,20 @@ p {
   opacity: 0.9;
   margin-bottom: 3px;
 }
+=======
+// Variáveis SASS
+$fonte: "PT Sans Narrow", sans-serif;
+$textColor: black;
+$m1: 1rem;
+$mx1: 0 1.2rem;
+$p1: 1rem;
+$px1: 0 1.5rem;
+$gap: 5rem;
+
+* {
+  font-family: $fonte;
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+>>>>>>> 4d9a29d56dc7afd6a3613c804cd7698e3b2f98f0

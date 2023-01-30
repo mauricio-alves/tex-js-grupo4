@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<<<<<<< HEAD
-<html lang="pt-br">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home</title>
-  <link rel="stylesheet" href="../assets/css/home.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
-  <script src="../script/home.js" type="module" async></script>
-  <script src="../script/functions/hbMenu.js" type="module" async></script>
-</head>
-
-<body>
+<template>
   <header id="topo" class="topo">
     <div class="topo__painel-usuario" id="painel">
       <div id="user">Usuário</div>
       <div id="email">Email</div>
       <div class="topo__painel-usuario__painel-sair">
-        <button id="clearStorage">Sair</button>
+        <button @click="logout" id="clearStorage">Sair</button>
       </div>
     </div>
 
@@ -33,18 +18,18 @@
 
     <div class="topo__title">
       <div class="topo__title__logo">
-        <img src="../assets/images/beach-svgrepo-com.svg" />
+        <img src="@/assets/images/beach-svgrepo-com.svg" />
       </div>
       <div class="topo__title__logo-name">
         <h1>Atlantic Hotel</h1>
       </div>
     </div>
     <div class="topo__menu-hb">
-      <img src="../assets/images/hamburger-menu-24.png" alt="menu hamburguer" />
+      <img src="@/assets/images/hamburger-menu-24.png" alt="menu hamburguer" />
     </div>
   </header>
 
-  <nav class="nav_menu">
+  <!-- <nav class="nav_menu">
     <ul>
       <li><a href="/public">Home</a></li>
       <li><a href="/public/sobre.html">O hotel</a></li>
@@ -53,7 +38,9 @@
       <li><a href="/public/contato.html">Contato</a></li>
       <li><a href="/public/login.html">Login</a></li>
     </ul>
-  </nav>
+  </nav> -->
+
+  <Menu />
 
   <main>
     <section class="container">
@@ -73,7 +60,7 @@
               natureza!</p>
           </div>
           <div class="container__white-bg__about__recepcao">
-            <img src="/assets/images/recepcao_hotel.jpg" alt="recepção do hotel" />
+            <img src="@/assets/images/recepcao_hotel.jpg" alt="recepção do hotel" />
           </div>
         </div>
       </article>
@@ -85,25 +72,25 @@
           <div class="container__section2__cards__card">
             <a href="#">
               <h3>Spa Wellness</h3>
-              <img src="/assets/images/SPA.jpg" alt="spa" />
+              <img src="@/assets/images/SPA.jpg" alt="spa" />
             </a>
           </div>
           <div class="container__section2__cards__card">
             <a href="/public/quartos.html">
               <h3>Quartos</h3>
-              <img src="/assets/images/quarto.jpg" alt="quarto" />
+              <img src="@/assets/images/quarto.jpg" alt="quarto" />
             </a>
           </div>
           <div class="container__section2__cards__card">
             <a href="#">
               <h3>Gastronomia</h3>
-              <img src="/assets/images/gastronomia.jpg" alt="gastronomia" />
+              <img src="@/assets/images/gastronomia.jpg" alt="gastronomia" />
             </a>
           </div>
           <div class="container__section2__cards__card">
             <a href="#">
               <h3>Experiências</h3>
-              <img src="/assets/images/experiencias.jpg" alt="experiencia" />
+              <img src="@/assets/images/experiencias.jpg" alt="experiencia" />
             </a>
           </div>
         </div>
@@ -153,7 +140,7 @@
           </div>
           <div class="rodape__links__sobre-nos">
             <h3>Sobre nós</h3>
-            <ul>
+            <!-- <ul> -->
               <li><a href="#">Fale com a gente</a></li>
               <li><a href="#">Onde estamos</a></li>
               <li><a href="#">Trabalhe conosco</a></li>
@@ -161,9 +148,9 @@
                 <p>Siga-nos:</p>
               </li>
               <li id="redes-sociais">
-                <a href="#"><img src="../../assets/images/facebook.png" alt="facebook logo" /></a>
-                <a href="#"> <img src="../../assets/images/instagram.png" alt="instagram logo" /></a>
-                <a href="#"> <img src="../../assets/images/whatsapp.png" alt="whatsapp logo" /></a>
+                <a href="#"><img src="@/assets/images/facebook.png" alt="facebook logo" /></a>
+                <a href="#"> <img src="@/assets/images/instagram.png" alt="instagram logo" /></a>
+                <a href="#"> <img src="@/assets/images/whatsapp.png" alt="whatsapp logo" /></a>
               </li>
           </div>
           <div class="rodape__links__termos">
@@ -177,7 +164,7 @@
         <div class="rodape__seta">
           <div class="rodape__seta__top-btn">
             <a href="#topo">
-              <img src="../assets/images/up-arrow-png-27160.png" alt="seta pra cima">
+              <img src="@/assets/images/up-arrow-png-27160.png" alt="seta pra cima">
             </a>
           </div>
           <div class="rodape__seta__idioma">
@@ -192,38 +179,37 @@
       </div>
     </div>
   </footer>
-</body>
+</template>
 
 <script>
-  const navMenu = document.querySelector('.nav_menu')
-  // Alterar comportamento da navbar após certa altura
-  window.addEventListener('scroll', function (event) {
-    event.preventDefault();
+// @ is an alias to /src
+import Menu from '@/components/Menu.vue';
+import { checkStorage, sorteio, clearStorage } from '@/store/home';
 
-    if (window.scrollY > 880) {
-      navMenu.classList.add('nav-colorida')
-    } else {
-      navMenu.classList.remove('nav-colorida')
+export default {
+  name: 'HomeView',
+  components: {
+    Menu
+  },
+
+  methods: {
+    logout() {
+      clearStorage();
     }
-  });
+  },
+
+  mounted() {
+    checkStorage();
+    sorteio();
+  }
+}
 </script>
 
-</html>
-=======
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
-</html>
->>>>>>> 4d9a29d56dc7afd6a3613c804cd7698e3b2f98f0
+<!-- <style lang="scss">
+  @import '../assets/scss/home.scss';
+</style> -->
+
+<style>
+  @import '@/assets/css/home.css';
+  @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css';
+</style>
