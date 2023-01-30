@@ -13,7 +13,8 @@
     >
       <div class="cards__images__card">
         <img
-          :src="item.image"
+          :id="`image${item.id + 1}`"
+          src=""
           :alt="item.accommodation"
           :title="item.accommodation"
         />
@@ -21,16 +22,18 @@
           <h3>{{ item.accommodation }}</h3>
           <p>{{ item.description }}</p>
           <p>R$ {{ item.price.toFixed(2) }}</p>
-        </div>
-        <div>
-          <input
-            v-model="reservation.id"
-            :id="item.idLabel"
-            type="radio"
-            name="quarto"
-            :value="item.id"
-          />
-          <label :for="item.idLabel">Selecionar {{ item.accommodation }}</label>
+          <div>
+            <input
+              v-model="reservation.id"
+              :id="item.idLabel"
+              type="radio"
+              name="quarto"
+              :value="item.id"
+            />
+            <label :for="item.idLabel"
+              >Selecionar {{ item.accommodation }}</label
+            >
+          </div>
         </div>
       </div>
     </div>

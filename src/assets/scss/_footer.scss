@@ -144,7 +144,7 @@ footer {
       margin: 0;
       display: flex;
       flex-direction: column;
-      background-color: red;
+      background-color: let.$background;
 
       &__links {
         gap: 20px;

@@ -1,6 +1,6 @@
 <template>
   <HeaderComponent />
-  
+
   <main>
     <section class="container">
       <article>

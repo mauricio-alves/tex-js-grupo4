@@ -27,6 +27,7 @@
 export default {
   name: "HeaderComponent",
   mounted() {
+    // Toggle display menu hamburguer
     const hbMenu = document.querySelector(".topo__menu-hb");
     const navMenu = document.querySelector(".nav_menu");
 

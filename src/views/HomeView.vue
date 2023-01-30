@@ -1,14 +1,14 @@
 <template>
-  <header id="topo" class="topo">
-    <div class="topo__painel-usuario" id="painel">
+  <header id="topo" class="home">
+    <div class="home__painel-usuario" id="painel">
       <div id="user">Usuário</div>
       <div id="email">Email</div>
-      <div class="topo__painel-usuario__painel-sair">
+      <div class="home__painel-usuario__painel-sair">
         <button @click="logout" id="clearStorage">Sair</button>
       </div>
     </div>
 
-    <div class="topo__background">
+    <div class="home__background">
       <img
         id="imagem-fundo"
         class="imagem-header"
@@ -17,24 +17,24 @@
       />
     </div>
 
-    <div class="topo__slogan">
+    <div class="home__slogan">
       <p id="texto"></p>
     </div>
 
-    <div class="topo__title">
-      <div class="topo__title__logo">
+    <div class="home__title">
+      <div class="home__title__logo">
         <img src="@/assets/images/beach-svgrepo-com.svg" />
       </div>
-      <div class="topo__title__logo-name">
+      <div class="home__title__logo-name">
         <h1>Atlantic Hotel</h1>
       </div>
     </div>
-    <div class="topo__menu-hb">
+    <div class="home__menu-hb">
       <img src="@/assets/images/hamburger-menu-24.png" alt="menu hamburguer" />
     </div>
   </header>
 
-  <nav class="nav_menu">
+  <nav class="nav_home">
     <ul>
       <li><router-link to="/">Home</router-link></li>
       <li><router-link to="/about">O Hotel</router-link></li>
@@ -185,8 +185,8 @@ export default {
     checkStorage();
     sorteio();
 
-    const navMenu = document.querySelector(".nav_menu");
-
+    // Toggle display navbar ao rolar a página home
+    const navMenu = document.querySelector(".nav_home");
     window.addEventListener("scroll", function (event) {
       event.preventDefault();
       if (window.scrollY > 880) {
@@ -195,15 +195,21 @@ export default {
         navMenu.classList.remove("nav-colorida");
       }
     });
+
+    // Toggle display menu hambúrguer
+    const hbMenu = document.querySelector(".home__menu-hb");
+    hbMenu.addEventListener("click", function () {
+      if (navMenu.style.display === "block") {
+        navMenu.style.display = "none";
+      } else {
+        navMenu.style.display = "block";
+      }
+    });
   },
 };
 </script>
 
-<!-- <style lang="scss">
-  @import '../assets/scss/home.scss';
-</style> -->
-
 <style scoped>
-/* @import "@/assets/css/home.css"; */
+@import "@/assets/css/home.css";
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css";
 </style>

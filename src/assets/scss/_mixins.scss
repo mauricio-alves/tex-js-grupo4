@@ -55,3 +55,16 @@ $j: 0;
     background-size: cover;
   }
 }
+
+// IMAGENS DA PÁGINA RESERVAS
+$n: 0;
+
+@each $url in $images {
+  $n: $n + 1;
+  #image#{$n} {
+    content: url("../images/#{$url}");
+
+    width: 400px;
+    height: 280px;
+  }
+}

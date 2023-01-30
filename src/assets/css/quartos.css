@@ -134,6 +134,24 @@ p {
   background-size: cover;
 }
 
+#image1 {
+  content: url("../images/QuartoCasal.png");
+  width: 400px;
+  height: 280px;
+}
+
+#image2 {
+  content: url("../images/SuítePresidencial.jpg");
+  width: 400px;
+  height: 280px;
+}
+
+#image3 {
+  content: url("../images/1604663246841.jpg");
+  width: 400px;
+  height: 280px;
+}
+
 .rodape__links__termos ul li, .rodape__links__sobre-nos ul li, .rodape__links__navegacao ul li {
   list-style: none;
 }
@@ -301,6 +319,7 @@ footer h3 {
 }
 .rodape__seta__top-btn img {
   width: 35px;
+  cursor: pointer;
 }
 .rodape__links {
   display: flex;
@@ -381,6 +400,7 @@ footer h3 {
     margin: 0;
     display: flex;
     flex-direction: column;
+    background-color: #f1eab9;
   }
   footer .rodape__links {
     gap: 20px;

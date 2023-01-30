@@ -34,14 +34,6 @@
         </form>
       </article>
 
-      <!-- <article class="cards">
-                <div>
-                    <h3>Escolha o quarto:</h3>
-                    <span class="cards__detalhe"></span>
-                </div>
-                <div class="cards__images" id="cards"></div>
-            </article> -->
-
       <CreateAccommodations />
 
       <Booking />
