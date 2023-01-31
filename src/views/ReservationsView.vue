@@ -37,6 +37,7 @@
       <CreateAccommodations />
 
       <Booking />
+
     </section>
   </main>
 
@@ -48,13 +49,7 @@ import HeaderComponent from "@/components/HeaderComponent.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
 import CreateAccommodations from "@/components/CreateAccommodations.vue";
 import Booking from "@/components/Booking.vue";
-import { init, overview } from "@/store/reservations";
-import { watchEffect } from "vue";
-import store from "@/store";
-
-watchEffect(() => {
-  console.log(store.state.reservation);
-}, [store.state.reservation]);
+import { addDays } from '@/store/getDate.js';
 
 export default {
   name: "ReservationsView",
@@ -62,41 +57,66 @@ export default {
     HeaderComponent,
     FooterComponent,
     CreateAccommodations,
-    Booking,
+    Booking
   },
 
   computed: {
     reservation() {
       return this.$store.state.reservation;
     },
+
+    dbAccommodations() {
+      return this.$store.getters.dbAccommodations
+    }
   },
 
-  watchEffect: {
-    reservation() {
-      console.log("reservation");
-    },
-  },
+  watch: {
+    reservation: {
+      handler() {
+        // validate date
+        if (this.reservation.checkout <= this.reservation.checkin) {
+          alert('Atenção! A data de Check out não pode ser menor ou igual à data de Check in.');
+          this.reservation.checkout = addDays(new Date(this.reservation.checkout), 1, true);
+        };
 
-  //   methods: {
-  //     loadReservations() {
-  //     this.$store.dispatch('loadReservations')
-  //     }
-  //   },
+        this.reservation.accommodation = this.dbAccommodations[this.reservation.id].accommodation;
+
+        let sumServices = 0;
+        this.reservation.services.map(service => sumServices += service.price);
+
+        this.reservation.rates = (new Date(this.reservation.checkout) - new Date(this.reservation.checkin)) / 86400000;    
+        this.reservation.total = sumServices + (this.reservation.rates * this.reservation.qty * this.dbAccommodations[this.reservation.id].price);
+      
+        // set to localStorage
+        localStorage.setItem('booking', JSON.stringify(this.reservation));
+      },
+
+      deep: true
+    } 
+  },
 
   methods: {
-    checkDate() {
-      alert("checar data");
-    },
+    init() {
+      this.$store.commit('initReservation')
+    }
   },
 
   mounted() {
-    init();
-    overview();
-    // this.reservation.qty = 2;
-  },
+    const bookingStorage = JSON.parse(localStorage.getItem('booking'));
+ 
+    if (!bookingStorage) {
+      this.init();
+    } else {
+      this.reservation.id = bookingStorage.id;
+      this.reservation.checkin = bookingStorage.checkin;
+      this.reservation.checkout = bookingStorage.checkout;
+      this.reservation.qty = bookingStorage.qty;
+      this.reservation.services = bookingStorage.services;
+    };
+  }
 };
 </script>
 
 <style scoped>
-@import "@/assets/css/reservas.css";
+  @import "@/assets/css/reservas.css";
 </style>

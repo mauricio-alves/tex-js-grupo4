@@ -1,21 +1,17 @@
 import { createStore } from 'vuex'
-import { overview } from './reservations';
-// import sorteio from './home';
+import dbAccommodations from './db/dbAccommodations';
+import dbServices from './db/dbServices';
+import { addDays, getFromDate } from './getDate';
 
 export default createStore({
   state: {
-    produtos: {
-      pratosQuentes: [{ nome: 'lazanha', preco: 180 }, { nome: 'salmão', preco: 230 }],
-      sobremesas: [{ nome: 'bomba de chocolate', preco: 18 }, { nome: 'quindim', preco: 35 }]
-    },
-
     reservation: {
-      id: '',
+      id: 0,
       accommodation: '',
       checkin: '',
       checkout: '',
-      qty: '',
-      rates: '',
+      qty: 1,
+      rates: 1,
       services: [],
       total: 0
     },
@@ -23,81 +19,46 @@ export default createStore({
     login: {
       email: '',
       user: ''
+    },
+
+    modal: {
+      showServices: 'none',
+      showDetails: 'none'
     }
   },
 
   getters: {
-    loja: (state) => tipo => {
-      const loja = state.produtos[tipo].map(
-        item => { return { nome: item.nome, preco: item.preco }
-      });
-
-      return loja;
-    },
-
-    reservation(state) {
-      return state.reservation
-    },
-
     getStorage: () => storage => {
       return JSON.parse(localStorage.getItem(storage));
+    },
+
+    dbServices: () => {
+      return dbServices
+    },
+
+    dbAccommodations: () => {
+      return dbAccommodations
     }
   },
 
   mutations: {
-    aplicaDesconto: (state, payload) => {
-      state.produtos[payload].forEach(
-        item => { item.preco = (item.preco * .9).toFixed(2) }
-      )
-    },
+    initReservation: (state) => {
+      state.reservation.id = 0;
 
-    // reservationUpdate: (state, payload) => {
-    //   console.log(state.reservation[payload]);
-    // }
+      const date = new Date();
+      state.reservation.checkin = getFromDate(date, true);
+      state.reservation.checkout = addDays(date, 1, true);
+
+      state.reservation.qty = 1;
+      state.reservation.services = [];
+    }
   },
 
   actions: {
-    aplicaDesconto: (context, payload) => {
-      context.commit('aplicaDesconto', payload)
-    },
 
-    // navMenu: () => {
-    //   const navMenu = document.querySelector('.nav_menu')
-    //   // Alterar comportamento da navbar após certa altura
-    //   window.addEventListener('scroll', function (event) {
-    //     event.preventDefault();
-    
-    //     if (window.scrollY > 880) {
-    //       navMenu.classList.add('nav-colorida')
-    //     } else {
-    //       navMenu.classList.remove('nav-colorida')
-    //     }
-    //   }); 
-    // },
-
-    // loadReservations: () => {
-    //   // get all changeable form components
-    //   const form = document.querySelectorAll('input[name="quarto"], input[type="date"], input[type="number"]');
-
-    //   // initial values
-    //   // init();
-
-    //   form.forEach((item) => {
-    //     item.addEventListener("change", () => {
-    //       if (item.id === 'checkout') {
-    //         const checkin = document.getElementById('checkin').value;
-
-    //         if (item.value <= checkin) {
-    //           item.value = `${sliceDate(checkin).year}-${sliceDate(checkin).month}-${parseInt(sliceDate(checkin).day) + 1}`;
-    //           alert('Atenção! A data de Check out não pode ser menor ou igual à data de Check in.');
-    //         };
-    //       };
-
-    //       overview();
-    //     });
-    //   });
-    // }
   },
 
-  modules: { }
+  modules: {
+
+  }
 });
