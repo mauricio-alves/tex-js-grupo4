@@ -1,8 +1,9 @@
-src/assets/css/*.map
-
 .DS_Store
-node_modules
+/node_modules
 /dist
+/files
+/single_page/src/css/*.map
+/src/assets/css/*.map
 
 
 # local env files
