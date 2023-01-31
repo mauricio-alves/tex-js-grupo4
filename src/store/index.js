@@ -1,5 +1,8 @@
 import { createStore } from 'vuex'
-import { overview } from './reservations';
+import dbAccommodations from './db/dbAccommodations';
+import dbServices from './db/dbServices';
+import { getDateInput } from './functions/getDate';
+// import { overview } from './reservations';
 // import sorteio from './home';
 
 export default createStore({
@@ -10,19 +13,28 @@ export default createStore({
     },
 
     reservation: {
-      id: '',
-      accommodation: '',
-      checkin: '',
-      checkout: '',
-      qty: '',
-      rates: '',
+      id: 0,
+      accommodation: dbAccommodations[0].accommodation,
+      checkin: `${getDateInput().year}-${getDateInput().month}-${getDateInput().day}`,
+      checkout: `${getDateInput().year}-${getDateInput().month}-${getDateInput().day+1}`,
+      qty: 1,
+      rates: 1,
       services: [],
-      total: 0
+      total: dbAccommodations[0].price
     },
 
     login: {
       email: '',
       user: ''
+    },
+
+    modalServices: false,
+
+    modalDetails: false,
+
+    modal: {
+      showServices: 'none',
+      showDetails: 'none'
     }
   },
 
@@ -35,12 +47,20 @@ export default createStore({
       return loja;
     },
 
-    reservation(state) {
-      return state.reservation
-    },
+    // reservation(state) {
+    //   return state.reservation
+    // },
 
     getStorage: () => storage => {
       return JSON.parse(localStorage.getItem(storage));
+    },
+
+    dbServices: () => {
+      return dbServices
+    },
+
+    dbAccommodations: () => {
+      return dbAccommodations
     }
   },
 

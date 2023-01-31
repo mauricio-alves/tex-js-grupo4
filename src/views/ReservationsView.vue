@@ -123,51 +123,82 @@
   import CreateAccommodations from '@/components/CreateAccommodations.vue';
   import Booking from '@/components/Booking.vue';
   import { init, overview } from '@/store/reservations';
-import { watchEffect } from 'vue';
-import store from '@/store';
+  import dbAccommodations from '@/store/db/dbAccommodations';
+  import { sliceDate } from '@/store/functions/getDate';
+//   import { watch, toRefs } from 'vue';
+//   import store from '@/store';
+//   import dbAccommodations from '@/store/db/dbAccommodations';
 
-  watchEffect(() => {
-    console.log(store.state.reservation);
-  }, [store.state.reservation])
+//   const calc = () => {
+//     store.state.reservation.total = store.state.reservation.qty * dbAccommodations[store.state.reservation.id].price;
+//   };
+
+//   watch(() => {
+    // const reservation = store.state.reservation.qty;
+    // console.log(store.state.reservation.qty);
+    // calc();
+    // toRefs(reservation);
+    // console.log(reservation.id);
+
+
+    // const checkin = document.getElementById('checkin').value;
+
+    // if (store.state.reservation.checkout <= store.state.reservation.checkin) {
+    //   item.value = `${sliceDate(checkin).year}-${sliceDate(checkin).month}-${parseInt(sliceDate(checkin).day) + 1}`;
+    //   alert('Atenção! A data de Check out não pode ser menor ou igual à data de Check in.');
+    // };
+
+    
+    // store.state.reservation.total = reservation * dbAccommodations[0].price;
+//   });
 
   export default {
     name: 'ReservationsView',
+
     components: {
       Menu,
       CreateAccommodations,
       Booking
-  },
+    },
 
-  computed: {
-    reservation() {
-      return this.$store.state.reservation;
-    }
-  },
+    computed: {
+      reservation() {
+        return this.$store.state.reservation;
+      }
+    },
 
-  watchEffect: {
-    reservation() {
-      console.log('reservation');
-    }
-  },
+    watch: {
+      reservation: {
+        handler() {
+          // previous checkin
+          const checkin = this.reservation.checkin;
+
+          if (this.reservation.checkout <= this.reservation.checkin) {
+            this.reservation.checkout = `${sliceDate(checkin).year}-${sliceDate(checkin).month}-${parseInt(sliceDate(checkin).day) + 1}`;
+            alert('Atenção! A data de Check out não pode ser menor ou igual à data de Check in.');
+          };
+
+          let sumServices = 0;
+          this.reservation.services.map(service => sumServices += service.price)
+          this.reservation.rates = (new Date(this.reservation.checkout) - new Date(this.reservation.checkin)) / 86400000;    
+          this.reservation.total = sumServices + (this.reservation.rates * this.reservation.qty * dbAccommodations[this.reservation.id].price);
+        },
+        deep: true
+      } 
+    },
 
 //   methods: {
-//     loadReservations() {
-//     this.$store.dispatch('loadReservations')
+//     calc() {
+
 //     }
 //   },
 
-  methods: {
-    checkDate() {
-      alert('checar data');
-    },
-  },
-
-  mounted() {
-    init();
-    overview();
-    // this.reservation.qty = 2;
-  }
-}
+    mounted() {
+      init();
+    //   overview();
+      // this.reservation.qty = 2;
+    }
+  };
 </script>
 
 <style>

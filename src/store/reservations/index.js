@@ -1,12 +1,12 @@
 import dbAccommodations from '../db/dbAccommodations.js';
-import { showServices, clearServices, confirmServices, createService } from './services.js';
+// import { showServices, clearServices, confirmServices, createService } from './services.js';
 // import { showDetails, confirmBook } from './details.js';
 // import { createAccommodation } from './accommodations.js';
 // import handleClick from '../functions/handleClick.js';
 // import putElement from '../functions/putElement.js';
 import { getDateInput, sliceDate } from '../functions/getDate.js';
 
-import store from '@/store'
+// import store from '@/store'
 
 let id, accommodation, checkIn, checkOut, qty, rates, total;
 let services = [];
@@ -79,7 +79,7 @@ const overview = () => {
 //   putElement('Total', 'span-total', `R$ ${total.toFixed(2)}`);
 
   // createServices()
-  createService(bookingStorage ? bookingStorage.services : null);
+  // createService(bookingStorage ? bookingStorage.services : null);
 
   // set localStorage
   const booking = { id, accommodation, checkIn, checkOut, qty, rates, services, total };

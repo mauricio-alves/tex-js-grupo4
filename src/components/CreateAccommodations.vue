@@ -14,7 +14,7 @@
           <p>R$ {{ item.price.toFixed(2) }}</p>
         </div>
         <div>
-          <input v-model="reservation.id" :id="item.idLabel" type="radio" name="quarto" :value="item.id">
+          <input @click="reservation.accommodation = item.accommodation" v-model="reservation.id" :id="item.idLabel" type="radio" name="quarto" :value="item.id">
           <label :for="item.idLabel">Selecionar {{ item.accommodation }}</label>
         </div>
       </div>
@@ -39,12 +39,6 @@
     computed: {
       reservation() {
         return this.$store.state.reservation;
-      }
-    },
-
-    watch: {
-      reservation() {
-        alert('mudou')
       }
     }
   }
