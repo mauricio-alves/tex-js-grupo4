@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @use "variaveis" as let;
 
 @mixin flex-center {
@@ -189,3 +190,28 @@
     }
   }
 }
+=======
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin media-footer {
+  @media (max-width: 414px) and (orientation: portrait) {
+    .footer {
+      // position: absolute;
+      width: 100%;
+      // bottom: 0;
+      // height: 300px;
+    }
+
+    .footer__form {
+      display: none;
+    }
+
+    .footer__form__input {
+      // display: none;
+    }
+  }
+}
+>>>>>>> 4d9a29d56dc7afd6a3613c804cd7698e3b2f98f0
