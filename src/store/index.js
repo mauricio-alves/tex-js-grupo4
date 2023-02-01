@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 import dbAccommodations from './db/dbAccommodations';
 import dbServices from './db/dbServices';
+import dbLogin from './db/dbLogin';
 import { addDays, getFromDate } from './getDate';
 
 export default createStore({
@@ -17,8 +18,9 @@ export default createStore({
     },
 
     login: {
+      user: '',
       email: '',
-      user: ''
+      password: ''
     },
 
     modal: {
@@ -38,6 +40,10 @@ export default createStore({
 
     dbAccommodations: () => {
       return dbAccommodations
+    },
+
+    dbLogin: () => {
+      return dbLogin
     }
   },
 
@@ -51,6 +57,13 @@ export default createStore({
 
       state.reservation.qty = 1;
       state.reservation.services = [];
+    },
+
+    initLogin: (state) => {
+      localStorage.removeItem('login');
+      state.login.user = '';
+      state.login.email = '';
+      state.login.password = '';
     }
   },
 

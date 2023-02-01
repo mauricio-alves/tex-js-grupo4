@@ -316,7 +316,6 @@ footer h3 {
 .home__painel-usuario {
   background-color: #f5f5f5;
   position: absolute;
-  display: none;
   justify-content: center;
   align-items: center;
   right: 1.5rem;

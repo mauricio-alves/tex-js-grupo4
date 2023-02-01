@@ -146,7 +146,6 @@
 import HeaderComponent from "@/components/HeaderComponent.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
 import dbAccommodations from "@/store/db/dbAccommodations";
-
 export default {
   name: "AboutView.vue",
   components: {

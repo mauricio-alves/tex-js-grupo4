@@ -1,12 +1,7 @@
 <template>
   <header id="topo" class="home">
-    <div class="home__painel-usuario" id="painel">
-      <div id="user">Usuário</div>
-      <div id="email">Email</div>
-      <div class="home__painel-usuario__painel-sair">
-        <button @click="logout" id="clearStorage">Sair</button>
-      </div>
-    </div>
+
+    <UserPanel />
 
     <div class="home__background">
       <img
@@ -40,6 +35,7 @@
       <li><router-link to="/about">O Hotel</router-link></li>
       <li><router-link to="/accommodations">Quartos</router-link></li>
       <li><router-link to="/reservations">Reservas</router-link></li>
+      <li v-if="login.user && reservationsStorage"><router-link to="/my-reservations">Minhas Reservas</router-link></li>
       <li><router-link to="/contact">Contato</router-link></li>
       <li><router-link to="/login">Login</router-link></li>
     </ul>
@@ -166,23 +162,32 @@
 </template>
 
 <script>
+import UserPanel from "@/components/UserPanel.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
-import { checkStorage, sorteio, clearStorage } from "@/store/home";
+import { sorteio } from "@/store/home";
 
 export default {
   name: "HomeView",
   components: {
-    FooterComponent,
+    UserPanel,
+    FooterComponent
   },
 
-  methods: {
-    logout() {
-      clearStorage();
-    },
+  data() {
+    return {
+      loginStorage: JSON.parse(localStorage.getItem('login')),
+      reservationsStorage: JSON.parse(localStorage.getItem('reservations'))
+    }
   },
 
+  computed: {
+    login() {
+      return this.$store.state.login
+    }
+  },
+  
   mounted() {
-    checkStorage();
+       
     sorteio();
 
     // Toggle display navbar ao rolar a página home

@@ -47,8 +47,6 @@
 </template>
   
 <script>
-import { getFromDate } from '@/store/getDate';
-
 export default {
   name: 'ModalDetails',
 
@@ -94,10 +92,30 @@ export default {
       this.$store.commit('initReservation')
     },
 
+    insertReservation(email) {
+      const reservations = JSON.parse(localStorage.getItem('reservations'));
+      const newReservation = reservations ? [...reservations] : [];
+
+      const myReservation = this.reservation;
+      myReservation.idReservation = new Date().getTime();
+      myReservation.email = email;
+
+      newReservation.push(myReservation);
+      localStorage.setItem('reservations', JSON.stringify(newReservation));
+    },
+
     confirmBook() {
-      alert('Reserva efetuada com sucesso!');
-      this.init();
-      this.closeModal();
+      const login = JSON.parse(localStorage.getItem('login'));
+
+      if (!login) {
+        if (window.confirm('Atenção! Para confirmar a reserva, é necessário autenticação.\nDeseja ser redirecionado para a tela de login?'))
+          window.location.href = '/#/login';
+      } else {
+        this.insertReservation(login.email);
+        this.init();
+        this.closeModal();
+        window.location.href = '/#/my-reservations';
+      };
     }
   }
 }

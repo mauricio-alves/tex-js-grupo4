@@ -1,4 +1,6 @@
 <template>
+  <UserPanel />
+
   <header id="topo" class="topo">
     <div class="topo__logo">
       <img src="../assets/images/beach-svgrepo-com.svg" />
@@ -17,6 +19,7 @@
       <li><router-link to="/about">O Hotel</router-link></li>
       <li><router-link to="/accommodations">Quartos</router-link></li>
       <li><router-link to="/reservations">Reservas</router-link></li>
+      <li v-if="login.user && reservationsStorage"><router-link to="/my-reservations">Minhas Reservas</router-link></li>
       <li><router-link to="/contact">Contato</router-link></li>
       <li><router-link to="/login">Login</router-link></li>
     </ul>
@@ -24,8 +27,27 @@
 </template>
 
 <script>
+import UserPanel from './UserPanel.vue';
+
 export default {
   name: "HeaderComponent",
+
+  components: {
+    UserPanel
+  },
+
+  data() {
+    return {
+      reservationsStorage: localStorage.getItem('reservations')
+    }
+  },
+
+  computed: {
+    login() {
+      return this.$store.state.login
+    }
+  },
+
   mounted() {
     // Toggle display menu hamburguer
     const hbMenu = document.querySelector(".topo__menu-hb");
