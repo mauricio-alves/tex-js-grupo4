@@ -22,51 +22,21 @@
         </div>
       </article>
       <article class="products-container">
-        <div class="products-container__card">
-          <div class="products-container__card__product-image" id="img-1"></div>
-          <h3>Quarto Casal</h3>
-          <a href="#" class="products-container__card__btn">Reservar</a>
-        </div>
-        <div class="products-container__card">
-          <div class="products-container__card__product-image" id="img-2"></div>
-          <h3>Quarto Litoral</h3>
-          <a href="#" class="products-container__card__btn">Reservar</a>
-        </div>
-        <div class="products-container__card">
-          <div class="products-container__card__product-image" id="img-3"></div>
-          <h3>Quarto Presidencial</h3>
-          <a href="#" class="products-container__card__btn">Reservar</a>
-        </div>
-        <div class="products-container__card">
-          <div class="products-container__card__product-image" id="img-4"></div>
-          <h3>Quarto Weekend</h3>
-          <a href="#" class="products-container__card__btn">Reservar</a>
-        </div>
-        <div class="products-container__card">
-          <div class="products-container__card__product-image" id="img-5"></div>
-          <h3>Quarto Atlantic</h3>
-          <a href="#" class="products-container__card__btn">Reservar</a>
-        </div>
-        <div class="products-container__card">
-          <div class="products-container__card__product-image" id="img-6"></div>
-          <h3>Quarto Holiday</h3>
-          <a href="#" class="products-container__card__btn">Reservar</a>
-        </div>
-        <div class="products-container__card">
-          <div class="products-container__card__product-image" id="img-7"></div>
-          <h3>Quarto Presidencial Luxo</h3>
-
-          <a href="#" class="products-container__card__btn">Reservar</a>
-        </div>
-        <div class="products-container__card">
-          <div class="products-container__card__product-image" id="img-8"></div>
-          <h3>Quarto Lua de Mel</h3>
-          <a href="#" class="products-container__card__btn">Reservar</a>
-        </div>
-        <div class="products-container__card">
-          <div class="products-container__card__product-image" id="img-9"></div>
-          <h3>Quarto Executivo</h3>
-          <a href="#" class="products-container__card__btn">Reservar</a>
+        <div
+          v-for="item in dbAccommodations"
+          :key="item.id"
+          class="products-container__card"
+        >
+          <div
+            class="products-container__card__product-image"
+            :id="`img-${item.id + 1}`"
+            :alt="item.accommodation"
+            :title="item.accommodation"
+          ></div>
+          <h3>{{ item.accommodation }}</h3>
+          <router-link class="products-container__card__btn" to="/reservations"
+            >Reservar</router-link
+          >
         </div>
       </article>
       <article>
@@ -102,12 +72,18 @@
 <script>
 import HeaderComponent from "@/components/HeaderComponent.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
+import dbAccommodations from "@/store/db/dbAccommodations";
 
 export default {
   name: "AccommodationsView",
   components: {
     HeaderComponent,
     FooterComponent,
+  },
+  data() {
+    return {
+      dbAccommodations,
+    };
   },
 };
 </script>

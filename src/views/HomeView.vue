@@ -88,28 +88,28 @@
         </div>
         <div class="container__section2__cards">
           <div class="container__section2__cards__card">
-            <a href="#">
+            <router-link to="/">
               <h3>Spa Wellness</h3>
               <img src="@/assets/images/SPA.jpg" alt="spa" />
-            </a>
+            </router-link>
           </div>
           <div class="container__section2__cards__card">
-            <a href="/public/quartos.html">
+            <router-link to="/reservations">
               <h3>Quartos</h3>
               <img src="@/assets/images/quarto.jpg" alt="quarto" />
-            </a>
+            </router-link>
           </div>
           <div class="container__section2__cards__card">
-            <a href="#">
+            <router-link to="/">
               <h3>Gastronomia</h3>
               <img src="@/assets/images/gastronomia.jpg" alt="gastronomia" />
-            </a>
+            </router-link>
           </div>
           <div class="container__section2__cards__card">
-            <a href="#">
+            <router-link to="/">
               <h3>Experiências</h3>
               <img src="@/assets/images/experiencias.jpg" alt="experiencia" />
-            </a>
+            </router-link>
           </div>
         </div>
       </article>
