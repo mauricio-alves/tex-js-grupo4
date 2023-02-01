@@ -53,17 +53,20 @@
             :key="item.id"
             class="quartos__images__card"
           >
-            <div :id="`imagem${item.id + 1}`">
-              <a href="../public/acomodacoes.html"
-                ><img
-                  src=""
-                  :alt="item.accommodation"
-                  :title="item.accommodation"
-              /></a>
-            </div>
-            <div class="quartos__images__card__info">
-              <h3>{{ item.accommodation }}</h3>
-              <p>{{ item.description }}</p>
+            <div v-if="item.id < 3">
+              <div :id="`imagem${item.id + 1}`">
+                <router-link to="/reservations">
+                  <img
+                    src=""
+                    :alt="item.accommodation"
+                    :title="item.accommodation"
+                  />
+                </router-link>
+              </div>
+              <div class="quartos__images__card__info">
+                <h3>{{ item.accommodation }}</h3>
+                <p>{{ item.description }}</p>
+              </div>
             </div>
           </div>
         </div>
