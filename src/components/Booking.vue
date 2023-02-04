@@ -35,6 +35,11 @@
         <button @click="showModal('showDetails')" id="bookDetails">Ver Detalhes</button>
       </div>
 
+      <div class="escolha__btn">
+        <button>Gerar Cupom</button>
+      </div>
+      <h3>código</h3>
+
       <ModalServices />
       <ModalDetails />
   </aside>

@@ -15,7 +15,8 @@ export default createStore({
       qty: 1,
       rates: 1,
       services: [],
-      total: 0
+      total: 0,
+      discount: 0
     },
 
     login: {
@@ -32,6 +33,10 @@ export default createStore({
     sorteio: {
       image: '',
       slogan: ''
+    },
+
+    discount: {
+      // valid: 'none', 'show', 'noshow'
     }
   },
 

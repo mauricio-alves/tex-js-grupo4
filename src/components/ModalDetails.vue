@@ -38,6 +38,11 @@
 
             <br>
 
+            <Cupom />
+            <!-- validar se o cupom já foi utilizado (localstorage) -->
+
+        <br>
+
             <p>TOTAL: R$ {{ reservation.total.toFixed(2) }}</p>
         </div>
 
@@ -47,8 +52,13 @@
 </template>
   
 <script>
+import Cupom from '@/components/Cupom.vue'
 export default {
   name: 'ModalDetails',
+
+  components: {
+    Cupom
+  },
 
   computed: {
     modal() {
@@ -116,6 +126,10 @@ export default {
         this.closeModal();
         window.location.href = '/#/my-reservations';
       };
+    },
+
+    valid() {
+      this.reservation.discount = this.reservation.total * 0.1
     }
   }
 }

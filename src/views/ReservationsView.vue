@@ -88,7 +88,7 @@ export default {
         this.reservation.services.map(service => sumServices += service.price);
 
         this.reservation.rates = (new Date(this.reservation.checkout) - new Date(this.reservation.checkin)) / 86400000;    
-        this.reservation.total = sumServices + (this.reservation.rates * this.reservation.qty * this.dbAccommodations[this.reservation.id].price);
+        this.reservation.total = (sumServices + (this.reservation.rates * this.reservation.qty * this.dbAccommodations[this.reservation.id].price)) - this.reservation.discount;
       
         // set to localStorage
         localStorage.setItem('booking', JSON.stringify(this.reservation));

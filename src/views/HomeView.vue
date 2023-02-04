@@ -194,7 +194,7 @@ export default {
   },
 
   methods: {
-    // =========== aula dia 12/01/2023 ===========
+    // ================= aula dia 12/01/2023 =================
     sorteio() {
       // gerar número aleatório entre 0 e 4
       const position = parseInt(Math.random() * 5);
