@@ -34,7 +34,7 @@
             :title="item.accommodation"
           ></div>
           <h3>{{ item.accommodation }}</h3>
-          <router-link class="products-container__card__btn" to="/reservations"
+          <router-link class="products-container__card__btn" :to="`/reservations/${item.id}`"
             >Reservar</router-link
           >
         </div>

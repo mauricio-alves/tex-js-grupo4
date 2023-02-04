@@ -34,7 +34,7 @@
         </form>
       </article>
 
-      <CreateAccommodations />
+      <CreateAccommodations v-bind:id="id" />
 
       <Booking />
 
@@ -53,6 +53,9 @@ import { addDays } from '@/store/getDate.js';
 
 export default {
   name: "ReservationsView",
+
+  props: ['id'],
+
   components: {
     HeaderComponent,
     FooterComponent,

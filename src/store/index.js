@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import dbAccommodations from './db/dbAccommodations';
 import dbServices from './db/dbServices';
 import dbLogin from './db/dbLogin';
+import dbBanners from './db/dbBanner';
 import { addDays, getFromDate } from './getDate';
 
 export default createStore({
@@ -26,6 +27,11 @@ export default createStore({
     modal: {
       showServices: 'none',
       showDetails: 'none'
+    },
+
+    sorteio: {
+      image: '',
+      slogan: ''
     }
   },
 
@@ -44,6 +50,10 @@ export default createStore({
 
     dbLogin: () => {
       return dbLogin
+    },
+
+    dbBanners: () => {
+      return dbBanners
     }
   },
 

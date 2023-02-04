@@ -24,6 +24,12 @@ const routes = [
     component: () => import("@/views/ReservationsView.vue"),
   },
   {
+    path: "/reservations/:id",
+    name: "reservationsId",
+    component: () => import("@/views/ReservationsView.vue"),
+    props: true
+  },
+  {
     path: "/my-reservations",
     name: "my-reservations",
     component: () => import("@/views/MyReservationsView.vue"),

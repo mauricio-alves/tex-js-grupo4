@@ -7,13 +7,13 @@
       <img
         id="imagem-fundo"
         class="imagem-header"
-        src=""
+        :src="getSorteio.image"
         alt="imagem aleatória de capa"
       />
     </div>
 
     <div class="home__slogan">
-      <p id="texto"></p>
+      <p id="texto">{{ getSorteio.slogan }}</p>
     </div>
 
     <div class="home__title">
@@ -164,7 +164,6 @@
 <script>
 import UserPanel from "@/components/UserPanel.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
-import { sorteio } from "@/store/home";
 
 export default {
   name: "HomeView",
@@ -176,19 +175,37 @@ export default {
   data() {
     return {
       loginStorage: JSON.parse(localStorage.getItem('login')),
-      reservationsStorage: JSON.parse(localStorage.getItem('reservations'))
+      reservationsStorage: JSON.parse(localStorage.getItem('reservations')),
     }
   },
 
   computed: {
     login() {
       return this.$store.state.login
+    },
+
+    dbBanners() {
+      return this.$store.getters.dbBanners
+    },
+
+    getSorteio() {
+      return this.$store.state.sorteio
     }
+  },
+
+  methods: {
+    // =========== aula dia 12/01/2023 ===========
+    sorteio() {
+      // gerar número aleatório entre 0 e 4
+      const position = parseInt(Math.random() * 5);
+
+      this.getSorteio.image = this.dbBanners[position].image;
+      this.getSorteio.slogan = this.dbBanners[position].slogan;
+    },
   },
   
   mounted() {
-       
-    sorteio();
+    this.sorteio();
 
     // Toggle display navbar ao rolar a página home
     const navMenu = document.querySelector(".nav_home");
@@ -215,6 +232,6 @@ export default {
 </script>
 
 <style scoped>
-@import "@/assets/css/home.css";
-@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css";
+  @import "@/assets/css/home.css";
+  @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css";
 </style>
