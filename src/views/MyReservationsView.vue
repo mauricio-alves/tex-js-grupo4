@@ -9,7 +9,15 @@
     <p>Quarto: {{ item.accommodation }}</p>
     <p>Check in: {{ item.checkin }}</p>
     <p>Check out: {{ item.checkout }}</p>
-    <p>Serviços adicionais: {{ item.services }}</p>
+
+    <div v-if="item.services.length">
+      <br>
+      <ul>Serviços adicionais: <li v-for="service in item.services" :key="service.id">{{ service.service }}</li></ul>
+      <br>
+    </div>
+
+    <p v-if="item.cupom">Cupom: {{ item.coupon }}</p>
+    <p>Descontos aplicados: R$ {{ item.discount.toFixed(2) }}</p>
     <p>Total: R$ {{ item.total.toFixed(2) }}</p>
   </div>
   <!-- </div> -->

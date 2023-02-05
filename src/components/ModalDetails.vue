@@ -52,7 +52,7 @@
 </template>
   
 <script>
-import Cupom from '@/components/Cupom.vue'
+import Cupom from '@/components/Coupon.vue'
 export default {
   name: 'ModalDetails',
 
@@ -110,6 +110,10 @@ export default {
       myReservation.idReservation = new Date().getTime();
       myReservation.email = email;
 
+      const coupon = JSON.parse(localStorage.getItem('coupon'));
+      if (myReservation.discount)
+        myReservation.coupon = coupon.coupon.toUpperCase();
+
       newReservation.push(myReservation);
       localStorage.setItem('reservations', JSON.stringify(newReservation));
     },
@@ -126,10 +130,6 @@ export default {
         this.closeModal();
         window.location.href = '/#/my-reservations';
       };
-    },
-
-    valid() {
-      this.reservation.discount = this.reservation.total * 0.1
     }
   }
 }

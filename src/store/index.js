@@ -36,7 +36,7 @@ export default createStore({
     },
 
     discount: {
-      // valid: 'none', 'show', 'noshow'
+      message: ''
     }
   },
 
@@ -72,6 +72,8 @@ export default createStore({
 
       state.reservation.qty = 1;
       state.reservation.services = [];
+
+      localStorage.removeItem('coupon');
     },
 
     initLogin: (state) => {

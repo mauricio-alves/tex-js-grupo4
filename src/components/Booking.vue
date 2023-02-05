@@ -36,9 +36,9 @@
       </div>
 
       <div class="escolha__btn">
-        <button>Gerar Cupom</button>
+        <button @click="createCode">Gerar Cupom</button>
       </div>
-      <h3>código</h3>
+      <h3>{{ code }}</h3>
 
       <ModalServices />
       <ModalDetails />
@@ -54,6 +54,12 @@
     components: {
       ModalServices,
       ModalDetails
+    },
+
+    data() {
+      return {
+        code: ''
+      }
     },
 
     computed: {
@@ -73,6 +79,12 @@
 
       initReservation() {
         this.$store.commit('initReservation');
+      },
+
+      createCode() {
+        const code = Math.random().toString(17).substring(7);
+        this.code = code;
+        localStorage.setItem('coupon', JSON.stringify({ coupon: code }))
       }
     },
   };

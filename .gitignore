@@ -5,6 +5,8 @@
 /single_page/src/css/*.map
 /src/assets/css/*.map
 
+/admin/api/node_modules
+/admin/api/.env
 
 # local env files
 .env.local
