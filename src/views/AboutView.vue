@@ -55,7 +55,7 @@
           >
             <div v-if="item.id < 3">
               <div :id="`imagem${item.id + 1}`">
-                <router-link to="/reservations">
+                <router-link :to="`/reservations/${item.id}`">
                   <img
                     src=""
                     :alt="item.accommodation"
