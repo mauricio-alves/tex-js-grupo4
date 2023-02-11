@@ -1,0 +1,416 @@
+@use "variaveis" as let;
+@use "mixins" as mix;
+@use "extends";
+
+@use "header";
+@use "footer";
+
+@import url("https://fonts.googleapis.com/css2?family=Della+Respira&family=Forum&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Forum&family=Italiana&display=swap");
+
+/* --------------  MAIN  ----------------  */
+.container {
+  background-color: let.$branco;
+  color: let.$text;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto 0 auto;
+  width: 80vw;
+
+  & h2 {
+    font-size: 3rem;
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: 2rem;
+    text-align: left;
+  }
+
+  &__form {
+    display: flex;
+    margin: 10px 0 30px 0;
+    gap: 40px;
+
+    & input,
+    & label {
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding-left: 5px;
+    }
+  }
+}
+
+.cards {
+  background-color: let.$branco;
+  color: let.$text;
+
+  &__detalhe {
+    display: block;
+    width: 30%;
+    height: 0.4vh;
+    margin-bottom: let.$m2;
+    background-color: let.$text;
+  }
+
+  &__images {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+
+    & div {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    &__card {
+      width: 65vw;
+      border: 2px solid white;
+
+      &:hover {
+        border: 2px solid green;
+      }
+
+      &__info {
+        flex-direction: column;
+        padding: 0 0 0 30px;
+
+        & p {
+          padding: 0 0 10px 0;
+          text-align: left;
+
+          &:nth-child(3) {
+            font-weight: bold;
+          }
+        }
+
+        & input,
+        & label {
+          font-size: 1.2rem;
+          font-weight: bold;
+          padding-left: 5px;
+        }
+      }
+    }
+  }
+}
+
+.escolha {
+  position: absolute;
+  top: 20rem;
+  right: -7rem;
+  background-color: let.$background;
+  width: 20vw;
+  height: 65vh;
+  padding: 40px 20px;
+
+  & h3 {
+    @extend %text-transform;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  &__resumo {
+    border: 1px solid black;
+    background-color: let.$branco-escuro;
+    width: 18vw;
+    padding: 10px;
+
+    & span {
+      font-weight: bold;
+    }
+  }
+
+  &__btn {
+    @include mix.flex-center;
+
+    & button {
+      cursor: pointer;
+      @extend %text-transform;
+      margin-top: 10px;
+      color: let.$title;
+      font-weight: bold;
+      padding: 5px 20px;
+
+      &:hover {
+        background-color: let.$sombra;
+        color: let.$branco;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  &__modal {
+    /* display: none;  Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: let.$text; /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+
+    &__modal-content {
+      background-color: let.$branco;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      border-radius: 0.3rem;
+      width: 40%;
+
+      &__close {
+        color: let.$text;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+
+        &:hover,
+        &:focus {
+          color: let.$text;
+          @extend %decoration-none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+/* --------------  RESPONSIVIDADE ----------------  */
+@media (max-width: 1580px) and (orientation: landscape) {
+  .container {
+    &__form {
+      gap: 20px;
+    }
+  }
+
+  .escolha {
+    right: -9rem;
+    width: 23vw;
+    height: 72vh;
+
+    &__resumo {
+      width: 20vw;
+    }
+  }
+}
+
+/* TABLET LANDSCAPE */
+@media (max-width: 1194px) and (orientation: landscape) {
+  .container {
+    &__form {
+      gap: 15px;
+    }
+  }
+
+  .escolha {
+    right: -6.5rem;
+    width: 23vw;
+    height: 83vh;
+
+    &__resumo {
+      width: 20vw;
+    }
+  }
+
+  .cards {
+    &__images {
+      & div {
+        & img {
+          width: 300px;
+          height: 200px;
+        }
+      }
+    }
+  }
+}
+
+/* TABLET PORTRAIT */
+@media (max-width: 1024px) and (orientation: portrait) {
+  .container {
+    &__form {
+      gap: 5px;
+    }
+  }
+
+  .escolha {
+    right: -5rem;
+    width: 30vw;
+    height: 48vh;
+
+    &__resumo {
+      width: 26vw;
+
+      & p {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .cards {
+    &__images {
+      &__card {
+        &__info {
+          & p {
+            font-size: 1rem;
+          }
+        }
+        width: 57vw;
+      }
+      & div {
+        & img {
+          width: 200px;
+          height: 150px;
+        }
+      }
+    }
+  }
+}
+
+/* MOBILE LANDSCAPE */
+@media (max-width: 915px) and (orientation: landscape) {
+  .container {
+    &__form {
+      gap: 0px;
+
+      & div {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .cards {
+    margin-bottom: -7rem;
+
+    & div {
+      & h3 {
+        text-align: center;
+      }
+    }
+
+    &__detalhe {
+      display: block;
+      width: 30%;
+      height: 0.4vh;
+      margin-left: 34%;
+      margin-top: -1%;
+    }
+
+    &__images {
+      align-items: center;
+
+      &__card {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+
+        &__info {
+          & h3 {
+            text-align: center;
+            justify-content: center;
+          }
+        }
+        width: 80vw;
+      }
+      & div {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  .escolha {
+    position: static;
+    width: 40vw;
+    height: 70vh;
+    margin: 0 auto 10rem auto;
+
+    &__resumo {
+      width: 35vw;
+    }
+  }
+}
+
+/* MOBILE PORTRAIT */
+@media (max-width: 414px) and (orientation: portrait) {
+  .container {
+    padding: 0 10px;
+
+    &__form {
+      display: block;
+      margin: 0;
+
+      & div {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .cards {
+    margin-bottom: -10rem;
+
+    & div {
+      & h3 {
+        text-align: center;
+      }
+    }
+
+    &__detalhe {
+      display: block;
+      width: 70%;
+      height: 0.4vh;
+      margin-left: 14%;
+      margin-top: -1%;
+    }
+
+    &__images {
+      align-items: center;
+
+      & div {
+        display: flex;
+        margin-bottom: 20px;
+        align-items: center;
+
+        & img {
+          width: 300px;
+          height: 180px;
+        }
+      }
+
+      &__card {
+        display: flex;
+        flex-direction: column;
+        width: 95vw;
+
+        &:hover {
+          border: 2px solid green;
+        }
+
+        &__info {
+          flex-direction: column;
+          padding: 0 0 0 30px;
+
+          & h3 {
+            text-align: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+
+  .escolha {
+    position: static;
+    width: 75vw;
+    height: 60vh;
+    margin: 0 auto 8rem auto;
+
+    &__resumo {
+      width: 65vw;
+    }
+  }
+}

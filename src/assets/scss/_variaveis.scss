@@ -1,0 +1,33 @@
+// Variáveis SASS
+$fonte: "Italiana", serif;
+$p: "Della Respira", serif;
+
+$m1: 1rem;
+$m2: 2rem;
+$mx1: 0 1.2rem;
+$p1: 1rem;
+$px1: 0 1.5rem;
+$gap: 3rem;
+$height: 100vh;
+$width: 100vw;
+
+$title: rgba(33, 33, 65, 0.9);
+$background: #f1eab9;
+$text: #000;
+$sombra: #18215992;
+$azul-claro: #949fab;
+$branco: #fff;
+$branco-escuro: rgb(233, 223, 223);
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: $fonte;
+  box-sizing: border-box;
+  line-height: 2;
+}
+
+p {
+  font-family: $p;
+  font-size: 1.3rem;
+}

@@ -1,0 +1,516 @@
+<<<<<<< HEAD
+@use "variaveis" as let;
+@use "mixins" as mix;
+@use "extends";
+
+@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap%27");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap%27");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap%27");
+
+.menu-hb {
+  display: none;
+}
+
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+
+  &__header {
+    text-align: left;
+    padding-left: 50px;
+
+    &__logo {
+      font-family: let.$logo;
+      font-size: 60px;
+      color: let.$color1;
+      line-height: 1;
+      font-weight: bold;
+      padding-top: 40px;
+    }
+  }
+
+  &__menu {
+    padding-top: 10px;
+    margin-top: -80px;
+    float: right;
+    & a {
+      text-decoration: none;
+      float: left;
+      line-height: 65px;
+      padding: 0 30px;
+      color: #ffffff;
+      display: block;
+    }
+    &__btn {
+      padding: 10px 30px;
+      border-radius: 50px;
+      margin-right: 0.5rem;
+    }
+    &__uppercase {
+      @extend %text-transform;
+      font-size: 25px;
+      letter-spacing: 0.2em;
+    }
+    &__btn-outline-light {
+      color: let.$color5;
+      background-color: transparent;
+      border-color: let.$color5;
+      &:hover {
+        color: let.$color6;
+        background-color: let.$color5;
+        border-color: let.$color5;
+      }
+    }
+  }
+}
+
+.image {
+  background-image: url(../images/resort.jpg);
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+
+  &__top-wrapper {
+    padding: 180px 0 100px 0;
+    color: let.$color1;
+    text-align: center;
+
+    &__container {
+      padding: 0 15px;
+      margin: 0 auto;
+    }
+
+    &__heading h1 {
+      font-family: let.$h1;
+      margin-top: 100px;
+    }
+
+    &__content p {
+      padding: 20px;
+      font-size: 40px;
+      font-family: let.$p;
+    }
+    &__btn {
+      padding: 10px 30px;
+      border-radius: 50px;
+      margin-right: 0.5rem;
+    }
+    &__uppercase {
+      @extend %text-transform;
+      font-size: 25px;
+      letter-spacing: 0.2em;
+    }
+    &__btn-primary {
+      color: let.$color1;
+      background-color: let.$color2;
+      border-color: let.$color2;
+      @extend %decoration-none;
+      &:focus {
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(230, 28, 93, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(230, 28, 93, 0.5);
+      }
+      &:hover {
+        color: let.$color1;
+        background-color: let.$color3;
+        border-color: let.$color4;
+      }
+    }
+    &__btn-outline-light {
+      color: let.$color5;
+      background-color: transparent;
+      border-color: let.$color5;
+      @extend %decoration-none;
+      &:hover {
+        color: let.$color6;
+        background-color: let.$color5;
+        border-color: let.$color5;
+      }
+    }
+  }
+
+  &__overlay::before {
+    background-color: rgba(0, 0, 0, 0.45);
+    content: "";
+    position: absolute;
+    height: 100vh;
+    min-height: 720px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.oferta {
+  position: relative;
+  width: let.$width;
+  height: let.$height;
+  background-color: let.$color1;
+
+  &__imagem {
+    background-image: url(../images/promo.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  &__display_bottom_left {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: let.$color6;
+    background-color: let.$color5;
+    bottom: 35%;
+    opacity: 0.7;
+    width: 45%;
+    transition: 0.2s;
+    padding: 2rem 1.5rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+
+    & h1 {
+      font-weight: bold;
+      font-size: 2.8rem;
+      font-family: let.$h1;
+    }
+
+    &:hover {
+      background-color: let.$color7;
+    }
+  }
+
+  &__display_top_right {
+    position: absolute;
+    padding: 2rem 1.5rem;
+    right: 0;
+    top: 0;
+    color: let.$color6;
+    text-align: right;
+    background-color: let.$color5;
+    top: 10%;
+    opacity: 0.7;
+    width: 45%;
+    transition: 0.2s;
+    border-radius: 0.5rem 0 0 0.5rem;
+
+    & h1 {
+      font-weight: bold;
+      font-size: 2.8rem;
+      font-family: let.$h1;
+    }
+
+    &:hover {
+      background-color: let.$color7;
+    }
+  }
+
+  &__display_bottom_right {
+    position: absolute;
+    padding: 3rem 0;
+    right: 0;
+    bottom: 0;
+    color: let.$color6;
+    text-align: center;
+    background-color: let.$color5;
+    bottom: 10%;
+    opacity: 0.7;
+    width: 800px;
+    transition: 0.2s;
+    border-radius: 0.5rem 0 0 0.5rem;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.beneficios {
+  width: let.$width;
+  height: let.$height;
+  background-color: let.$color1;
+
+  & h2 {
+    text-align: center;
+    padding: 2rem 0 4rem 0;
+    font-size: 3rem;
+    font-family: let.$h1;
+    @extend %text-shadow;
+  }
+
+  &__div {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    text-align: center;
+
+    &__card {
+      width: 300px;
+      border: 1px solid gray;
+      padding: 10px;
+      box-shadow: 2px 2px 2px gray;
+
+      & h3 {
+        font-size: 1.5rem;
+        margin: 1rem 0;
+        font-family: let.$p;
+        @extend %text-shadow;
+      }
+
+      & p {
+        font-size: 1.2rem;
+        font-family: let.$p;
+      }
+      & img {
+        width: 280px;
+        height: 300px;
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+.secao3 {
+  height: 100vh;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  background-color: let.$color6;
+  width: 90%;
+  margin-bottom: 3rem;
+
+  &__contatos {
+    & h2 {
+      text-align: center;
+      font-size: 3rem;
+      font-family: let.$h1;
+      @extend %text-shadow;
+      color: let.$color1;
+      margin: 1rem 0;
+    }
+    &__links {
+      & ul {
+        @extend %list-none;
+        display: flex;
+        gap: 3rem;
+        margin-bottom: 3rem;
+
+        & li a {
+          @extend %decoration-none;
+          color: let.$color1;
+          padding: 5px;
+          font-family: let.$p;
+
+          &:hover {
+            padding: 30px 5px 5px 5px;
+            background-color: let.$color1;
+            color: let.$color2;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  &__redes {
+    & h2 {
+      text-align: center;
+      font-size: 3rem;
+      font-family: let.$h1;
+      @extend %text-shadow;
+      color: let.$color1;
+      margin-bottom: 1rem;
+    }
+
+    &__links {
+      display: flex;
+      & ul {
+        @extend %list-none;
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        justify-content: flex-start;
+
+        & li a {
+          @extend %decoration-none;
+          color: let.$color1;
+          padding: 5px;
+          font-family: let.$p;
+
+          &:hover {
+            padding: 30px 5px 5px 5px;
+            background-color: let.$color1;
+            color: let.$color2;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  &__local {
+    text-align: center;
+
+    & p {
+      color: let.$color1;
+      padding: 5px;
+      font-family: let.$p;
+      text-align: center;
+
+      align-items: center;
+    }
+
+    & iframe {
+      width: 650px;
+      height: 350px;
+    }
+  }
+}
+
+.footer {
+  background-color: let.$color2;
+  height: let.$height;
+  color: let.$color1;
+  @include mix.flex-center;
+  gap: let.$gap;
+  padding: let.$m2;
+  width: let.$width;
+  bottom: 0;
+
+  &__form {
+    @include mix.flex-center;
+    flex-direction: column;
+
+    & h2 {
+      @extend %margin-bottom;
+      text-align: center;
+      font-size: 3rem;
+      font-family: let.$h1;
+      @extend %text-shadow;
+      color: let.$color1;
+    }
+
+    &__input {
+      @extend %margin-bottom;
+      & input {
+        @include mix.input;
+        width: 600px;
+        margin: 0.5rem 0;
+        font-style: italic;
+      }
+    }
+
+    &__btn {
+      @include mix.button;
+      font-family: let.$p;
+
+      &:hover {
+        background-color: black;
+        color: let.$color1;
+        color: let.$color1;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+
+  &__links {
+    @include mix.flex-center;
+    flex-direction: column;
+    margin-top: -130px;
+    margin-left: -50px;
+
+    & h2 {
+      @extend %margin-bottom;
+      text-align: center;
+      font-size: 3rem;
+      font-family: let.$h1;
+      @extend %text-shadow;
+      color: let.$color1;
+    }
+
+    & ul {
+      @extend %list-none;
+      display: flex;
+      flex-flow: column;
+      gap: 30px;
+
+      & li a {
+        @extend %decoration-none;
+        color: let.$color1;
+        margin-bottom: 20px;
+        font-family: let.$p;
+        font-size: 1.5rem;
+        @include mix.button;
+
+        &:hover {
+          background-color: let.$color1;
+          color: let.$color2;
+          border-radius: 5px;
+          transition: all 0.3s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+// RESPONSIVIDADE
+@include mix.media-mobile-portrait;
+=======
+@use "variaveis" as let;
+@use "mixins" as mix;
+@use "extends";
+
+.footer {
+  background-color: lightblue; // PROVISÓRIO
+  @include mix.flex-center;
+  gap: let.$gap;
+  padding: let.$m1;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+
+  &__form {
+    @include mix.flex-center;
+    flex-direction: column;
+
+    & h3 {
+      @extend %margin-bottom;
+    }
+
+    &__input {
+      @extend %margin-bottom;
+    }
+  }
+
+  &__links {
+    & h3 {
+      @extend %margin-bottom;
+    }
+    & ul {
+      @extend %list-none;
+
+      & li a {
+        @extend %decoration-none;
+        color: let.$textColor;
+      }
+    }
+  }
+
+  &__redes {
+    & h3 {
+      @extend %margin-bottom;
+    }
+    & ul {
+      @extend %list-none;
+
+      & li a {
+        @extend %decoration-none;
+        color: let.$textColor;
+        padding: .5rem;
+      }
+    }
+  }
+}
+
+// testando responsividade footer
+@include mix.media-footer;
+>>>>>>> 4d9a29d56dc7afd6a3613c804cd7698e3b2f98f0

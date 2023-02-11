@@ -1,0 +1,126 @@
+@use "variaveis" as let;
+@use "mixins" as mix;
+@use "extends";
+
+header {
+  background-color: let.$background;
+}
+
+h1 {
+  @extend %text-align-center;
+  font-weight: 700;
+  font-size: 4rem;
+  @extend %text-shadow;
+}
+
+.topo {
+  width: let.$width;
+  @include mix.flex-center;
+  height: 13rem;
+  gap: let.$gap;
+
+  &__logo {
+    display: flex;
+
+    & img {
+      width: 5rem;
+      justify-content: center;
+    }
+  }
+
+  &__logo-name h1::first-letter {
+    font-size: 6rem;
+    font-weight: bold;
+  }
+
+  &__menu-hb {
+    display: none;
+  }
+}
+
+/* --------------  NAVBAR ----------------  */
+.nav_menu {
+  z-index: 1;
+  width: let.$width;
+  background-color: let.$branco-escuro;
+  position: sticky;
+  top: 0;
+
+  & ul {
+    @include mix.flex-center;
+    gap: 1rem;
+    list-style: none;
+    padding: 0.5rem;
+
+    & li a {
+      display: block;
+      color: let.$text;
+      @extend %decoration-none;
+      font-size: 1.4rem;
+      padding: let.$px1;
+      border-radius: 0.2rem;
+      font-weight: 700;
+
+      &:hover {
+        background-color: let.$sombra;
+        color: let.$branco;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+/* --------------  RESPONSIVIDADE ----------------  */
+/* MOBILE PORTRAIT */
+@media (max-width: 414px) and (orientation: portrait) {
+  .topo {
+    &__menu-hb {
+      display: block;
+      position: absolute;
+      top: 1vw;
+      right: 1vw;
+
+      & img {
+        width: 2rem;
+      }
+    }
+
+    &__logo img {
+      width: 3rem;
+      justify-content: center;
+    }
+
+    &__logo-name {
+      display: flex;
+      & h1 {
+        margin-top: 40px;
+        font-size: 2rem;
+
+        &::first-letter {
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+
+  .nav_menu {
+    width: 150px;
+    position: absolute;
+    display: none;
+
+    & ul {
+      flex-direction: column;
+      gap: 0;
+      padding: 0.5rem;
+      margin: 1rem 0;
+
+      & li a {
+        border-bottom: 1px solid black;
+      }
+    }
+  }
+}
